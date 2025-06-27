@@ -1,4 +1,4 @@
-# eslint-config-fans
+# ESLint Config Fans
 
 <img align="right" width="100" height="87" title="ESLint Config Fans logo"
      src="https://github.com/euaaaio/eslint-config/blob/c49e5aefd53fe72b2de729656f7677ca787c18e0/img/logo.svg">
