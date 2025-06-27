@@ -1,4 +1,5 @@
 !.vscode/
+.vercel/
 
 node_modules/
 dist/
