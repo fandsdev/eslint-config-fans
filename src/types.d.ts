@@ -13,6 +13,5 @@ export type Config = Omit<
 	 * @see [Using plugins in your configuration](https://eslint.org/docs/latest/user-guide/configuring/configuration-files-new#using-plugins-in-your-configuration)
 	 */
 
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	plugins?: Record<string, any>
 }
