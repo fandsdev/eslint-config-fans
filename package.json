@@ -4,7 +4,7 @@
   "description": "Opinionated and flexible ESLint shareable config by FANS",
   "author": "Eduard Aksamitov <e@euaaaio.ru>",
   "license": "MIT",
-  "homepage": "https://eslint-config-fans.euaaaio.ru/",
+  "homepage": "https://eslint-config-fans.vercel.app/",
   "repository": "eslint-config-fans",
   "type": "module",
   "scripts": {

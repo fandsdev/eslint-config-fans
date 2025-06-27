@@ -1,7 +1,7 @@
 # ESLint Config Fans
 
 <img align="right" width="100" height="87" title="ESLint Config Fans logo"
-     src="https://github.com/euaaaio/eslint-config/blob/c49e5aefd53fe72b2de729656f7677ca787c18e0/img/logo.svg">
+     src="https://github.com/fandsdev/eslint-config-fans/blob/546c9e682629694b9b068d2ef139246d325665ed/img/logo.svg">
 
 Opinionated and flexible ESLint config with [TypeScript][typescript-eslint],
 [Vue][vue], [Astro][astro] support and [oxlint][oxlint] integration.
@@ -324,7 +324,7 @@ All versions follow [Semantic Versioning][semver].
 
 
 [fans]: https://fans.dev/
-[globs]: https://github.com/euaaaio/eslint-config/blob/docs/src/globs.js
+[globs]: https://github.com/fandsdev/eslint-config-fans/blob/main/src/globs.js
 [eslint-js]: https://eslint.org/docs/latest/rules/
 [typescript-eslint]: https://typescript-eslint.io/
 [import-x]: https://github.com/un-es/eslint-plugin-import-x
@@ -341,7 +341,7 @@ All versions follow [Semantic Versioning][semver].
 [vue-a11y]: https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/
 [flat-config]: https://eslint.org/docs/latest/use/configure/configuration-files#configuration-file
 [eslint-typegen]: https://github.com/antfu/eslint-typegen
-[inspector]: https://eslint-config-fans.euaaaio.ru/
+[inspector]: https://eslint-config-fans.vercel.app/
 [stylistic-options]: https://github.com/eslint-stylistic/eslint-stylistic/blob/main/packages/eslint-plugin/dts/options.d.ts
 [astro-site]: https://astro.build/
 [oxlint]: https://oxc.rs/docs/guide/usage/linter.html
