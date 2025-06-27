@@ -1,0 +1,86 @@
+{
+  "name": "eslint-config-fans",
+  "version": "0.0.0",
+  "description": "Opinionated and flexible ESLint shareable config by FANS",
+  "author": "Eduard Aksamitov <e@euaaaio.ru>",
+  "license": "MIT",
+  "homepage": "https://eslint-config-fans.euaaaio.ru/",
+  "repository": "eslint-config-fans",
+  "type": "module",
+  "scripts": {
+    "dev": "pnpx @eslint/config-inspector --config eslint.config.js",
+    "test:oxlint": "oxlint",
+    "test:eslint": "eslint .",
+    "test": "pnpm run /^test:/",
+    "build:inspector": "pnpx @eslint/config-inspector build --outDir dist",
+    "build:types": "tsx scripts/typegen.ts",
+    "build:oxlint": "tsx scripts/oxgen.ts"
+  },
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "packageManager": "pnpm@10.11.1",
+  "engines": {
+    "node": "^20.0.0 || >=22.0.0"
+  },
+  "peerDependencies": {
+    "eslint": ">=9.27.0",
+    "typescript": ">=5.8.3"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@eslint/js": "^9.29.0",
+    "@stylistic/eslint-plugin": "^4.4.1",
+    "@typescript-eslint/eslint-plugin": "^8.34.1",
+    "@typescript-eslint/parser": "^8.34.1",
+    "@vitest/eslint-plugin": "^1.2.7",
+    "astro-eslint-parser": "^1.2.2",
+    "eslint-config-flat-gitignore": "^2.1.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-astro": "^1.3.1",
+    "eslint-plugin-de-morgan": "^1.3.0",
+    "eslint-plugin-import-x": "^4.15.2",
+    "eslint-plugin-n": "^17.20.0",
+    "eslint-plugin-oxlint": "^1.2.0",
+    "eslint-plugin-perfectionist": "^4.15.0",
+    "eslint-plugin-prettier": "^5.5.0",
+    "eslint-plugin-promise": "^7.2.1",
+    "eslint-plugin-unicorn": "^59.0.1",
+    "eslint-plugin-vue": "^10.2.0",
+    "eslint-plugin-vuejs-accessibility": "^2.4.1",
+    "globals": "^16.2.0",
+    "vue-eslint-parser": "^10.1.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.27",
+    "eslint": "^9.29.0",
+    "eslint-typegen": "^2.2.0",
+    "nano-staged": "^0.8.0",
+    "oxlint": "^1.2.0",
+    "simple-git-hooks": "^2.13.0",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4",
+    "vue": "^3.5.17"
+  },
+  "pnpm": {
+    "ignoredBuiltDependencies": [
+      "esbuild",
+      "simple-git-hooks"
+    ],
+    "onlyBuiltDependencies": [
+      "unrs-resolver"
+    ]
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm build:oxlint && git add docs/oxlint/UNSUPPORTED-RULES.md && git add .oxlintrc.json && pnpm build:types && git add src/typegen.d.ts && ./node_modules/.bin/nano-staged"
+  },
+  "nano-staged": {
+    "*.{js,ts}": "oxlint && eslint ."
+  }
+}

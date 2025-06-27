@@ -1,0 +1,9 @@
+tsconfig.json
+dist/
+scripts/
+docs/
+img/
+
+vercel.json
+eslint-oxlint.config.js
+.oxlintrc.json*
