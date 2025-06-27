@@ -37,6 +37,7 @@
     "**/.vercel",
     "**/.nitro",
     "!**/.vscode/",
+    "**/.vercel/",
     "**/node_modules/",
     "**/dist/",
     "**/.oxlintrc.json.bak"

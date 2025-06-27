@@ -42,7 +42,7 @@ Opinionated and flexible ESLint config with [TypeScript][typescript-eslint],
 - [Oxlint Support](#oxlint-support)
 - [Inspect](#inspect)
 - [Inspired By](#inspired-by)
-- [Contributing (TODO)](#contributing-todo)
+- [Contributing](#contributing)
 
 
 ## Usage
