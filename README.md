@@ -37,7 +37,7 @@ Opinionated and flexible ESLint config with [TypeScript][typescript-eslint],
 	- [Formatting (Prettier and Stylistic)](#formatting)
 	- [Custom Configurations and Overrides](#custom-configurations-and-overrides)
 - [Framework Support](#framework-support)
-	- [Vue.js](#vuejs)
+	- [Vue](#vuejs)
 	- [Astro](#astro)
 - [Oxlint Support](#oxlint-support)
 - [Inspect](#inspect)
