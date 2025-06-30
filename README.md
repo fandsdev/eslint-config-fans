@@ -38,6 +38,7 @@ Opinionated and flexible ESLint config with [TypeScript][typescript-eslint],
 	- [Custom Configurations and Overrides](#custom-configurations-and-overrides)
 - [Framework Support](#framework-support)
 	- [Vue](#vuejs)
+	- [Nuxt](#nuxt)
 	- [Astro](#astro)
 - [Oxlint Support](#oxlint-support)
 - [Inspect](#inspect)
@@ -220,6 +221,27 @@ This enables linting for `.vue` files with proper TypeScript support
 and Vue-specific rules.
 
 
+### Nuxt
+
+Full compatibility with [Nuxt ESLint][nuxt-eslint]:
+
+```javascript
+import { defineConfig } from 'eslint-config-fans'
+import withNuxt from './.nuxt/eslint.config.mjs'
+
+export default withNuxt(
+  defineConfig(
+    {
+      typescript: true,
+      vue: {
+        a11y: true,
+      },
+    },
+  ),
+)
+```
+
+
 ### Astro
 
 Full support for [Astro][astro-site] projects with TypeScript integration:
@@ -333,6 +355,7 @@ All versions follow [Semantic Versioning][semver].
 [de-morgan]: https://github.com/jonathanharrell/eslint-plugin-de-morgan
 [unicorn]: https://github.com/sindresorhus/eslint-plugin-unicorn
 [vue]: https://eslint.vuejs.org/
+[nuxt]: https://eslint.nuxt.com/
 [astro]: https://ota-meshi.github.io/eslint-plugin-astro/
 [vitest]: https://github.com/vitest-dev/eslint-plugin-vitest
 [prettier]: https://github.com/prettier/eslint-plugin-prettier
