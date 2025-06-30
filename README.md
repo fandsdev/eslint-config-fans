@@ -355,7 +355,7 @@ All versions follow [Semantic Versioning][semver].
 [de-morgan]: https://github.com/jonathanharrell/eslint-plugin-de-morgan
 [unicorn]: https://github.com/sindresorhus/eslint-plugin-unicorn
 [vue]: https://eslint.vuejs.org/
-[nuxt]: https://eslint.nuxt.com/
+[nuxt-eslint]: https://eslint.nuxt.com/
 [astro]: https://ota-meshi.github.io/eslint-plugin-astro/
 [vitest]: https://github.com/vitest-dev/eslint-plugin-vitest
 [prettier]: https://github.com/prettier/eslint-plugin-prettier
