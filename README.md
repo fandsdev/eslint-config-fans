@@ -364,7 +364,7 @@ All versions follow [Semantic Versioning][semver].
 [vue-a11y]: https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/
 [flat-config]: https://eslint.org/docs/latest/use/configure/configuration-files#configuration-file
 [eslint-typegen]: https://github.com/antfu/eslint-typegen
-[inspector]: https://eslint-config-fans.vercel.app/
+[inspector]: https://eslint-config.fans.dev/
 [stylistic-options]: https://github.com/eslint-stylistic/eslint-stylistic/blob/main/packages/eslint-plugin/dts/options.d.ts
 [astro-site]: https://astro.build/
 [oxlint]: https://oxc.rs/docs/guide/usage/linter.html
