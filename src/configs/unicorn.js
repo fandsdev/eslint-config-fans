@@ -95,9 +95,7 @@ export function unicorn(options = {}) {
 			name: 'fans/unicorn/testing',
 			files: GLOB_TESTS,
 			rules: {
-				'unicorn/filename-case': ['error', {
-					case: 'pascalCase',
-				}],
+				'unicorn/filename-case': 'off',
 			},
 		},
 	])
