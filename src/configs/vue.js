@@ -18,6 +18,12 @@ export function vue(options = {}) {
 		},
 	}
 
+	const vueRecommendedRules = pluginVue.configs['flat/recommended']
+		.reduce((previous, current) => ({
+			...previous,
+			...current.rules,
+		}), {})
+
 	return defineConfig([
 		{
 			name: 'fans/vue',
@@ -29,7 +35,7 @@ export function vue(options = {}) {
 			processor: pluginVue.processors.vue,
 			languageOptions: options.typescript ? languageOptionsWithTS : null,
 			rules: {
-				...pluginVue.configs['flat/recommended'].rules,
+				...vueRecommendedRules,
 
 				// Disabled TypeScript rules
 				'@typescript-eslint/prefer-function-type': 'off',
