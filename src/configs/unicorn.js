@@ -81,7 +81,7 @@ export function unicorn(options = {}) {
 			},
 		},
 		{
-			name: 'fans/astro/pages',
+			name: 'fans/unicorn/astro/pages',
 			files: [GLOB_ASTRO_PAGES],
 			rules: {
 				'unicorn/filename-case': [
