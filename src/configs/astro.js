@@ -1,7 +1,7 @@
 import parserTypescript from '@typescript-eslint/parser'
 import parserAstro from 'astro-eslint-parser'
 import pluginAstro from 'eslint-plugin-astro'
-import { GLOB_ASTRO, GLOB_ASTRO_PAGES } from '../globs.js'
+import { GLOB_ASTRO } from '../globs.js'
 import { defineConfig } from '../utils/index.js'
 
 export function astro(options = {}) {
@@ -46,18 +46,6 @@ export function astro(options = {}) {
 							'@stylistic/jsx-one-expression-per-line': 'off',
 						}
 					: {},
-			},
-		},
-		{
-			name: 'fans/astro/pages',
-			files: [GLOB_ASTRO_PAGES],
-			rules: {
-				'unicorn/filename-case': [
-					'error',
-					{
-						case: 'camelCase',
-					},
-				],
 			},
 		},
 	])

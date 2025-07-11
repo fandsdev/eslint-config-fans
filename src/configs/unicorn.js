@@ -1,5 +1,5 @@
 import pluginUnicorn from 'eslint-plugin-unicorn'
-import { GLOB_ASTRO, GLOB_STORYBOOK, GLOB_TESTS, GLOB_VUE } from '../globs.js'
+import { GLOB_ASTRO, GLOB_ASTRO_PAGES, GLOB_STORYBOOK, GLOB_TESTS, GLOB_VUE } from '../globs.js'
 import { defineConfig } from '../utils/index.js'
 
 export function unicorn(options = {}) {
@@ -80,6 +80,18 @@ export function unicorn(options = {}) {
 				}],
 			},
 		},
+		{
+			name: 'fans/unicorn/astro/pages',
+			files: [GLOB_ASTRO_PAGES],
+			rules: {
+				'unicorn/filename-case': [
+					'error',
+					{
+						case: 'camelCase',
+					},
+				],
+			},
+		},
 
 		{
 			name: 'fans/unicorn/storybook',
@@ -95,9 +107,7 @@ export function unicorn(options = {}) {
 			name: 'fans/unicorn/testing',
 			files: GLOB_TESTS,
 			rules: {
-				'unicorn/filename-case': ['error', {
-					case: 'pascalCase',
-				}],
+				'unicorn/filename-case': 'off',
 			},
 		},
 	])
