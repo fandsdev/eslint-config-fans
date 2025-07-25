@@ -2,6 +2,7 @@ import type { Linter } from 'eslint'
 
 export interface VueOptions {
 	typescript?: boolean
+	prettier?: boolean
 	a11y?: boolean
 }
 
