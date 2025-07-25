@@ -100,6 +100,15 @@ export function vue(options = {}) {
 							'vue-a11y/tabindex-no-positive': 'warn',
 						}
 					: {},
+
+				// Disabled for compatibility with Prettier
+				...options.prettier
+					? {
+							'vue/html-indent': 'off',
+							'vue/html-self-closing': 'off',
+							'vue/html-closing-bracket-newline': 'off',
+						}
+					: {},
 			},
 		},
 	])
