@@ -88,6 +88,7 @@ export function defineConfig(options, ...userConfigs) {
 			vue({
 				typescript: options.typescript,
 				prettier: enablePrettier,
+				stylistic: enableStylistic !== false,
 				...vueOptions,
 			}),
 		)
