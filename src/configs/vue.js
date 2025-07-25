@@ -49,16 +49,6 @@ export function vue(options = {}) {
 				// Additional
 				'vue/block-order': ['error', { order: ['script', 'template', 'style'] }],
 				'vue/define-props-declaration': ['error', 'type-based'],
-				'vue/define-macros-order': ['error', {
-					order: [
-						'defineOptions',
-						'defineProps',
-						'defineModel',
-						'defineEmits',
-						'defineSlots',
-					],
-					defineExposeLast: true,
-				}],
 				'vue/no-import-compiler-macros': 'error',
 				'vue/no-undef-components': ['error', {
 					ignorePatterns: [
@@ -98,6 +88,22 @@ export function vue(options = {}) {
 							'vue-a11y/no-static-element-interactions': 'error',
 							'vue-a11y/role-has-required-aria-props': 'error',
 							'vue-a11y/tabindex-no-positive': 'warn',
+						}
+					: {},
+
+				// Stylistic
+				...options.stylistic
+					? {
+							'vue/define-macros-order': ['error', {
+								order: [
+									'defineOptions',
+									'defineProps',
+									'defineModel',
+									'defineEmits',
+									'defineSlots',
+								],
+								defineExposeLast: true,
+							}],
 						}
 					: {},
 

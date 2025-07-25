@@ -268,7 +268,6 @@
 - `vue/order-in-components`
 - `vue/this-in-template`
 - `vue/define-props-declaration`
-- `vue/define-macros-order`
 - `vue/no-import-compiler-macros`
 - `vue/no-undef-components`
 - `vue/no-unused-emit-declarations`
@@ -300,6 +299,7 @@
 - `vue-a11y/no-static-element-interactions`
 - `vue-a11y/role-has-required-aria-props`
 - `vue-a11y/tabindex-no-positive`
+- `vue/define-macros-order`
 - `astro/missing-client-only-directive-value`
 - `astro/no-conflict-set-directives`
 - `astro/no-deprecated-astro-canonicalurl`
