@@ -37,7 +37,7 @@ Opinionated and flexible ESLint config with [TypeScript][typescript-eslint],
 	- [Formatting (Prettier and Stylistic)](#formatting)
 	- [Custom Configurations and Overrides](#custom-configurations-and-overrides)
 - [Framework Support](#framework-support)
-	- [Vue](#vuejs)
+	- [Vue](#vue)
 	- [Nuxt](#nuxt)
 	- [Astro](#astro)
 - [Oxlint Support](#oxlint-support)
@@ -203,7 +203,7 @@ export default defineConfig(
 
 ## Framework Support
 
-### Vue.js
+### Vue
 
 Full support for [Vue][vue] projects with [vue-accessibility][vue-a11y]
 and TypeScript integration:
