@@ -10,6 +10,7 @@
   "scripts": {
     "prepare": "husky",
     "dev": "pnpx @eslint/config-inspector --config eslint.config.js",
+    "test:types": "tsc --noEmit",
     "test:oxlint": "oxlint",
     "test:eslint": "eslint .",
     "test": "pnpm run /^test:/",
