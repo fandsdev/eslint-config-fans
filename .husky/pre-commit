@@ -1,0 +1,16 @@
+# Exit on any error
+set -e
+
+echo "Building the list of unsupported rules for oxlint…"
+pnpm build:oxlint
+
+echo "Building the types for the ESLint config…"
+pnpm build:types
+
+echo "Adding generated files to git…"
+git add docs/oxlint/UNSUPPORTED-RULES.md .oxlintrc.json src/typegen.d.ts
+
+echo "Running linting on staged files…"
+./node_modules/.bin/nano-staged
+
+echo "Pre-commit checks completed successfully!"
