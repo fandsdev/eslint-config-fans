@@ -23,7 +23,6 @@
 - `no-restricted-syntax`
 - `no-sequences`
 - `no-shadow`
-- `no-unassigned-vars`
 - `no-undef` *(in development)*
 - `no-unmodified-loop-condition`
 - `no-unreachable` *(in development)*
@@ -56,11 +55,14 @@
 - `unicorn/custom-error-definition`
 - `unicorn/expiring-todo-comments`
 - `unicorn/import-style`
+- `unicorn/no-array-reverse`
 - `unicorn/no-for-loop`
 - `unicorn/no-named-default`
 - `unicorn/no-unnecessary-array-splice-count`
 - `unicorn/no-unnecessary-polyfills`
+- `unicorn/no-useless-error-capture-stack-trace`
 - `unicorn/prefer-at`
+- `unicorn/prefer-class-fields`
 - `unicorn/prefer-default-parameters`
 - `unicorn/prefer-export-from`
 - `unicorn/prefer-import-meta-properties`
@@ -73,18 +75,17 @@
 - `unicorn/prefer-top-level-await`
 - `unicorn/prevent-abbreviations`
 - `unicorn/relative-url-style`
+- `unicorn/require-module-specifiers`
 - `unicorn/template-indent`
 - `no-undef` *(in development)*
 - `@typescript-eslint/class-literal-property-style`
 - `@typescript-eslint/consistent-type-assertions`
 - `@typescript-eslint/dot-notation`
-- `@typescript-eslint/non-nullable-type-assertion-style`
 - `@typescript-eslint/prefer-find`
 - `@typescript-eslint/prefer-includes`
 - `@typescript-eslint/prefer-optional-chain`
 - `@typescript-eslint/prefer-regexp-exec`
 - `@typescript-eslint/prefer-string-starts-ends-with`
-- `@typescript-eslint/no-misused-promises`
 - `@stylistic/array-bracket-spacing`
 - `@stylistic/arrow-parens`
 - `@stylistic/arrow-spacing`
