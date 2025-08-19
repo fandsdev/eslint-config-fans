@@ -57,6 +57,7 @@ export function unicorn(options = {}) {
 					: {
 							'unicorn/no-array-for-each': 'off',
 							'unicorn/no-useless-undefined': 'off',
+							'unicorn/filename-case': 'off',
 						},
 			},
 		},
@@ -64,51 +65,58 @@ export function unicorn(options = {}) {
 		{
 			name: 'fans/unicorn/vue',
 			files: [GLOB_VUE],
-			rules: {
-				'unicorn/filename-case': ['error', {
-					case: 'pascalCase',
-				}],
-			},
+			rules: strict
+				? {
+						'unicorn/filename-case': ['error', {
+							case: 'pascalCase',
+						}],
+					}
+				: {},
 		},
 
 		{
 			name: 'fans/unicorn/astro',
 			files: [GLOB_ASTRO],
-			rules: {
-				'unicorn/filename-case': ['error', {
-					case: 'pascalCase',
-				}],
-			},
+			rules: strict
+				? {
+						'unicorn/filename-case': ['error', {
+							case: 'pascalCase',
+						}],
+					}
+				: {},
 		},
 		{
 			name: 'fans/unicorn/astro/pages',
 			files: [GLOB_ASTRO_PAGES],
-			rules: {
-				'unicorn/filename-case': [
-					'error',
-					{
-						case: 'camelCase',
-					},
-				],
-			},
+			rules: strict
+				? {
+						'unicorn/filename-case': ['error', {
+							case: 'camelCase',
+						}],
+					}
+				: {},
 		},
 
 		{
 			name: 'fans/unicorn/storybook',
 			files: [GLOB_STORYBOOK],
-			rules: {
-				'unicorn/filename-case': ['error', {
-					case: 'pascalCase',
-				}],
-			},
+			rules: strict
+				? {
+						'unicorn/filename-case': ['error', {
+							case: 'pascalCase',
+						}],
+					}
+				: {},
 		},
 
 		{
 			name: 'fans/unicorn/testing',
 			files: GLOB_TESTS,
-			rules: {
-				'unicorn/filename-case': 'off',
-			},
+			rules: strict
+				? {
+						'unicorn/filename-case': 'off',
+					}
+				: {},
 		},
 	])
 }
