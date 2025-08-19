@@ -21,7 +21,7 @@
     ".": "./src/index.js",
     "./package.json": "./package.json"
   },
-  "packageManager": "pnpm@10.11.1",
+  "packageManager": "pnpm@10.14.0",
   "engines": {
     "node": "^20.0.0 || >=22.0.0"
   },
