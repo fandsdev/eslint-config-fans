@@ -76,6 +76,12 @@ interface DefineConfigOptions {
 		 */
 		dts?: boolean
 	}
+
+	/**
+	 * @link https://tanstack.com/query/latest/docs/eslint/eslint-plugin-query
+	 * @default false
+	 */
+	query?: boolean
 }
 
 export function defineConfig(

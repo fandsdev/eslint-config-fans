@@ -9,6 +9,7 @@ import {
 	perfectionist,
 	prettier,
 	promise,
+	query,
 	stylistic,
 	test,
 	typescript,
@@ -27,6 +28,7 @@ export function defineConfig(options, ...userConfigs) {
 		unicorn: enableUnicorn = true,
 		perfectionist: enablePerfectionist = false,
 		oxlint: enableOxlint = false,
+		query: enableQuery = false,
 		strict = true,
 	} = options
 
@@ -80,6 +82,10 @@ export function defineConfig(options, ...userConfigs) {
 
 	if (enablePerfectionist) {
 		configs.push(perfectionist())
+	}
+
+	if (enableQuery) {
+		configs.push(query())
 	}
 
 	if (enableVue) {
