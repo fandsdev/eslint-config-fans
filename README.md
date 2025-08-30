@@ -21,7 +21,7 @@ Opinionated and flexible ESLint config with [TypeScript][typescript-eslint],
 **Optional plugins:** [`@typescript-eslint`][typescript-eslint], [`vue`][vue],
 [`astro`][astro], [`vitest`][vitest], [`prettier`][prettier],
 [`@stylistic`][stylistic], [`perfectionist`][perfectionist],
-[`vuejs-accessibility`][vue-a11y]
+[`vuejs-accessibility`][vue-a11y], [`eslint-plugin-query`](eslint-plugin-query)
 
 [**Inspect rules**][inspector] · [**View oxlint unsupported rules**][unsupported-rules]
 
@@ -377,3 +377,4 @@ All versions follow [Semantic Versioning][semver].
 [sxzz-config]: https://github.com/sxzz/eslint-config
 [logux-config]: https://github.com/logux/eslint-config
 [semver]: https://semver.org/
+[eslint-plugin-query]: https://tanstack.com/query/latest/docs/eslint/eslint-plugin-query
