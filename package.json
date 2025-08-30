@@ -52,6 +52,7 @@
     "eslint-plugin-perfectionist": "^4.15.0",
     "eslint-plugin-prettier": "^5.5.4",
     "eslint-plugin-promise": "^7.2.1",
+    "@tanstack/eslint-plugin-query": "^5.62.6",
     "eslint-plugin-unicorn": "^60.0.0",
     "eslint-plugin-vue": "^10.4.0",
     "eslint-plugin-vuejs-accessibility": "^2.4.1",

@@ -106,6 +106,9 @@ interface DefineConfigOptions {
 
   // Enable oxlint support for better performance
   oxlint?: boolean | OxlintOptions // default: false
+
+  // Enable TanStack Query support
+  query?: boolean // default: false
 }
 ```
 
