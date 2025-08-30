@@ -38,7 +38,7 @@ async function generateRules(): Promise<void> {
 		}
 
 		let output = ''
-		const result = await execAsync('pnpx @oxlint/migrate ./eslint-oxlint.config.js')
+		const result = await execAsync('pnpm dlx @oxlint/migrate ./eslint-oxlint.config.js')
 		output = String(result.stdout) + '\n' + String(result.stderr)
 
 		const rules = parseOutput(output)
