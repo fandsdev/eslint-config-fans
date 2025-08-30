@@ -218,7 +218,6 @@
 - `vue/return-in-emits-validator`
 - `vue/use-v-on-exact`
 - `vue/valid-attribute-name`
-- `vue/valid-define-emits`
 - `vue/valid-define-options`
 - `vue/valid-define-props`
 - `vue/valid-next-tick`

@@ -437,6 +437,7 @@
         "**/*.vue"
       ],
       "rules": {
+        "vue/valid-define-emits": "error",
         "@typescript-eslint/prefer-function-type": "off"
       },
       "plugins": [
