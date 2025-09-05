@@ -99,7 +99,7 @@ interface DefineConfigOptions {
   prettier?: boolean // default: false
 
   // Enable unicorn rules (opinionated best practices)
-  unicorn?: boolean // default: true
+  unicorn?: boolean | UnicornOptions // default: true
 
   // Enable import/export sorting
   perfectionist?: boolean // default: false

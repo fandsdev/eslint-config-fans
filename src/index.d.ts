@@ -1,5 +1,5 @@
 import type { Linter } from 'eslint'
-import type { OxlintOptions, StylisticOptions, VueOptions } from './configs'
+import type { OxlintOptions, StylisticOptions, UnicornOptions, VueOptions } from './configs'
 import type { Config } from './types'
 
 interface DefineConfigOptions {
@@ -56,7 +56,7 @@ interface DefineConfigOptions {
 	 * @link https://github.com/sindresorhus/eslint-plugin-unicorn
 	 * @default true
 	 */
-	unicorn?: boolean
+	unicorn?: boolean | Omit<UnicornOptions, 'strict'>
 
 	/**
 	 * @link https://perfectionist.dev

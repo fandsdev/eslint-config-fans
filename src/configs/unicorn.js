@@ -2,8 +2,24 @@ import pluginUnicorn from 'eslint-plugin-unicorn'
 import { GLOB_ASTRO, GLOB_ASTRO_PAGES, GLOB_STORYBOOK, GLOB_TESTS, GLOB_VUE } from '../globs.js'
 import { defineConfig } from '../utils/index.js'
 
+const DEFAULT_ABBREVIATIONS_REPLACEMENTS = {
+	arg: false,
+	args: false,
+	attrs: false,
+	el: false,
+	env: false,
+	ext: false,
+	param: false,
+	params: false,
+	props: false,
+	ref: false,
+	refs: false,
+	src: false,
+	utils: false,
+}
+
 export function unicorn(options = {}) {
-	const { strict } = options
+	const { strict, extendAbbreviationsReplacements = [] } = options
 
 	return defineConfig([
 		{
@@ -27,19 +43,8 @@ export function unicorn(options = {}) {
 				// Improvements
 				'unicorn/prevent-abbreviations': ['error', {
 					replacements: {
-						arg: false,
-						args: false,
-						attrs: false,
-						el: false,
-						env: false,
-						ext: false,
-						param: false,
-						params: false,
-						props: false,
-						ref: false,
-						refs: false,
-						src: false,
-						utils: false,
+						...DEFAULT_ABBREVIATIONS_REPLACEMENTS,
+						...extendAbbreviationsReplacements,
 					},
 				}],
 				'unicorn/no-useless-undefined': ['error', {
