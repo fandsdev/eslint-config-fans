@@ -5,6 +5,8 @@ import parserVue from 'vue-eslint-parser'
 import { GLOB_VUE } from '../globs.js'
 import { defineConfig } from '../utils/index.js'
 
+const DEFAULT_UNDEF_COMPONENTS = ['RouterView', 'RouterLink']
+
 export function vue(options = {}) {
 	const languageOptionsWithTS = {
 		parser: parserVue,
@@ -52,8 +54,8 @@ export function vue(options = {}) {
 				'vue/no-import-compiler-macros': 'error',
 				'vue/no-undef-components': ['error', {
 					ignorePatterns: [
-						'RouterView',
-						'RouterLink',
+						...DEFAULT_UNDEF_COMPONENTS,
+						...(options.extendUndefComponents || []),
 					],
 				}],
 				'vue/no-unused-emit-declarations': 'error',

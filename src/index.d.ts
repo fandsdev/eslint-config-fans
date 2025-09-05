@@ -22,7 +22,7 @@ interface DefineConfigOptions {
 	 * @link https://eslint.vuejs.org/
 	 * @default false
 	 */
-	vue?: boolean | Omit<VueOptions, 'typescript' | 'prettier'>
+	vue?: boolean | Omit<VueOptions, 'typescript' | 'prettier' | 'stylistic'>
 
 	/**
 	 * @link https://ota-meshi.github.io/eslint-plugin-astro/
