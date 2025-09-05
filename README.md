@@ -21,7 +21,7 @@ Opinionated and flexible ESLint config with [TypeScript][typescript-eslint],
 **Optional plugins:** [`@typescript-eslint`][typescript-eslint], [`vue`][vue],
 [`astro`][astro], [`vitest`][vitest], [`prettier`][prettier],
 [`@stylistic`][stylistic], [`perfectionist`][perfectionist],
-[`vuejs-accessibility`][vue-a11y], [`eslint-plugin-query`](eslint-plugin-query)
+[`vuejs-accessibility`][vue-a11y], [`eslint-plugin-query`][eslint-plugin-query]
 
 [**Inspect rules**][inspector] · [**View oxlint unsupported rules**][unsupported-rules]
 
