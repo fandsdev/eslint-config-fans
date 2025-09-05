@@ -185,8 +185,9 @@ export interface RuleOptions {
    */
   '@stylistic/jsx-pascal-case'?: Linter.RuleEntry<StylisticJsxPascalCase>
   /**
-   * Disallow multiple spaces between inline JSX props
+   * Disallow multiple spaces between inline JSX props. Deprecated, use `no-multi-spaces` rule instead.
    * @see https://eslint.style/rules/jsx-props-no-multi-spaces
+   * @deprecated
    */
   '@stylistic/jsx-props-no-multi-spaces'?: Linter.RuleEntry<[]>
   /**
@@ -2757,6 +2758,11 @@ export interface RuleOptions {
    */
   'vitest/expect-expect'?: Linter.RuleEntry<VitestExpectExpect>
   /**
+   * enforce hoisted APIs to be on top of the file
+   * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/hoisted-apis-on-top.md
+   */
+  'vitest/hoisted-apis-on-top'?: Linter.RuleEntry<[]>
+  /**
    * enforce a maximum number of expect per test
    * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/max-expects.md
    */
@@ -2957,6 +2963,11 @@ export interface RuleOptions {
    * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-expect-resolves.md
    */
   'vitest/prefer-expect-resolves'?: Linter.RuleEntry<[]>
+  /**
+   * enforce using `expectTypeOf` instead of `expect(typeof ...)`
+   * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-expect-type-of.md
+   */
+  'vitest/prefer-expect-type-of'?: Linter.RuleEntry<[]>
   /**
    * enforce having hooks in consistent order
    * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-hooks-in-order.md
@@ -4650,6 +4661,7 @@ type StylisticIndent = []|[("tab" | number)]|[("tab" | number), {
     const?: (number | ("first" | "off"))
     using?: (number | ("first" | "off"))
   })
+  assignmentOperator?: (number | "off")
   outerIIFEBody?: (number | "off")
   MemberExpression?: (number | "off")
   FunctionDeclaration?: {
@@ -4882,6 +4894,22 @@ type StylisticKeywordSpacing = []|[{
       before?: boolean
       after?: boolean
     }
+    arguments?: {
+      before?: boolean
+      after?: boolean
+    }
+    as?: {
+      before?: boolean
+      after?: boolean
+    }
+    async?: {
+      before?: boolean
+      after?: boolean
+    }
+    await?: {
+      before?: boolean
+      after?: boolean
+    }
     boolean?: {
       before?: boolean
       after?: boolean
@@ -4946,6 +4974,10 @@ type StylisticKeywordSpacing = []|[{
       before?: boolean
       after?: boolean
     }
+    eval?: {
+      before?: boolean
+      after?: boolean
+    }
     export?: {
       before?: boolean
       after?: boolean
@@ -4974,7 +5006,15 @@ type StylisticKeywordSpacing = []|[{
       before?: boolean
       after?: boolean
     }
+    from?: {
+      before?: boolean
+      after?: boolean
+    }
     function?: {
+      before?: boolean
+      after?: boolean
+    }
+    get?: {
       before?: boolean
       after?: boolean
     }
@@ -5010,6 +5050,10 @@ type StylisticKeywordSpacing = []|[{
       before?: boolean
       after?: boolean
     }
+    let?: {
+      before?: boolean
+      after?: boolean
+    }
     long?: {
       before?: boolean
       after?: boolean
@@ -5023,6 +5067,10 @@ type StylisticKeywordSpacing = []|[{
       after?: boolean
     }
     null?: {
+      before?: boolean
+      after?: boolean
+    }
+    of?: {
       before?: boolean
       after?: boolean
     }
@@ -5043,6 +5091,10 @@ type StylisticKeywordSpacing = []|[{
       after?: boolean
     }
     return?: {
+      before?: boolean
+      after?: boolean
+    }
+    set?: {
       before?: boolean
       after?: boolean
     }
@@ -5090,7 +5142,15 @@ type StylisticKeywordSpacing = []|[{
       before?: boolean
       after?: boolean
     }
+    type?: {
+      before?: boolean
+      after?: boolean
+    }
     typeof?: {
+      before?: boolean
+      after?: boolean
+    }
+    using?: {
       before?: boolean
       after?: boolean
     }
@@ -5114,55 +5174,15 @@ type StylisticKeywordSpacing = []|[{
       before?: boolean
       after?: boolean
     }
-    accessor?: {
-      before?: boolean
-      after?: boolean
-    }
-    as?: {
-      before?: boolean
-      after?: boolean
-    }
-    async?: {
-      before?: boolean
-      after?: boolean
-    }
-    await?: {
-      before?: boolean
-      after?: boolean
-    }
-    from?: {
-      before?: boolean
-      after?: boolean
-    }
-    get?: {
-      before?: boolean
-      after?: boolean
-    }
-    let?: {
-      before?: boolean
-      after?: boolean
-    }
-    of?: {
-      before?: boolean
-      after?: boolean
-    }
-    satisfies?: {
-      before?: boolean
-      after?: boolean
-    }
-    set?: {
-      before?: boolean
-      after?: boolean
-    }
-    using?: {
-      before?: boolean
-      after?: boolean
-    }
     yield?: {
       before?: boolean
       after?: boolean
     }
-    type?: {
+    accessor?: {
+      before?: boolean
+      after?: boolean
+    }
+    satisfies?: {
       before?: boolean
       after?: boolean
     }
@@ -5367,6 +5387,7 @@ type StylisticNoExtraParens = ([]|["functions"] | []|["all"]|["all", {
     LogicalExpression?: boolean
     AwaitExpression?: boolean
   }
+  ignoredNodes?: string[]
 }])
 // ----- @stylistic/no-mixed-operators -----
 type StylisticNoMixedOperators = []|[{
@@ -5482,7 +5503,7 @@ type StylisticPaddedBlocks = []|[(("always" | "never" | "start" | "end") | {
 // ----- @stylistic/padding-line-between-statements -----
 type _StylisticPaddingLineBetweenStatementsPaddingType = ("any" | "never" | "always")
 type _StylisticPaddingLineBetweenStatementsStatementOption = (_StylisticPaddingLineBetweenStatementsStatementType | [_StylisticPaddingLineBetweenStatementsStatementType, ...(_StylisticPaddingLineBetweenStatementsStatementType)[]])
-type _StylisticPaddingLineBetweenStatementsStatementType = ("*" | "exports" | "require" | "directive" | "iife" | "block" | "empty" | "function" | "ts-method" | "break" | "case" | "class" | "continue" | "debugger" | "default" | "do" | "for" | "if" | "import" | "return" | "switch" | "throw" | "try" | "while" | "with" | "cjs-export" | "cjs-import" | "enum" | "interface" | "type" | "function-overload" | "block-like" | "singleline-block-like" | "multiline-block-like" | "expression" | "singleline-expression" | "multiline-expression" | "export" | "singleline-export" | "multiline-export" | "var" | "singleline-var" | "multiline-var" | "let" | "singleline-let" | "multiline-let" | "const" | "singleline-const" | "multiline-const" | "using" | "singleline-using" | "multiline-using")
+type _StylisticPaddingLineBetweenStatementsStatementType = ("*" | "exports" | "require" | "directive" | "iife" | "block" | "empty" | "function" | "ts-method" | "break" | "case" | "class" | "continue" | "debugger" | "default" | "do" | "for" | "if" | "import" | "switch" | "throw" | "try" | "while" | "with" | "cjs-export" | "cjs-import" | "enum" | "interface" | "function-overload" | "block-like" | "singleline-block-like" | "multiline-block-like" | "expression" | "singleline-expression" | "multiline-expression" | "return" | "singleline-return" | "multiline-return" | "export" | "singleline-export" | "multiline-export" | "var" | "singleline-var" | "multiline-var" | "let" | "singleline-let" | "multiline-let" | "const" | "singleline-const" | "multiline-const" | "using" | "singleline-using" | "multiline-using" | "type" | "singleline-type" | "multiline-type")
 type StylisticPaddingLineBetweenStatements = {
   blankLine: _StylisticPaddingLineBetweenStatementsPaddingType
   prev: _StylisticPaddingLineBetweenStatementsStatementOption
