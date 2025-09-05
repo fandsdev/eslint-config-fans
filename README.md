@@ -215,7 +215,11 @@ and TypeScript integration:
 export default defineConfig({
   typescript: true,
   vue: {
-    a11y: true, // Enable vue-a11y rules
+		// Enable vue-a11y rules
+    a11y: true,
+
+		// Ignore undefined components for the `vue/no-undef-components` rule
+    extendUndefComponents: ['CustomComponent'],
   }
 })
 ```
