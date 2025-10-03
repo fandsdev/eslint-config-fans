@@ -60,7 +60,9 @@
 - `unicorn/no-unnecessary-polyfills`
 - `unicorn/no-useless-error-capture-stack-trace`
 - `unicorn/prefer-at`
+- `unicorn/prefer-bigint-literals`
 - `unicorn/prefer-class-fields`
+- `unicorn/prefer-classlist-toggle`
 - `unicorn/prefer-default-parameters`
 - `unicorn/prefer-export-from`
 - `unicorn/prefer-import-meta-properties`
@@ -73,6 +75,7 @@
 - `unicorn/prefer-top-level-await`
 - `unicorn/prevent-abbreviations`
 - `unicorn/relative-url-style`
+- `unicorn/require-module-attributes`
 - `unicorn/require-module-specifiers`
 - `unicorn/template-indent`
 - `no-undef` *(in development)*

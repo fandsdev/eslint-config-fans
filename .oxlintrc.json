@@ -215,6 +215,7 @@
     "unicorn/no-array-method-this-argument": "error",
     "unicorn/no-array-reduce": "off",
     "unicorn/no-array-reverse": "error",
+    "unicorn/no-array-sort": "error",
     "unicorn/no-await-expression-member": "error",
     "unicorn/no-await-in-promise-methods": "error",
     "unicorn/no-console-spaces": "error",
