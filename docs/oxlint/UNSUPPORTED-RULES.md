@@ -1,7 +1,6 @@
 # Oxlint Unsupported Rules
 
 - `accessor-pairs`
-- `class-methods-use-this`
 - `consistent-this`
 - `constructor-super`
 - `dot-notation`
@@ -14,7 +13,7 @@
 - `no-implied-eval`
 - `no-invalid-this`
 - `no-loop-func`
-- `no-misleading-character-class`
+- `no-misleading-character-class` *(in development)*
 - `no-octal`
 - `no-octal-escape`
 - `no-param-reassign`
@@ -55,7 +54,6 @@
 - `unicorn/custom-error-definition`
 - `unicorn/expiring-todo-comments`
 - `unicorn/import-style`
-- `unicorn/no-array-reverse`
 - `unicorn/no-for-loop`
 - `unicorn/no-named-default`
 - `unicorn/no-unnecessary-array-splice-count`
@@ -219,7 +217,6 @@
 - `vue/use-v-on-exact`
 - `vue/valid-attribute-name`
 - `vue/valid-define-options`
-- `vue/valid-define-props`
 - `vue/valid-next-tick`
 - `vue/valid-template-root`
 - `vue/valid-v-bind`
@@ -263,11 +260,8 @@
 - `vue/attributes-order`
 - `vue/block-order`
 - `vue/no-lone-template`
-- `vue/no-multiple-slot-args`
-- `vue/no-required-prop-with-default`
 - `vue/order-in-components`
 - `vue/this-in-template`
-- `vue/define-props-declaration`
 - `vue/no-import-compiler-macros`
 - `vue/no-undef-components`
 - `vue/no-unused-emit-declarations`

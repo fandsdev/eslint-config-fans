@@ -3,8 +3,10 @@ dist/
 scripts/
 docs/
 img/
-.vercel/
+.husky/
 
-vercel.json
 eslint-oxlint.config.js
 .oxlintrc.json*
+
+.vercel/
+vercel.json
