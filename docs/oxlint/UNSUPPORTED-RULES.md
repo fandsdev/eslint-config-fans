@@ -2,7 +2,7 @@
 
 - `accessor-pairs`
 - `consistent-this`
-- `constructor-super`
+- `constructor-super` *(in development)*
 - `dot-notation`
 - `func-name-matching`
 - `getter-return` *(in development)*
@@ -16,7 +16,6 @@
 - `no-misleading-character-class` *(in development)*
 - `no-octal`
 - `no-octal-escape`
-- `no-param-reassign`
 - `no-restricted-exports`
 - `no-restricted-properties`
 - `no-restricted-syntax`
@@ -56,13 +55,8 @@
 - `unicorn/import-style`
 - `unicorn/no-for-loop`
 - `unicorn/no-named-default`
-- `unicorn/no-unnecessary-array-splice-count`
 - `unicorn/no-unnecessary-polyfills`
-- `unicorn/no-useless-error-capture-stack-trace`
-- `unicorn/prefer-at`
 - `unicorn/prefer-bigint-literals`
-- `unicorn/prefer-class-fields`
-- `unicorn/prefer-classlist-toggle`
 - `unicorn/prefer-default-parameters`
 - `unicorn/prefer-export-from`
 - `unicorn/prefer-import-meta-properties`
@@ -72,18 +66,14 @@
 - `unicorn/prefer-single-call`
 - `unicorn/prefer-switch`
 - `unicorn/prefer-ternary`
-- `unicorn/prefer-top-level-await`
 - `unicorn/prevent-abbreviations`
 - `unicorn/relative-url-style`
 - `unicorn/require-module-attributes`
-- `unicorn/require-module-specifiers`
 - `unicorn/template-indent`
-- `no-undef` *(in development)*
 - `@typescript-eslint/class-literal-property-style`
 - `@typescript-eslint/consistent-type-assertions`
 - `@typescript-eslint/dot-notation`
 - `@typescript-eslint/prefer-find`
-- `@typescript-eslint/prefer-includes`
 - `@typescript-eslint/prefer-optional-chain`
 - `@typescript-eslint/prefer-regexp-exec`
 - `@typescript-eslint/prefer-string-starts-ends-with`
@@ -186,7 +176,6 @@
 - `vue/no-dupe-keys`
 - `vue/no-dupe-v-else-if`
 - `vue/no-duplicate-attributes`
-- `vue/no-export-in-script-setup`
 - `vue/no-expose-after-await`
 - `vue/no-lifecycle-after-await`
 - `vue/no-mutating-props`
@@ -207,7 +196,6 @@
 - `vue/no-v-for-template-key-on-child`
 - `vue/no-v-text-v-html-on-component`
 - `vue/no-watch-after-await`
-- `vue/prefer-import-from-vue`
 - `vue/require-component-is`
 - `vue/require-prop-type-constructor`
 - `vue/require-render-return`
@@ -265,7 +253,6 @@
 - `vue/no-lone-template`
 - `vue/order-in-components`
 - `vue/this-in-template`
-- `vue/no-import-compiler-macros`
 - `vue/no-undef-components`
 - `vue/no-unused-emit-declarations`
 - `vue/no-unused-refs`
