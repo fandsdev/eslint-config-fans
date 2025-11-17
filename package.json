@@ -13,6 +13,7 @@
     "test:types": "tsc --noEmit",
     "test:oxlint": "oxlint",
     "test:eslint": "eslint .",
+    "test:dedupe": "pnpm dedupe --check",
     "test": "pnpm run /^test:/",
     "build:inspector": "pnpx @eslint/config-inspector build --outDir dist",
     "build:types": "tsx scripts/typegen.ts",
