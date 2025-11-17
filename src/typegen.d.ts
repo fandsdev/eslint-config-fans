@@ -74,6 +74,11 @@ export interface RuleOptions {
    */
   '@stylistic/eol-last'?: Linter.RuleEntry<StylisticEolLast>
   /**
+   * Enforce consistent spacing and line break styles inside brackets.
+   * @see https://eslint.style/rules/list-style
+   */
+  '@stylistic/exp-list-style'?: Linter.RuleEntry<StylisticExpListStyle>
+  /**
    * Enforce line breaks between arguments of a function call
    * @see https://eslint.style/rules/function-call-argument-newline
    */
@@ -4664,6 +4669,50 @@ type StylisticCurlyNewline = []|[(("always" | "never") | {
 type StylisticDotLocation = []|[("object" | "property")]
 // ----- @stylistic/eol-last -----
 type StylisticEolLast = []|[("always" | "never" | "unix" | "windows")]
+// ----- @stylistic/exp-list-style -----
+type StylisticExpListStyle = []|[{
+  singleLine?: _StylisticExpListStyle_SingleLineConfig
+  multiLine?: _StylisticExpListStyle_MultiLineConfig
+  overrides?: {
+    "[]"?: _StylisticExpListStyle_BaseConfig
+    "{}"?: _StylisticExpListStyle_BaseConfig
+    "<>"?: _StylisticExpListStyle_BaseConfig
+    "()"?: _StylisticExpListStyle_BaseConfig
+    ArrayExpression?: _StylisticExpListStyle_BaseConfig
+    ArrayPattern?: _StylisticExpListStyle_BaseConfig
+    ArrowFunctionExpression?: _StylisticExpListStyle_BaseConfig
+    CallExpression?: _StylisticExpListStyle_BaseConfig
+    ExportNamedDeclaration?: _StylisticExpListStyle_BaseConfig
+    FunctionDeclaration?: _StylisticExpListStyle_BaseConfig
+    FunctionExpression?: _StylisticExpListStyle_BaseConfig
+    ImportDeclaration?: _StylisticExpListStyle_BaseConfig
+    ImportAttributes?: _StylisticExpListStyle_BaseConfig
+    NewExpression?: _StylisticExpListStyle_BaseConfig
+    ObjectExpression?: _StylisticExpListStyle_BaseConfig
+    ObjectPattern?: _StylisticExpListStyle_BaseConfig
+    TSDeclareFunction?: _StylisticExpListStyle_BaseConfig
+    TSFunctionType?: _StylisticExpListStyle_BaseConfig
+    TSInterfaceBody?: _StylisticExpListStyle_BaseConfig
+    TSEnumBody?: _StylisticExpListStyle_BaseConfig
+    TSTupleType?: _StylisticExpListStyle_BaseConfig
+    TSTypeLiteral?: _StylisticExpListStyle_BaseConfig
+    TSTypeParameterDeclaration?: _StylisticExpListStyle_BaseConfig
+    TSTypeParameterInstantiation?: _StylisticExpListStyle_BaseConfig
+    JSONArrayExpression?: _StylisticExpListStyle_BaseConfig
+    JSONObjectExpression?: _StylisticExpListStyle_BaseConfig
+  }
+}]
+interface _StylisticExpListStyle_SingleLineConfig {
+  spacing?: ("always" | "never")
+  maxItems?: number
+}
+interface _StylisticExpListStyle_MultiLineConfig {
+  minItems?: number
+}
+interface _StylisticExpListStyle_BaseConfig {
+  singleLine?: _StylisticExpListStyle_SingleLineConfig
+  multiline?: _StylisticExpListStyle_MultiLineConfig
+}
 // ----- @stylistic/function-call-argument-newline -----
 type StylisticFunctionCallArgumentNewline = []|[("always" | "never" | "consistent")]
 // ----- @stylistic/function-call-spacing -----
@@ -4733,7 +4782,11 @@ type StylisticIndent = []|[("tab" | number)]|[("tab" | number), {
   ObjectExpression?: (number | ("first" | "off"))
   ImportDeclaration?: (number | ("first" | "off"))
   flatTernaryExpressions?: boolean
-  offsetTernaryExpressions?: boolean
+  offsetTernaryExpressions?: (boolean | {
+    CallExpression?: boolean
+    AwaitExpression?: boolean
+    NewExpression?: boolean
+  })
   offsetTernaryExpressionsOffsetCallExpressions?: boolean
   ignoredNodes?: string[]
   ignoreComments?: boolean
@@ -5536,6 +5589,7 @@ type StylisticObjectCurlySpacing = []|[("always" | "never")]|[("always" | "never
     TSInterfaceBody?: ("always" | "never")
     TSEnumBody?: ("always" | "never")
   }
+  emptyObjects?: ("ignore" | "always" | "never")
 }]
 // ----- @stylistic/object-property-newline -----
 type StylisticObjectPropertyNewline = []|[{
