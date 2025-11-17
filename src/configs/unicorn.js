@@ -25,6 +25,7 @@ export function unicorn(options = {}) {
 				'unicorn/no-abusive-eslint-disable': 'off',
 
 				// Improvements
+				'unicorn/prefer-ternary': ['error', 'only-single-line'],
 				'unicorn/prevent-abbreviations': ['error', {
 					replacements: {
 						arg: false,
