@@ -32,16 +32,14 @@ export function defineConfig(options, ...userConfigs) {
 		strict = true,
 	} = options
 
-	const configs = []
-
-	configs.push(
+	const configs = [
 		ignores(options.ignores),
 		javascript(),
 		imports(),
 		promise(),
 		node(),
 		deMorgan(),
-	)
+	]
 
 	const extraFileExtensions = []
 	if (options.vue) {
