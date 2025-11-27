@@ -54,9 +54,9 @@
 - `unicorn/expiring-todo-comments`
 - `unicorn/import-style`
 - `unicorn/no-for-loop`
+- `unicorn/no-immediate-mutation`
 - `unicorn/no-named-default`
 - `unicorn/no-unnecessary-polyfills`
-- `unicorn/prefer-bigint-literals`
 - `unicorn/prefer-default-parameters`
 - `unicorn/prefer-export-from`
 - `unicorn/prefer-import-meta-properties`

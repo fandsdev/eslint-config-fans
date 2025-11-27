@@ -11,10 +11,8 @@
   "env": {
     "builtin": true,
     "browser": true,
-    "commonjs": true,
     "es2024": true,
-    "node": true,
-    "shared-node-browser": true
+    "node": true
   },
   "ignorePatterns": [
     "**/node_modules",
@@ -237,6 +235,7 @@
     "unicorn/no-unnecessary-slice-end": "error",
     "unicorn/no-unreadable-array-destructuring": "error",
     "unicorn/no-unreadable-iife": "error",
+    "unicorn/no-useless-collection-argument": "error",
     "unicorn/no-useless-error-capture-stack-trace": "error",
     "unicorn/no-useless-fallback-in-spread": "error",
     "unicorn/no-useless-length-check": "error",
@@ -259,6 +258,7 @@
     "unicorn/prefer-array-index-of": "error",
     "unicorn/prefer-array-some": "error",
     "unicorn/prefer-at": "error",
+    "unicorn/prefer-bigint-literals": "error",
     "unicorn/prefer-blob-reading-methods": "error",
     "unicorn/prefer-class-fields": "error",
     "unicorn/prefer-classlist-toggle": "error",
@@ -285,6 +285,7 @@
     "unicorn/prefer-query-selector": "error",
     "unicorn/prefer-reflect-apply": "error",
     "unicorn/prefer-regexp-test": "error",
+    "unicorn/prefer-response-static-json": "error",
     "unicorn/prefer-set-has": "error",
     "unicorn/prefer-set-size": "error",
     "unicorn/prefer-spread": "error",
@@ -314,7 +315,19 @@
           {
             "case": "pascalCase"
           }
-        ]
+        ],
+        "vue/no-export-in-script-setup": "error",
+        "vue/prefer-import-from-vue": "error",
+        "vue/valid-define-emits": "error",
+        "vue/valid-define-props": "error",
+        "vue/no-multiple-slot-args": "warn",
+        "vue/no-required-prop-with-default": "warn",
+        "@typescript-eslint/prefer-function-type": "off",
+        "vue/define-props-declaration": [
+          "error",
+          "type-based"
+        ],
+        "vue/no-import-compiler-macros": "error"
       }
     },
     {
@@ -363,7 +376,8 @@
         "**/*.test.{js,ts}"
       ],
       "rules": {
-        "unicorn/filename-case": "off"
+        "unicorn/filename-case": "off",
+        "@typescript-eslint/no-explicit-any": "off"
       }
     },
     {
@@ -425,9 +439,6 @@
         "**/*.spec.{js,ts}",
         "**/*.test.{js,ts}"
       ],
-      "rules": {
-        "@typescript-eslint/no-explicit-any": "off"
-      },
       "plugins": [
         "typescript"
       ]
@@ -436,20 +447,6 @@
       "files": [
         "**/*.vue"
       ],
-      "rules": {
-        "vue/no-export-in-script-setup": "error",
-        "vue/prefer-import-from-vue": "error",
-        "vue/valid-define-emits": "error",
-        "vue/valid-define-props": "error",
-        "vue/no-multiple-slot-args": "warn",
-        "vue/no-required-prop-with-default": "warn",
-        "@typescript-eslint/prefer-function-type": "off",
-        "vue/define-props-declaration": [
-          "error",
-          "type-based"
-        ],
-        "vue/no-import-compiler-macros": "error"
-      },
       "plugins": [
         "vue",
         "typescript"
@@ -460,8 +457,10 @@
         "**/*.astro"
       ],
       "globals": {
-        "Astro": "readonly",
         "Fragment": "readonly"
+      },
+      "env": {
+        "astro": true
       }
     }
   ]
