@@ -313,6 +313,10 @@
     "unicorn/text-encoding-identifier-case": "error",
     "unicorn/throw-new-error": "error"
   },
+  "globals": {
+    "CSSStyleProperties": "readonly",
+    "Temporal": "readonly"
+  },
   "overrides": [
     {
       "files": [
