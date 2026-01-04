@@ -1,14 +1,17 @@
 name: Deploy
 
 on:
-  push:
+  workflow_run:
+    workflows: ["Test"]
     branches: ["main"]
+    types: [completed]
 
 permissions:
   contents: read
 
 jobs:
   deploy:
+    if: github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
