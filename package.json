@@ -8,7 +8,7 @@
   "repository": "eslint-config-fans",
   "type": "module",
   "scripts": {
-    "prepare": "husky",
+    "prepare": "simple-git-hooks",
     "dev": "pnpx @eslint/config-inspector --config eslint.config.js",
     "test:types": "tsc --noEmit",
     "test:oxlint": "oxlint",
@@ -17,7 +17,8 @@
     "test": "pnpm run /^test:/",
     "build:inspector": "pnpx @eslint/config-inspector build --outDir dist",
     "build:types": "tsx scripts/typegen.ts",
-    "build:oxlint": "tsx scripts/oxgen.ts"
+    "build:oxlint": "tsx scripts/oxgen.ts",
+    "build": "pnpm build:types && pnpm build:oxlint"
   },
   "exports": {
     ".": "./src/index.js",
@@ -64,23 +65,18 @@
     "@types/node": "^24.10.1",
     "eslint": "^9.39.1",
     "eslint-typegen": "^2.3.0",
-    "husky": "^9.1.7",
     "nano-staged": "^0.9.0",
     "oxlint": "^1.29.0",
+    "simple-git-hooks": "^2.13.1",
     "tsx": "^4.20.4",
     "typescript": "^5.9.2",
     "vitest": "^3.2.4",
     "vue": "^3.5.24"
   },
-  "pnpm": {
-    "ignoredBuiltDependencies": [
-      "esbuild"
-    ],
-    "onlyBuiltDependencies": [
-      "unrs-resolver"
-    ]
-  },
   "nano-staged": {
     "*.{js,ts}": "oxlint && eslint ."
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm nano-staged"
   }
 }

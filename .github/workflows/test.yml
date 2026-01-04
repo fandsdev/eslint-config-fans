@@ -33,3 +33,11 @@ jobs:
 
       - name: Run tests
         run: pnpm test
+
+      - name: Build generated files
+        if: matrix.node-version == 24
+        run: pnpm build
+
+      - name: Check generated files are up to date
+        if: matrix.node-version == 24
+        run: git diff --exit-code
