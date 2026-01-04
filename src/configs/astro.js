@@ -5,7 +5,7 @@ import { GLOB_ASTRO } from '../globs.js'
 import { defineConfig } from '../utils/index.js'
 
 export function astro(options = {}) {
-	const { typescript = false, stylistic = false } = options
+	const { typescript = false, useStylistic = false } = options
 
 	return defineConfig([
 		{
@@ -41,7 +41,7 @@ export function astro(options = {}) {
 						}
 					: {},
 
-				...stylistic
+				...useStylistic
 					? {
 							'@stylistic/jsx-one-expression-per-line': 'off',
 						}

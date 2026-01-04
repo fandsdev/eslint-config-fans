@@ -50,6 +50,16 @@ export function vue(options = {}) {
 
 				// Additional
 				'vue/block-order': ['error', { order: ['script', 'template', 'style'] }],
+				'vue/define-macros-order': ['error', {
+					order: [
+						'defineOptions',
+						'defineProps',
+						'defineModel',
+						'defineEmits',
+						'defineSlots',
+					],
+					defineExposeLast: true,
+				}],
 				'vue/define-props-declaration': ['error', 'type-based'],
 				'vue/no-import-compiler-macros': 'error',
 				'vue/no-undef-components': ['error', {
@@ -93,24 +103,8 @@ export function vue(options = {}) {
 						}
 					: {},
 
-				// Stylistic
-				...options.stylistic
-					? {
-							'vue/define-macros-order': ['error', {
-								order: [
-									'defineOptions',
-									'defineProps',
-									'defineModel',
-									'defineEmits',
-									'defineSlots',
-								],
-								defineExposeLast: true,
-							}],
-						}
-					: {},
-
-				// Disabled for compatibility with Prettier
-				...options.prettier
+				// Disabled for compatibility with external formatters (Prettier, oxfmt, etc.)
+				...options.usePrettier
 					? {
 							'vue/html-indent': 'off',
 							'vue/html-self-closing': 'off',

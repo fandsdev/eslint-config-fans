@@ -2,6 +2,12 @@ import type { Linter } from 'eslint'
 import type { OxlintOptions, StylisticOptions, VueOptions } from './configs'
 import type { Config } from './types'
 
+export type FormatterOptions
+	= | 'stylistic'
+		| 'prettier'
+		| false
+		| { type: 'stylistic', options?: StylisticOptions }
+
 interface DefineConfigOptions {
 	ignores?: string[]
 
@@ -22,7 +28,7 @@ interface DefineConfigOptions {
 	 * @link https://eslint.vuejs.org/
 	 * @default false
 	 */
-	vue?: boolean | Omit<VueOptions, 'typescript' | 'prettier' | 'stylistic'>
+	vue?: boolean | Omit<VueOptions, 'typescript' | 'usePrettier'>
 
 	/**
 	 * @link https://ota-meshi.github.io/eslint-plugin-astro/
@@ -37,6 +43,19 @@ interface DefineConfigOptions {
 	test?: boolean
 
 	/**
+	 * Configure code formatting integration.
+	 *
+	 * - `'stylistic'` - Use ESLint Stylistic for formatting
+	 * - `'prettier'` - Use Prettier via eslint-plugin-prettier
+	 * - `false` - Disable formatting (use external formatter like oxfmt, biome, etc.)
+	 * - `{ type: 'stylistic', options: {...} }` - Use ESLint Stylistic with custom options
+	 *
+	 * @default false
+	 */
+	formatter?: FormatterOptions
+
+	/**
+	 * @deprecated Use `formatter: 'stylistic'` or `formatter: { type: 'stylistic', options }` instead
 	 * @link https://eslint.style
 	 * @default false
 	 *
@@ -45,6 +64,7 @@ interface DefineConfigOptions {
 	stylistic?: boolean | StylisticOptions
 
 	/**
+	 * @deprecated Use `formatter: 'prettier'` instead
 	 * @link https://github.com/prettier/eslint-plugin-prettier
 	 * @default false
 	 *

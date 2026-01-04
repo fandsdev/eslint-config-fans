@@ -34,7 +34,7 @@ Opinionated and flexible ESLint config with [TypeScript][typescript-eslint],
 	- [Available Options](#available-options)
 	- [Ignores](#ignores)
 	- [Strict Mode](#strict-mode)
-	- [Formatting (Prettier and Stylistic)](#formatting)
+	- [Formatting (Prettier, Stylistic or disable)](#formatting)
 	- [Custom Configurations and Overrides](#custom-configurations-and-overrides)
 - [Framework Support](#framework-support)
 	- [Vue](#vue)
@@ -147,28 +147,32 @@ to start with `strict: false` and enable it later.
 
 ### Formatting
 
-#### Prettier vs Stylistic
+#### Prettier, Stylistic or disable
 
 You can choose between Prettier and ESLint Stylistic for code formatting:
 
-- **Prettier** (`prettier: true`): Uses Prettier for formatting,
-  disables conflicting stylistic rules
-- **Stylistic** (`stylistic: true`): Uses ESLint Stylistic rules for formatting
-  (ignored when Prettier is enabled)
+- **Prettier** (`formatter: 'prettier'`): Uses Prettier for formatting,
+  disables conflicting rules
+- **Stylistic** (`formatter: 'stylistic'`): Uses ESLint Stylistic rules for formatting
+- **Disable** (`formatter: false`): Disables formatting if you prefer to use
+  external formatter like oxfmt, biome, etc.
 
 
 #### Stylistic Options
 
-When using `stylistic: true`, you can customize formatting rules.
+When using `formatter: 'stylistic'`, you can customize formatting rules.
 See [StylisticOptions][stylistic-options] for all available options:
 
 ```javascript
 export default defineConfig({
-  stylistic: {
-    indent: 2,
-    quotes: 'single',
-    semi: false,
-  }
+  formatter: {
+    type: 'stylistic',
+    options: {
+      indent: 2,
+      quotes: 'single',
+      semi: false,
+    },
+  },
 })
 ```
 

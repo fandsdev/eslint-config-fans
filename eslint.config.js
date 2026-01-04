@@ -10,8 +10,11 @@ export const config = {
 	},
 	astro: true,
 	test: true,
-	stylistic: {
-		indent: 'tab',
+	formatter: {
+		type: 'stylistic',
+		options: {
+			indent: 'tab',
+		},
 	},
 	perfectionist: true,
 	oxlint: {
