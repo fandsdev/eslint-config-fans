@@ -19,6 +19,13 @@ export function resolveFormatter(options) {
 		if (formatter === false) {
 			return { usePrettier: false, useStylistic: false, stylisticOptions: null }
 		}
+		if (formatter.type === 'prettier') {
+			return {
+				usePrettier: true,
+				useStylistic: false,
+				stylisticOptions: null,
+			}
+		}
 		if (formatter.type === 'stylistic') {
 			return {
 				usePrettier: false,
