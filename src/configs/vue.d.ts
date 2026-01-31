@@ -2,8 +2,7 @@ import type { Linter } from 'eslint'
 
 export interface VueOptions {
 	typescript?: boolean
-	prettier?: boolean
-	stylistic?: boolean
+	usePrettier?: boolean
 
 	/**
 	 * Enable accessibility rules

@@ -16,6 +16,7 @@ import {
 	unicorn,
 	vue,
 } from './configs/index.js'
+import { resolveFormatter } from './utils/index.js'
 
 export function defineConfig(options, ...userConfigs) {
 	const {
@@ -23,14 +24,14 @@ export function defineConfig(options, ...userConfigs) {
 		vue: enableVue = false,
 		astro: enableAstro = false,
 		test: enableTest = false,
-		stylistic: enableStylistic = false,
-		prettier: enablePrettier = false,
 		unicorn: enableUnicorn = true,
 		perfectionist: enablePerfectionist = false,
 		oxlint: enableOxlint = false,
 		query: enableQuery = false,
 		strict = true,
 	} = options
+
+	const { useStylistic, usePrettier, stylisticOptions } = resolveFormatter(options)
 
 	const configs = [
 		ignores(options.ignores),
@@ -64,18 +65,12 @@ export function defineConfig(options, ...userConfigs) {
 		)
 	}
 
-	if (enablePrettier) {
+	if (usePrettier) {
 		configs.push(prettier())
 	}
 
-	if (!enablePrettier) {
-		let stylisticOptions = false
-		if (enableStylistic !== false) {
-			stylisticOptions = typeof options.stylistic === 'object' ? options.stylistic : {}
-		}
-		if (stylisticOptions !== false) {
-			configs.push(stylistic(stylisticOptions))
-		}
+	if (useStylistic) {
+		configs.push(stylistic(stylisticOptions))
 	}
 
 	if (enablePerfectionist) {
@@ -91,8 +86,7 @@ export function defineConfig(options, ...userConfigs) {
 		configs.push(
 			vue({
 				typescript: options.typescript,
-				prettier: enablePrettier,
-				stylistic: enableStylistic !== false,
+				usePrettier,
 				...vueOptions,
 			}),
 		)
@@ -102,7 +96,7 @@ export function defineConfig(options, ...userConfigs) {
 		configs.push(
 			astro({
 				typescript: enableTypescript,
-				stylistic: enableStylistic !== false,
+				useStylistic,
 			}),
 		)
 	}

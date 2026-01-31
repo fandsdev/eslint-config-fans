@@ -22,13 +22,10 @@
 - `prefer-const`
 - `prefer-regex-literals`
 - `strict`
-- `n/global-require`
 - `n/handle-callback-err`
 - `n/no-deprecated-api`
-- `n/no-exports-assign`
 - `n/no-extraneous-require`
 - `n/no-missing-require`
-- `n/no-new-require`
 - `n/no-path-concat`
 - `n/no-unpublished-require`
 - `n/no-unsupported-features/es-builtins`
@@ -59,7 +56,6 @@
 - `@typescript-eslint/consistent-type-assertions`
 - `@typescript-eslint/dot-notation`
 - `@typescript-eslint/prefer-find`
-- `@typescript-eslint/prefer-optional-chain`
 - `@typescript-eslint/prefer-regexp-exec`
 - `@typescript-eslint/prefer-string-starts-ends-with`
 - `@stylistic/array-bracket-spacing`
@@ -133,7 +129,6 @@
 - `vue/comment-directive`
 - `vue/jsx-uses-vars`
 - `vue/multi-word-component-names`
-- `vue/no-arrow-functions-in-watch`
 - `vue/no-async-in-computed-properties`
 - `vue/no-child-content`
 - `vue/no-computed-properties-in-data`
@@ -161,7 +156,6 @@
 - `vue/no-dupe-v-else-if`
 - `vue/no-duplicate-attributes`
 - `vue/no-expose-after-await`
-- `vue/no-lifecycle-after-await`
 - `vue/no-mutating-props`
 - `vue/no-parsing-error`
 - `vue/no-ref-as-operand`
@@ -237,6 +231,7 @@
 - `vue/no-lone-template`
 - `vue/order-in-components`
 - `vue/this-in-template`
+- `vue/define-macros-order`
 - `vue/no-undef-components`
 - `vue/no-unused-emit-declarations`
 - `vue/no-unused-refs`
@@ -267,7 +262,6 @@
 - `vue-a11y/no-static-element-interactions`
 - `vue-a11y/role-has-required-aria-props`
 - `vue-a11y/tabindex-no-positive`
-- `vue/define-macros-order`
 - `astro/missing-client-only-directive-value`
 - `astro/no-conflict-set-directives`
 - `astro/no-deprecated-astro-canonicalurl`
