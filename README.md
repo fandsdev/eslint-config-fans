@@ -4,13 +4,13 @@
      src="https://github.com/fandsdev/eslint-config-fans/blob/546c9e682629694b9b068d2ef139246d325665ed/img/logo.svg">
 
 Opinionated and flexible ESLint config with [TypeScript][typescript-eslint],
-[Vue][vue], [Astro][astro] support and [oxlint][oxlint] integration.
+[Vue][vue], [Astro][astro] support and [oxlint][oxlint]/[oxfmt][oxfmt] integration.
 
 - **Modern**: ESLint flat config with pregenerated TypeScript definitions
 - **Strict**: Opinionated and rigorous linting rules for better code quality
 - **Flexible**: Framework-agnostic with optional plugins
 - **Zero-config**: Works out of the box, customize as needed
-- **Fast**: Optional [oxlint][oxlint] integration (50-100x faster)
+- **Fast**: Optional [oxlint][oxlint]/[oxfmt][oxfmt] integration (50-100x faster linting and formatting)
 - **Actively maintained** and **production-tested** across diverse
   client projects at [FANS][fans] — both new and existing
 
@@ -40,7 +40,7 @@ Opinionated and flexible ESLint config with [TypeScript][typescript-eslint],
 	- [Vue](#vue)
 	- [Nuxt](#nuxt)
 	- [Astro](#astro)
-- [Oxlint Support](#oxlint-support)
+- [Oxlint and Oxfmt Support](#oxlint-and-oxfmt-support)
 - [Inspect](#inspect)
 - [Inspired By](#inspired-by)
 - [Contributing](#contributing)
@@ -268,7 +268,7 @@ This enables linting for `.astro` files with proper TypeScript support
 and Astro-specific rules.
 
 
-## Oxlint Support
+## Oxlint and Oxfmt Support
 
 This config includes built-in support for [oxlint][oxlint] — a blazing-fast
 JavaScript linter written in Rust by [void(0)][voidzero].
@@ -276,24 +276,34 @@ Oxlint is **50-100 times faster** than ESLint and designed
 for performance-critical workflows, making it perfect for large codebases
 and CI environments.
 
-> **Note:** Oxlint doesn’t support all ESLint rules yet.
+> **Note:** Oxlint doesn't support all ESLint rules yet.
 > Check the [generated list of unsupported rules][unsupported-rules] to see
 > which rules from this config are not available in oxlint.
 
 
 ### Enabling Oxlint
 
-1. **Install oxlint:**
+We recommend following the [official migration guide][oxlint-migrate]
+for the most up-to-date instructions.
+
+1. **Create your ESLint config** as described above
+
+2. **Install oxlint:**
    ```bash
    pnpm add -D oxlint
    ```
 
-2. **Create your ESLint config** as described above
-
 3. **Generate oxlint configuration** from your ESLint config:
    ```bash
-   pnpx @oxlint/migrate ./eslint.config.js
+   pnpx @oxlint/migrate ./eslint.config.js --type-aware --js-plugins
    ```
+
+   This command migrates your ESLint configuration to oxlint format:
+   - `--type-aware`: Generates configuration for TypeScript type-aware rules
+   - `--js-plugins`: Migrates JavaScript plugin rules to their oxlint equivalents
+
+   > **Note:** After migration, you may need to manually install some JavaScript plugins
+   > to your dev dependencies that oxlint requires but doesn't install automatically.
 
 4. **Enable oxlint** in your configuration:
    ```javascript
@@ -313,6 +323,47 @@ and CI environments.
      },
    })
    ```
+
+> **Important:** We still recommend [running oxlint and ESLint together][oxlint-eslint-together],
+> as oxlint doesn't support all ESLint rules yet. Use oxlint for fast feedback
+> during development and ESLint for comprehensive checks in CI.
+
+
+### Using Oxfmt for Formatting
+
+If you want to use [oxfmt][oxfmt] for formatting instead of Prettier or Stylistic:
+
+1. **Disable formatting** in your ESLint config (see [Formatting](#formatting) for details):
+   ```javascript
+   export default defineConfig({
+     typescript: true,
+     formatter: false, // Disable ESLint formatting rules
+   })
+   ```
+
+2. **Install oxfmt:**
+   ```bash
+   pnpm add -D oxfmt
+   ```
+
+3. **Initialize oxfmt configuration:**
+   ```bash
+   pnpx oxfmt --init
+   ```
+
+   This creates an `oxc.json` file with [formatter configuration][oxfmt-config].
+
+4. **Add format scripts** to your `package.json`:
+   ```json
+   {
+     "scripts": {
+       "format": "oxfmt",
+       "format:check": "oxfmt --check"
+     }
+   }
+   ```
+
+For more details, see the [oxfmt quickstart guide][oxfmt-quickstart].
 
 
 ## Inspect
@@ -379,6 +430,11 @@ All versions follow [Semantic Versioning][semver].
 [stylistic-options]: https://github.com/eslint-stylistic/eslint-stylistic/blob/main/packages/eslint-plugin/dts/options.d.ts
 [astro-site]: https://astro.build/
 [oxlint]: https://oxc.rs/docs/guide/usage/linter.html
+[oxlint-migrate]: https://oxc.rs/docs/guide/usage/linter/migrate-from-eslint.html
+[oxlint-eslint-together]: https://oxc.rs/docs/guide/usage/linter/migrate-from-eslint.html#running-oxlint-and-eslint-together
+[oxfmt]: https://oxc.rs/docs/guide/usage/formatter.html
+[oxfmt-quickstart]: https://oxc.rs/docs/guide/usage/formatter/quickstart.html
+[oxfmt-config]: https://oxc.rs/docs/guide/usage/formatter/quickstart.html#create-a-config-file
 [voidzero]: https://voidzero.dev/
 [unsupported-rules]: ./docs/oxlint/UNSUPPORTED-RULES.md
 [antfu-config]: https://github.com/antfu/eslint-config
