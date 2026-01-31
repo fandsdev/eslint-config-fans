@@ -104,13 +104,13 @@ export function vue(options = {}) {
 					: {},
 
 				// Disabled for compatibility with external formatters (Prettier, oxfmt, etc.)
-				...options.usePrettier
-					? {
+				...options.useStylistic
+					? {}
+					: {
 							'vue/html-indent': 'off',
 							'vue/html-self-closing': 'off',
 							'vue/html-closing-bracket-newline': 'off',
-						}
-					: {},
+						},
 			},
 		},
 	])
