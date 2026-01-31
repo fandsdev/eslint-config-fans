@@ -4,13 +4,13 @@
      src="https://github.com/fandsdev/eslint-config-fans/blob/546c9e682629694b9b068d2ef139246d325665ed/img/logo.svg">
 
 Opinionated and flexible ESLint config with [TypeScript][typescript-eslint],
-[Vue][vue], [Astro][astro] support and [oxlint][oxlint]/[oxfmt][oxfmt] integration.
+[Vue][vue], [Astro][astro] support and [oxlint][oxlint] / [oxfmt][oxfmt] integration.
 
 - **Modern**: ESLint flat config with pregenerated TypeScript definitions
 - **Strict**: Opinionated and rigorous linting rules for better code quality
 - **Flexible**: Framework-agnostic with optional plugins
 - **Zero-config**: Works out of the box, customize as needed
-- **Fast**: Optional [oxlint][oxlint]/[oxfmt][oxfmt] integration (50-100x faster linting and formatting)
+- **Fast**: Optional [oxlint][oxlint] / [oxfmt][oxfmt] integration (50-100x faster linting and formatting)
 - **Actively maintained** and **production-tested** across diverse
   client projects at [FANS][fans] — both new and existing
 
