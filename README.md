@@ -63,7 +63,6 @@ export default defineConfig({
   // Enable features based on your project
   typescript: true,
   vue: true,
-  prettier: true,
 })
 ```
 
@@ -92,11 +91,8 @@ interface DefineConfigOptions {
   // Enable test files support (Vitest)
   test?: boolean // default: false
 
-  // Enable stylistic formatting rules
-  stylistic?: boolean | StylisticOptions // default: false
-
-  // Enable Prettier integration
-  prettier?: boolean // default: false
+	// Configure code formatting integration
+	formatter?: FormatterOptions | "prettier" | "stylistic" | false // default: false
 
   // Enable unicorn rules (opinionated best practices)
   unicorn?: boolean // default: true
@@ -303,13 +299,12 @@ for the most up-to-date instructions.
    - `--js-plugins`: Migrates JavaScript plugin rules to their oxlint equivalents
 
    > **Note:** After migration, you may need to manually install some JavaScript plugins
-   > to your dev dependencies that oxlint requires but doesn't install automatically.
+   > to your dev dependencies that oxlint requires but doesn’t install automatically.
 
 4. **Enable oxlint** in your configuration:
    ```javascript
    export default defineConfig({
      typescript: true,
-     vue: true,
      oxlint: true, // Enable oxlint support
    })
    ```
@@ -325,7 +320,7 @@ for the most up-to-date instructions.
    ```
 
 > **Important:** We still recommend [running oxlint and ESLint together][oxlint-eslint-together],
-> as oxlint doesn't support all ESLint rules yet. Use oxlint for fast feedback
+> as oxlint doesn’t support all ESLint rules yet. Use oxlint for fast feedback
 > during development and ESLint for comprehensive checks in CI.
 
 
