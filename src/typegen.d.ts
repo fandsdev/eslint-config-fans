@@ -3215,99 +3215,6 @@ export interface RuleOptions {
    */
   'vitest/warn-todo'?: Linter.RuleEntry<[]>
   /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/alt-text.html
-   */
-  'vue-a11y/alt-text'?: Linter.RuleEntry<VueA11YAltText>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/anchor-has-content.html
-   */
-  'vue-a11y/anchor-has-content'?: Linter.RuleEntry<VueA11YAnchorHasContent>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/aria-props.html
-   */
-  'vue-a11y/aria-props'?: Linter.RuleEntry<[]>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/aria-role.html
-   */
-  'vue-a11y/aria-role'?: Linter.RuleEntry<VueA11YAriaRole>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/aria-unsupported-elements.html
-   */
-  'vue-a11y/aria-unsupported-elements'?: Linter.RuleEntry<[]>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/click-events-have-key-events.html
-   */
-  'vue-a11y/click-events-have-key-events'?: Linter.RuleEntry<[]>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/form-control-has-label.html
-   */
-  'vue-a11y/form-control-has-label'?: Linter.RuleEntry<VueA11YFormControlHasLabel>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/heading-has-content.html
-   */
-  'vue-a11y/heading-has-content'?: Linter.RuleEntry<VueA11YHeadingHasContent>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/iframe-has-title.html
-   */
-  'vue-a11y/iframe-has-title'?: Linter.RuleEntry<[]>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/interactive-supports-focus.html
-   */
-  'vue-a11y/interactive-supports-focus'?: Linter.RuleEntry<VueA11YInteractiveSupportsFocus>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/label-has-for.html
-   */
-  'vue-a11y/label-has-for'?: Linter.RuleEntry<VueA11YLabelHasFor>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/media-has-caption.html
-   */
-  'vue-a11y/media-has-caption'?: Linter.RuleEntry<VueA11YMediaHasCaption>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/mouse-events-have-key-events.html
-   */
-  'vue-a11y/mouse-events-have-key-events'?: Linter.RuleEntry<[]>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/no-access-key.html
-   */
-  'vue-a11y/no-access-key'?: Linter.RuleEntry<[]>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/no-aria-hidden-on-focusable.html
-   */
-  'vue-a11y/no-aria-hidden-on-focusable'?: Linter.RuleEntry<[]>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/no-autofocus.html
-   */
-  'vue-a11y/no-autofocus'?: Linter.RuleEntry<VueA11YNoAutofocus>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/no-distracting-elements.html
-   */
-  'vue-a11y/no-distracting-elements'?: Linter.RuleEntry<VueA11YNoDistractingElements>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/no-onchange.html
-   * @deprecated
-   */
-  'vue-a11y/no-onchange'?: Linter.RuleEntry<[]>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/no-redundant-roles.html
-   */
-  'vue-a11y/no-redundant-roles'?: Linter.RuleEntry<VueA11YNoRedundantRoles>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/no-role-presentation-on-focusable.html
-   */
-  'vue-a11y/no-role-presentation-on-focusable'?: Linter.RuleEntry<[]>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/no-static-element-interactions.html
-   */
-  'vue-a11y/no-static-element-interactions'?: Linter.RuleEntry<[]>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/role-has-required-aria-props.html
-   */
-  'vue-a11y/role-has-required-aria-props'?: Linter.RuleEntry<[]>
-  /**
-   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/tabindex-no-positive.html
-   */
-  'vue-a11y/tabindex-no-positive'?: Linter.RuleEntry<[]>
-  /**
    * Enforce linebreaks after opening and before closing array brackets in `<template>`
    * @see https://eslint.vuejs.org/rules/array-bracket-newline.html
    */
@@ -4561,6 +4468,99 @@ export interface RuleOptions {
    * @see https://eslint.vuejs.org/rules/valid-v-text.html
    */
   'vue/valid-v-text'?: Linter.RuleEntry<[]>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/alt-text.html
+   */
+  'vuejs-accessibility/alt-text'?: Linter.RuleEntry<VuejsAccessibilityAltText>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/anchor-has-content.html
+   */
+  'vuejs-accessibility/anchor-has-content'?: Linter.RuleEntry<VuejsAccessibilityAnchorHasContent>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/aria-props.html
+   */
+  'vuejs-accessibility/aria-props'?: Linter.RuleEntry<[]>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/aria-role.html
+   */
+  'vuejs-accessibility/aria-role'?: Linter.RuleEntry<VuejsAccessibilityAriaRole>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/aria-unsupported-elements.html
+   */
+  'vuejs-accessibility/aria-unsupported-elements'?: Linter.RuleEntry<[]>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/click-events-have-key-events.html
+   */
+  'vuejs-accessibility/click-events-have-key-events'?: Linter.RuleEntry<[]>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/form-control-has-label.html
+   */
+  'vuejs-accessibility/form-control-has-label'?: Linter.RuleEntry<VuejsAccessibilityFormControlHasLabel>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/heading-has-content.html
+   */
+  'vuejs-accessibility/heading-has-content'?: Linter.RuleEntry<VuejsAccessibilityHeadingHasContent>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/iframe-has-title.html
+   */
+  'vuejs-accessibility/iframe-has-title'?: Linter.RuleEntry<[]>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/interactive-supports-focus.html
+   */
+  'vuejs-accessibility/interactive-supports-focus'?: Linter.RuleEntry<VuejsAccessibilityInteractiveSupportsFocus>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/label-has-for.html
+   */
+  'vuejs-accessibility/label-has-for'?: Linter.RuleEntry<VuejsAccessibilityLabelHasFor>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/media-has-caption.html
+   */
+  'vuejs-accessibility/media-has-caption'?: Linter.RuleEntry<VuejsAccessibilityMediaHasCaption>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/mouse-events-have-key-events.html
+   */
+  'vuejs-accessibility/mouse-events-have-key-events'?: Linter.RuleEntry<[]>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/no-access-key.html
+   */
+  'vuejs-accessibility/no-access-key'?: Linter.RuleEntry<[]>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/no-aria-hidden-on-focusable.html
+   */
+  'vuejs-accessibility/no-aria-hidden-on-focusable'?: Linter.RuleEntry<[]>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/no-autofocus.html
+   */
+  'vuejs-accessibility/no-autofocus'?: Linter.RuleEntry<VuejsAccessibilityNoAutofocus>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/no-distracting-elements.html
+   */
+  'vuejs-accessibility/no-distracting-elements'?: Linter.RuleEntry<VuejsAccessibilityNoDistractingElements>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/no-onchange.html
+   * @deprecated
+   */
+  'vuejs-accessibility/no-onchange'?: Linter.RuleEntry<[]>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/no-redundant-roles.html
+   */
+  'vuejs-accessibility/no-redundant-roles'?: Linter.RuleEntry<VuejsAccessibilityNoRedundantRoles>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/no-role-presentation-on-focusable.html
+   */
+  'vuejs-accessibility/no-role-presentation-on-focusable'?: Linter.RuleEntry<[]>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/no-static-element-interactions.html
+   */
+  'vuejs-accessibility/no-static-element-interactions'?: Linter.RuleEntry<[]>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/role-has-required-aria-props.html
+   */
+  'vuejs-accessibility/role-has-required-aria-props'?: Linter.RuleEntry<[]>
+  /**
+   * @see https://vue-a11y.github.io/eslint-plugin-vuejs-accessibility/rules/tabindex-no-positive.html
+   */
+  'vuejs-accessibility/tabindex-no-positive'?: Linter.RuleEntry<[]>
 }
 
 /* ======= Declarations ======= */
@@ -11992,77 +11992,6 @@ type VitestValidTitle = []|[{
     [k: string]: (string | [string]|[string, string]) | undefined
   })
 }]
-// ----- vue-a11y/alt-text -----
-type VueA11YAltText = []|[{
-  elements?: string[]
-  img?: string[]
-  object?: string[]
-  area?: string[]
-  "input[type=\"image\"]"?: string[]
-  [k: string]: unknown | undefined
-}]
-// ----- vue-a11y/anchor-has-content -----
-type VueA11YAnchorHasContent = []|[{
-  components?: string[]
-  accessibleChildren?: string[]
-  accessibleDirectives?: string[]
-  [k: string]: unknown | undefined
-}]
-// ----- vue-a11y/aria-role -----
-type VueA11YAriaRole = []|[{
-  ignoreNonDOM?: boolean
-}]
-// ----- vue-a11y/form-control-has-label -----
-type VueA11YFormControlHasLabel = []|[{
-  labelComponents?: string[]
-  controlComponents?: string[]
-  [k: string]: unknown | undefined
-}]
-// ----- vue-a11y/heading-has-content -----
-type VueA11YHeadingHasContent = []|[{
-  components?: string[]
-  accessibleChildren?: string[]
-  accessibleDirectives?: string[]
-  [k: string]: unknown | undefined
-}]
-// ----- vue-a11y/interactive-supports-focus -----
-type VueA11YInteractiveSupportsFocus = []|[{
-  tabbable?: ("button" | "checkbox" | "columnheader" | "combobox" | "grid" | "gridcell" | "link" | "listbox" | "menu" | "menubar" | "menuitem" | "menuitemcheckbox" | "menuitemradio" | "option" | "progressbar" | "radio" | "radiogroup" | "row" | "rowheader" | "scrollbar" | "searchbox" | "slider" | "spinbutton" | "switch" | "tab" | "tablist" | "textbox" | "tree" | "treegrid" | "treeitem" | "doc-backlink" | "doc-biblioref" | "doc-glossref" | "doc-noteref")[]
-  [k: string]: unknown | undefined
-}]
-// ----- vue-a11y/label-has-for -----
-type VueA11YLabelHasFor = []|[{
-  components?: string[]
-  controlComponents?: string[]
-  required?: (("nesting" | "id") | {
-    some: ("nesting" | "id")[]
-    [k: string]: unknown | undefined
-  } | {
-    every: ("nesting" | "id")[]
-    [k: string]: unknown | undefined
-  })
-  allowChildren?: boolean
-  [k: string]: unknown | undefined
-}]
-// ----- vue-a11y/media-has-caption -----
-type VueA11YMediaHasCaption = []|[{
-  audio?: string[]
-  track?: string[]
-  video?: string[]
-  [k: string]: unknown | undefined
-}]
-// ----- vue-a11y/no-autofocus -----
-type VueA11YNoAutofocus = []|[{
-  ignoreNonDOM?: boolean
-}]
-// ----- vue-a11y/no-distracting-elements -----
-type VueA11YNoDistractingElements = []|[{
-  [k: string]: unknown | undefined
-}]
-// ----- vue-a11y/no-redundant-roles -----
-type VueA11YNoRedundantRoles = []|[{
-  [k: string]: string[] | undefined
-}]
 // ----- vue/array-bracket-newline -----
 type VueArrayBracketNewline = []|[(("always" | "never" | "consistent") | {
   multiline?: boolean
@@ -13261,6 +13190,77 @@ type VueValidVOn = []|[{
 // ----- vue/valid-v-slot -----
 type VueValidVSlot = []|[{
   allowModifiers?: boolean
+}]
+// ----- vuejs-accessibility/alt-text -----
+type VuejsAccessibilityAltText = []|[{
+  elements?: string[]
+  img?: string[]
+  object?: string[]
+  area?: string[]
+  "input[type=\"image\"]"?: string[]
+  [k: string]: unknown | undefined
+}]
+// ----- vuejs-accessibility/anchor-has-content -----
+type VuejsAccessibilityAnchorHasContent = []|[{
+  components?: string[]
+  accessibleChildren?: string[]
+  accessibleDirectives?: string[]
+  [k: string]: unknown | undefined
+}]
+// ----- vuejs-accessibility/aria-role -----
+type VuejsAccessibilityAriaRole = []|[{
+  ignoreNonDOM?: boolean
+}]
+// ----- vuejs-accessibility/form-control-has-label -----
+type VuejsAccessibilityFormControlHasLabel = []|[{
+  labelComponents?: string[]
+  controlComponents?: string[]
+  [k: string]: unknown | undefined
+}]
+// ----- vuejs-accessibility/heading-has-content -----
+type VuejsAccessibilityHeadingHasContent = []|[{
+  components?: string[]
+  accessibleChildren?: string[]
+  accessibleDirectives?: string[]
+  [k: string]: unknown | undefined
+}]
+// ----- vuejs-accessibility/interactive-supports-focus -----
+type VuejsAccessibilityInteractiveSupportsFocus = []|[{
+  tabbable?: ("button" | "checkbox" | "columnheader" | "combobox" | "grid" | "gridcell" | "link" | "listbox" | "menu" | "menubar" | "menuitem" | "menuitemcheckbox" | "menuitemradio" | "option" | "progressbar" | "radio" | "radiogroup" | "row" | "rowheader" | "scrollbar" | "searchbox" | "slider" | "spinbutton" | "switch" | "tab" | "tablist" | "textbox" | "tree" | "treegrid" | "treeitem" | "doc-backlink" | "doc-biblioref" | "doc-glossref" | "doc-noteref")[]
+  [k: string]: unknown | undefined
+}]
+// ----- vuejs-accessibility/label-has-for -----
+type VuejsAccessibilityLabelHasFor = []|[{
+  components?: string[]
+  controlComponents?: string[]
+  required?: (("nesting" | "id") | {
+    some: ("nesting" | "id")[]
+    [k: string]: unknown | undefined
+  } | {
+    every: ("nesting" | "id")[]
+    [k: string]: unknown | undefined
+  })
+  allowChildren?: boolean
+  [k: string]: unknown | undefined
+}]
+// ----- vuejs-accessibility/media-has-caption -----
+type VuejsAccessibilityMediaHasCaption = []|[{
+  audio?: string[]
+  track?: string[]
+  video?: string[]
+  [k: string]: unknown | undefined
+}]
+// ----- vuejs-accessibility/no-autofocus -----
+type VuejsAccessibilityNoAutofocus = []|[{
+  ignoreNonDOM?: boolean
+}]
+// ----- vuejs-accessibility/no-distracting-elements -----
+type VuejsAccessibilityNoDistractingElements = []|[{
+  [k: string]: unknown | undefined
+}]
+// ----- vuejs-accessibility/no-redundant-roles -----
+type VuejsAccessibilityNoRedundantRoles = []|[{
+  [k: string]: string[] | undefined
 }]
 // Names of all the configs
 export type ConfigNames = 'fans/ignores' | 'fans/ignores/git' | 'fans/javascript' | 'fans/imports' | 'fans/promise' | 'fans/node' | 'fans/de-morgan' | 'fans/unicorn' | 'fans/unicorn/vue' | 'fans/unicorn/astro' | 'fans/unicorn/astro/pages' | 'fans/unicorn/storybook' | 'fans/unicorn/testing' | 'fans/typescript' | 'fans/typescript/testing' | 'fans/vue' | 'fans/astro' | 'fans/prettier' | 'fans/stylistic' | 'fans/perfectionist' | 'fans/oxlint/oxlint-config-ignore-patterns' | 'fans/oxlint/from-oxlint-config' | 'fans/oxlint/vue-svelte-exceptions' | 'fans/oxlint/from-oxlint-config-override-0' | 'fans/oxlint/from-oxlint-config-override-1' | 'fans/oxlint/from-oxlint-config-override-2' | 'fans/oxlint/from-oxlint-config-override-3' | 'fans/oxlint/from-oxlint-config-override-4' | 'fans/oxlint/from-oxlint-config-override-5' | 'fans/oxlint/from-oxlint-config-override-6' | 'fans/oxlint/from-oxlint-config-override-7' | 'fans/oxlint/from-oxlint-config-override-8'
