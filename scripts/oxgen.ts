@@ -71,7 +71,7 @@ async function generateRules(): Promise<void> {
 
 		let output = ''
 		const result = await execAsync(
-			'pnpm dlx @oxlint/migrate ./eslint-oxlint.config.js --type-aware --js-plugins --details',
+			'pnpm dlx @oxlint/migrate ./scripts/eslint-no-oxlint.config.js --type-aware --js-plugins --details',
 		)
 		output = String(result.stdout) + '\n' + String(result.stderr)
 
