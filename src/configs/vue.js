@@ -1,6 +1,6 @@
 import parserTypescript from '@typescript-eslint/parser'
 import pluginVue from 'eslint-plugin-vue'
-import pluginVueA11y from 'eslint-plugin-vuejs-accessibility'
+import pluginVueAccessibility from 'eslint-plugin-vuejs-accessibility'
 import parserVue from 'vue-eslint-parser'
 import { GLOB_VUE } from '../globs.js'
 import { defineConfig } from '../utils/index.js'
@@ -26,13 +26,19 @@ export function vue(options = {}) {
 			...current.rules,
 		}), {})
 
+	const vuejsAccessibilityRecommendedRules = pluginVueAccessibility.configs['flat/recommended']
+		.reduce((previous, current) => ({
+			...previous,
+			...current.rules,
+		}), {})
+
 	return defineConfig([
 		{
 			name: 'fans/vue',
 			files: [GLOB_VUE],
 			plugins: {
 				vue: pluginVue,
-				...options.a11y ? { 'vue-a11y': pluginVueA11y } : {},
+				...options.a11y ? { 'vuejs-accessibility': pluginVueAccessibility } : {},
 			},
 			processor: pluginVue.processors.vue,
 			languageOptions: options.typescript ? languageOptionsWithTS : null,
@@ -78,28 +84,8 @@ export function vue(options = {}) {
 
 				...options.a11y
 					? {
-							'vue-a11y/alt-text': 'error',
-							'vue-a11y/anchor-has-content': 'error',
-							'vue-a11y/aria-props': 'error',
-							'vue-a11y/aria-role': 'error',
-							'vue-a11y/aria-unsupported-elements': 'error',
-							'vue-a11y/click-events-have-key-events': 'error',
-							'vue-a11y/form-control-has-label': 'error',
-							'vue-a11y/heading-has-content': 'error',
-							'vue-a11y/iframe-has-title': 'error',
-							'vue-a11y/interactive-supports-focus': 'error',
-							'vue-a11y/label-has-for': 'error',
-							'vue-a11y/media-has-caption': 'warn',
-							'vue-a11y/mouse-events-have-key-events': 'error',
-							'vue-a11y/no-access-key': 'error',
-							'vue-a11y/no-aria-hidden-on-focusable': 'error',
-							'vue-a11y/no-autofocus': 'warn',
-							'vue-a11y/no-distracting-elements': 'error',
-							'vue-a11y/no-redundant-roles': 'error',
-							'vue-a11y/no-role-presentation-on-focusable': 'error',
-							'vue-a11y/no-static-element-interactions': 'error',
-							'vue-a11y/role-has-required-aria-props': 'error',
-							'vue-a11y/tabindex-no-positive': 'warn',
+							...vuejsAccessibilityRecommendedRules,
+							'vuejs-accessibility/tabindex-no-positive': 'warn',
 						}
 					: {},
 

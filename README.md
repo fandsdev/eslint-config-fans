@@ -215,7 +215,7 @@ and TypeScript integration:
 export default defineConfig({
   typescript: true,
   vue: {
-    // Enable vue-a11y rules
+    // Enable vuejs-accessibility rules
     a11y: true,
 
     // Ignore undefined components for the `vue/no-undef-components` rule
