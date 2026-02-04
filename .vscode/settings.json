@@ -4,5 +4,5 @@
     "source.fixAll.oxc": "explicit",
     "source.fixAll.eslint": "explicit"
   },
-  "oxc.enable": false
+  "oxc.enable": true
 }
