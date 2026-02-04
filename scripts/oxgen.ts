@@ -7,27 +7,59 @@ import { promisify } from 'node:util'
 
 const execAsync = promisify(exec)
 
-function parseOutput(output: string): string[] {
+interface ParsedRules {
+	nursery: string[]
+	unsupported: string[]
+	totalSkipped: number
+}
+
+function parseOutput(output: string): ParsedRules {
 	const lines = output.split('\n')
-	const rules: string[] = []
+	const nursery: string[] = []
+	const unsupported: string[] = []
+
+	let currentSection: 'none' | 'nursery' | 'unsupported' = 'none'
+	let totalSkipped = 0
 
 	for (const line of lines) {
 		const trimmed = line.trim()
 
-		if (trimmed.includes('unsupported rule, but in development:')) {
-			const ruleName = trimmed.replace('unsupported rule, but in development:', '').trim()
-			if (ruleName) {
-				rules.push(`- \`${ruleName}\` *(in development)*`)
-			}
-		} else if (trimmed.includes('unsupported rule:')) {
-			const ruleName = trimmed.replace('unsupported rule:', '').trim()
-			if (ruleName) {
-				rules.push(`- \`${ruleName}\``)
+		// Parse total skipped count
+		const skippedRegex = /Skipped (\d+) rules:/
+		const skippedMatch = skippedRegex.exec(trimmed)
+		if (skippedMatch) {
+			totalSkipped = Number.parseInt(skippedMatch[1], 10)
+			continue
+		}
+
+		// Detect section headers
+		const nurseryRegex = /- \d+ Nursery/
+		if (nurseryRegex.test(trimmed)) {
+			currentSection = 'nursery'
+			continue
+		}
+
+		const unsupportedRegex = /- \d+ Unsupported/
+		if (unsupportedRegex.test(trimmed)) {
+			currentSection = 'unsupported'
+			continue
+		}
+
+		// Parse rule names
+		if (trimmed.startsWith('- ') && currentSection !== 'none') {
+			const ruleName = trimmed.slice(2).trim()
+			const digitRegex = /^\d+/
+			if (ruleName && !digitRegex.test(ruleName)) {
+				if (currentSection === 'nursery') {
+					nursery.push(ruleName)
+				} else if (currentSection === 'unsupported') {
+					unsupported.push(ruleName)
+				}
 			}
 		}
 	}
 
-	return rules
+	return { nursery, unsupported, totalSkipped }
 }
 
 async function generateRules(): Promise<void> {
@@ -38,23 +70,56 @@ async function generateRules(): Promise<void> {
 		}
 
 		let output = ''
-		const result = await execAsync('pnpm dlx @oxlint/migrate ./eslint-oxlint.config.js')
+		const result = await execAsync(
+			'pnpm dlx @oxlint/migrate ./eslint-oxlint.config.js --type-aware --js-plugins --details',
+		)
 		output = String(result.stdout) + '\n' + String(result.stderr)
 
-		const rules = parseOutput(output)
+		const parsed = parseOutput(output)
 
-		if (rules.length === 0) {
-			console.warn('No unsupported rules found')
+		if (parsed.nursery.length === 0 && parsed.unsupported.length === 0) {
+			console.warn('No skipped rules found')
 			return
 		}
 
-		const markdown = `# Oxlint Unsupported Rules
+		const totalRules = parsed.nursery.length + parsed.unsupported.length
 
-${rules.join('\n')}
+		let markdown = `# Oxlint Unsupported Rules
+
+This document lists ESLint rules that are currently skipped by oxlint migration.
+
+## Summary
+
+- **Total skipped:** ${parsed.totalSkipped} rules
+- **Nursery:** ${parsed.nursery.length} rules
+- **Unsupported:** ${parsed.unsupported.length} rules
 `
+
+		if (parsed.nursery.length > 0) {
+			markdown += `\n## Nursery Rules (In Development)
+
+These rules are currently being developed and will be available in future versions:
+
+${parsed.nursery.map(rule => `- \`${rule}\``).join('\n')}
+`
+		}
+
+		if (parsed.unsupported.length > 0) {
+			markdown += `\n## Unsupported Rules
+
+These rules are not yet supported by oxlint:
+
+${parsed.unsupported.map(rule => `- \`${rule}\``).join('\n')}
+`
+		}
 
 		const outputPath = path.join(documentationDirectory, 'UNSUPPORTED-RULES.md')
 		writeFileSync(outputPath, markdown, 'utf8')
+
+		// oxlint-disable-next-line no-console
+		console.log(
+			`✅ Generated UNSUPPORTED-RULES.md with ${totalRules} rules (${parsed.nursery.length} nursery, ${parsed.unsupported.length} unsupported)`,
+		)
 	} catch (error) {
 		console.error('Error generating oxlint rules:', error)
 		process.exit(1)

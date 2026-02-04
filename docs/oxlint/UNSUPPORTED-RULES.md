@@ -1,5 +1,29 @@
 # Oxlint Unsupported Rules
 
+This document lists ESLint rules that are currently skipped by oxlint migration.
+
+## Summary
+
+- **Total skipped:** 176 rules
+- **Nursery:** 7 rules
+- **Unsupported:** 169 rules
+
+## Nursery Rules (In Development)
+
+These rules are currently being developed and will be available in future versions:
+
+- `getter-return`
+- `no-misleading-character-class`
+- `no-undef`
+- `no-unreachable`
+- `import-x/export`
+- `promise/no-return-in-finally`
+- `@typescript-eslint/prefer-optional-chain`
+
+## Unsupported Rules
+
+These rules are not yet supported by oxlint:
+
 - `consistent-this`
 - `dot-notation`
 - `func-name-matching`
@@ -19,7 +43,6 @@
 - `no-unreachable-loop`
 - `object-shorthand`
 - `prefer-arrow-callback`
-- `prefer-const`
 - `prefer-regex-literals`
 - `strict`
 - `n/handle-callback-err`
@@ -33,8 +56,6 @@
 - `n/prefer-global/buffer`
 - `n/prefer-node-protocol`
 - `n/process-exit-as-throw`
-- `de-morgan/no-negated-conjunction`
-- `de-morgan/no-negated-disjunction`
 - `unicorn/better-regex`
 - `unicorn/custom-error-definition`
 - `unicorn/expiring-todo-comments`
@@ -58,74 +79,6 @@
 - `@typescript-eslint/prefer-find`
 - `@typescript-eslint/prefer-regexp-exec`
 - `@typescript-eslint/prefer-string-starts-ends-with`
-- `@stylistic/array-bracket-spacing`
-- `@stylistic/arrow-parens`
-- `@stylistic/arrow-spacing`
-- `@stylistic/block-spacing`
-- `@stylistic/brace-style`
-- `@stylistic/comma-dangle`
-- `@stylistic/comma-spacing`
-- `@stylistic/comma-style`
-- `@stylistic/computed-property-spacing`
-- `@stylistic/dot-location`
-- `@stylistic/eol-last`
-- `@stylistic/generator-star-spacing`
-- `@stylistic/indent`
-- `@stylistic/indent-binary-ops`
-- `@stylistic/key-spacing`
-- `@stylistic/keyword-spacing`
-- `@stylistic/lines-between-class-members`
-- `@stylistic/max-statements-per-line`
-- `@stylistic/member-delimiter-style`
-- `@stylistic/multiline-ternary`
-- `@stylistic/new-parens`
-- `@stylistic/no-extra-parens`
-- `@stylistic/no-floating-decimal`
-- `@stylistic/no-mixed-operators`
-- `@stylistic/no-mixed-spaces-and-tabs`
-- `@stylistic/no-multi-spaces`
-- `@stylistic/no-multiple-empty-lines`
-- `@stylistic/no-trailing-spaces`
-- `@stylistic/no-whitespace-before-property`
-- `@stylistic/object-curly-spacing`
-- `@stylistic/operator-linebreak`
-- `@stylistic/padded-blocks`
-- `@stylistic/quote-props`
-- `@stylistic/quotes`
-- `@stylistic/rest-spread-spacing`
-- `@stylistic/semi`
-- `@stylistic/semi-spacing`
-- `@stylistic/space-before-blocks`
-- `@stylistic/space-before-function-paren`
-- `@stylistic/space-in-parens`
-- `@stylistic/space-infix-ops`
-- `@stylistic/space-unary-ops`
-- `@stylistic/spaced-comment`
-- `@stylistic/template-curly-spacing`
-- `@stylistic/template-tag-spacing`
-- `@stylistic/type-annotation-spacing`
-- `@stylistic/type-generic-spacing`
-- `@stylistic/type-named-tuple-spacing`
-- `@stylistic/wrap-iife`
-- `@stylistic/yield-star-spacing`
-- `@stylistic/jsx-closing-bracket-location`
-- `@stylistic/jsx-closing-tag-location`
-- `@stylistic/jsx-curly-brace-presence`
-- `@stylistic/jsx-curly-newline`
-- `@stylistic/jsx-curly-spacing`
-- `@stylistic/jsx-equals-spacing`
-- `@stylistic/jsx-first-prop-new-line`
-- `@stylistic/jsx-function-call-newline`
-- `@stylistic/jsx-indent-props`
-- `@stylistic/jsx-max-props-per-line`
-- `@stylistic/jsx-one-expression-per-line`
-- `@stylistic/jsx-quotes`
-- `@stylistic/jsx-tag-spacing`
-- `@stylistic/jsx-wrap-multilines`
-- `perfectionist/sort-exports`
-- `perfectionist/sort-imports`
-- `perfectionist/sort-named-exports`
-- `perfectionist/sort-named-imports`
 - `vue/comment-directive`
 - `vue/jsx-uses-vars`
 - `vue/multi-word-component-names`
@@ -240,33 +193,3 @@
 - `vue/padding-line-between-blocks`
 - `vue/prefer-define-options`
 - `vue/prefer-use-template-ref`
-- `vue-a11y/alt-text`
-- `vue-a11y/anchor-has-content`
-- `vue-a11y/aria-props`
-- `vue-a11y/aria-role`
-- `vue-a11y/aria-unsupported-elements`
-- `vue-a11y/click-events-have-key-events`
-- `vue-a11y/form-control-has-label`
-- `vue-a11y/heading-has-content`
-- `vue-a11y/iframe-has-title`
-- `vue-a11y/interactive-supports-focus`
-- `vue-a11y/label-has-for`
-- `vue-a11y/media-has-caption`
-- `vue-a11y/mouse-events-have-key-events`
-- `vue-a11y/no-access-key`
-- `vue-a11y/no-aria-hidden-on-focusable`
-- `vue-a11y/no-autofocus`
-- `vue-a11y/no-distracting-elements`
-- `vue-a11y/no-redundant-roles`
-- `vue-a11y/no-role-presentation-on-focusable`
-- `vue-a11y/no-static-element-interactions`
-- `vue-a11y/role-has-required-aria-props`
-- `vue-a11y/tabindex-no-positive`
-- `astro/missing-client-only-directive-value`
-- `astro/no-conflict-set-directives`
-- `astro/no-deprecated-astro-canonicalurl`
-- `astro/no-deprecated-astro-fetchcontent`
-- `astro/no-deprecated-astro-resolve`
-- `astro/no-deprecated-getentrybyslug`
-- `astro/no-unused-define-vars-in-style`
-- `astro/valid-compile`
