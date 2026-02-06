@@ -28,14 +28,17 @@ export function unicorn(options = {}) {
 				'unicorn/prefer-ternary': ['error', 'only-single-line'],
 				'unicorn/prevent-abbreviations': ['error', {
 					replacements: {
+						acc: false,
 						arg: false,
 						args: false,
 						attrs: false,
 						el: false,
 						env: false,
 						ext: false,
+						fn: false,
 						param: false,
 						params: false,
+						prev: false,
 						props: false,
 						ref: false,
 						refs: false,
