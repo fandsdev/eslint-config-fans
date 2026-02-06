@@ -18,6 +18,7 @@ export function unicorn(options = {}) {
 				'unicorn/consistent-function-scoping': 'off',
 				'unicorn/explicit-length-check': 'off',
 				'unicorn/prefer-global-this': 'off',
+				'unicorn/prefer-dom-node-dataset': 'off',
 				'unicorn/no-array-reduce': 'off',
 				'unicorn/no-null': 'off',
 				'unicorn/no-array-callback-reference': 'off',
