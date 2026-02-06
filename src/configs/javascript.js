@@ -55,7 +55,6 @@ export function javascript() {
 				'max-depth': 'error',
 				'max-nested-callbacks': 'error',
 				'new-cap': 'error',
-				'no-alert': 'error',
 				'no-array-constructor': 'error',
 				'no-async-promise-executor': 'error',
 				'no-bitwise': 'error',
