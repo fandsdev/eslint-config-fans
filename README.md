@@ -4,7 +4,7 @@
      src="https://github.com/fandsdev/eslint-config-fans/blob/546c9e682629694b9b068d2ef139246d325665ed/img/logo.svg">
 
 Opinionated and flexible ESLint config with [TypeScript][typescript-eslint],
-[Vue][vue], [Astro][astro] support and [oxlint][oxlint] / [oxfmt][oxfmt] integration.
+[Vue][vue], [Nuxt][nuxt-eslint], [Next.js][next-eslint], [Astro][astro] support and [oxlint][oxlint] / [oxfmt][oxfmt] integration.
 
 - **Modern**: ESLint flat config with pregenerated TypeScript definitions
 - **Strict**: Opinionated and rigorous linting rules for better code quality
@@ -40,6 +40,7 @@ Opinionated and flexible ESLint config with [TypeScript][typescript-eslint],
 	- [Vue](#vue)
 	- [Nuxt](#nuxt)
 	- [Astro](#astro)
+	- [Next.js](#nextjs)
 - [Oxlint and Oxfmt Support](#oxlint-and-oxfmt-support)
 - [Inspect](#inspect)
 - [Inspired By](#inspired-by)
@@ -249,6 +250,25 @@ export default withNuxt(
 ```
 
 
+### Next.js
+
+Full compatibility with [Next.js ESLint][next-eslint]:
+
+```javascript
+import { defineConfig } from 'eslint-config-fans'
+import configNextCoreWebVitals from 'eslint-config-next/core-web-vitals'
+import configNextTypescript from 'eslint-config-next/typescript'
+
+export default defineConfig(
+  {
+    typescript: true,
+  },
+  ...configNextCoreWebVitals,
+  ...configNextTypescript,
+)
+```
+
+
 ### Astro
 
 Full support for [Astro][astro-site] projects with TypeScript integration:
@@ -413,6 +433,7 @@ All versions follow [Semantic Versioning][semver].
 [unicorn]: https://github.com/sindresorhus/eslint-plugin-unicorn
 [vue]: https://eslint.vuejs.org/
 [nuxt-eslint]: https://eslint.nuxt.com/
+[next-eslint]: https://nextjs.org/docs/app/building-your-application/configuring/eslint
 [astro]: https://ota-meshi.github.io/eslint-plugin-astro/
 [vitest]: https://github.com/vitest-dev/eslint-plugin-vitest
 [prettier]: https://github.com/prettier/eslint-plugin-prettier
