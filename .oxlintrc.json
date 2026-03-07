@@ -116,6 +116,7 @@
     "no-lonely-if": "error",
     "no-loop-func": "error",
     "no-loss-of-precision": "error",
+    "no-misleading-character-class": "error",
     "no-multi-assign": "error",
     "no-multi-str": "error",
     "no-new": "error",
@@ -138,6 +139,7 @@
     "no-self-compare": "error",
     "no-sequences": "error",
     "no-setter-return": "error",
+    "no-shadow": "error",
     "no-shadow-restricted-names": "error",
     "no-sparse-arrays": "error",
     "no-template-curly-in-string": "error",
@@ -145,6 +147,7 @@
     "no-throw-literal": "error",
     "no-unassigned-vars": "error",
     "no-unexpected-multiline": "error",
+    "no-unmodified-loop-condition": "error",
     "no-unneeded-ternary": "error",
     "no-unsafe-finally": "error",
     "no-unsafe-negation": "error",
@@ -291,6 +294,7 @@
     "unicorn/prefer-math-trunc": "error",
     "unicorn/prefer-modern-dom-apis": "error",
     "unicorn/prefer-modern-math-apis": "error",
+    "unicorn/prefer-module": "error",
     "unicorn/prefer-native-coercion-functions": "error",
     "unicorn/prefer-negative-index": "error",
     "unicorn/prefer-node-protocol": "error",
@@ -311,8 +315,13 @@
     "unicorn/prefer-string-starts-ends-with": "error",
     "unicorn/prefer-string-trim-start-end": "error",
     "unicorn/prefer-structured-clone": "error",
+    "unicorn/prefer-ternary": [
+      "error",
+      "only-single-line"
+    ],
     "unicorn/prefer-top-level-await": "error",
     "unicorn/prefer-type-error": "error",
+    "unicorn/relative-url-style": "error",
     "unicorn/require-array-join-separator": "error",
     "unicorn/require-module-attributes": "error",
     "unicorn/require-module-specifiers": "error",
@@ -749,7 +758,8 @@
     ],
     "node/global-require": "error",
     "node/no-exports-assign": "error",
-    "node/no-new-require": "error"
+    "node/no-new-require": "error",
+    "node/no-path-concat": "error"
   },
   "jsPlugins": [
     "eslint-plugin-de-morgan",
@@ -759,54 +769,7 @@
   "overrides": [
     {
       "files": [
-        "**/*.vue"
-      ],
-      "rules": {
-        "unicorn/filename-case": [
-          "error",
-          {
-            "case": "pascalCase"
-          }
-        ],
-        "vue/no-arrow-functions-in-watch": "error",
-        "vue/no-deprecated-destroyed-lifecycle": "error",
-        "vue/no-export-in-script-setup": "error",
-        "vue/no-lifecycle-after-await": "error",
-        "vue/prefer-import-from-vue": "error",
-        "vue/valid-define-emits": "error",
-        "vue/valid-define-props": "error",
-        "vue/no-multiple-slot-args": "warn",
-        "vue/no-required-prop-with-default": "warn",
-        "@typescript-eslint/prefer-function-type": "off",
-        "vue/define-props-declaration": [
-          "error",
-          "type-based"
-        ],
-        "vue/no-import-compiler-macros": "error",
-        "vuejs-accessibility/alt-text": "error",
-        "vuejs-accessibility/anchor-has-content": "error",
-        "vuejs-accessibility/aria-props": "error",
-        "vuejs-accessibility/aria-role": "error",
-        "vuejs-accessibility/aria-unsupported-elements": "error",
-        "vuejs-accessibility/click-events-have-key-events": "error",
-        "vuejs-accessibility/form-control-has-label": "error",
-        "vuejs-accessibility/heading-has-content": "error",
-        "vuejs-accessibility/iframe-has-title": "error",
-        "vuejs-accessibility/interactive-supports-focus": "error",
-        "vuejs-accessibility/label-has-for": "error",
-        "vuejs-accessibility/media-has-caption": "error",
-        "vuejs-accessibility/mouse-events-have-key-events": "error",
-        "vuejs-accessibility/no-access-key": "error",
-        "vuejs-accessibility/no-autofocus": "error",
-        "vuejs-accessibility/no-distracting-elements": "error",
-        "vuejs-accessibility/no-redundant-roles": "error",
-        "vuejs-accessibility/no-static-element-interactions": "error",
-        "vuejs-accessibility/role-has-required-aria-props": "error",
-        "vuejs-accessibility/tabindex-no-positive": "warn"
-      }
-    },
-    {
-      "files": [
+        "**/*.vue",
         "**/*.astro"
       ],
       "rules": {
@@ -815,17 +778,7 @@
           {
             "case": "pascalCase"
           }
-        ],
-        "astro/missing-client-only-directive-value": "error",
-        "astro/no-conflict-set-directives": "error",
-        "astro/no-deprecated-astro-canonicalurl": "error",
-        "astro/no-deprecated-astro-fetchcontent": "error",
-        "astro/no-deprecated-astro-resolve": "error",
-        "astro/no-deprecated-getentrybyslug": "error",
-        "astro/no-unused-define-vars-in-style": "error",
-        "astro/valid-compile": "error",
-        "@typescript-eslint/no-deprecated": "off",
-        "@stylistic/jsx-one-expression-per-line": "off"
+        ]
       }
     },
     {
@@ -861,8 +814,7 @@
         "**/*.test.{js,ts}"
       ],
       "rules": {
-        "unicorn/filename-case": "off",
-        "@typescript-eslint/no-explicit-any": "off"
+        "unicorn/filename-case": "off"
       }
     },
     {
@@ -905,8 +857,10 @@
           }
         ],
         "@typescript-eslint/ban-tslint-comment": "error",
+        "@typescript-eslint/class-literal-property-style": "error",
         "@typescript-eslint/consistent-generic-constructors": "error",
         "@typescript-eslint/consistent-indexed-object-style": "error",
+        "@typescript-eslint/consistent-type-assertions": "error",
         "@typescript-eslint/consistent-type-definitions": "off",
         "@typescript-eslint/no-confusing-non-null-assertion": "error",
         "no-empty-function": "off",
@@ -933,6 +887,9 @@
         "**/*.spec.{js,ts}",
         "**/*.test.{js,ts}"
       ],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "off"
+      },
       "plugins": [
         "typescript"
       ]
@@ -941,6 +898,43 @@
       "files": [
         "**/*.vue"
       ],
+      "rules": {
+        "vue/no-arrow-functions-in-watch": "error",
+        "vue/no-deprecated-destroyed-lifecycle": "error",
+        "vue/no-export-in-script-setup": "error",
+        "vue/no-lifecycle-after-await": "error",
+        "vue/prefer-import-from-vue": "error",
+        "vue/valid-define-emits": "error",
+        "vue/valid-define-props": "error",
+        "vue/no-multiple-slot-args": "warn",
+        "vue/no-required-prop-with-default": "warn",
+        "@typescript-eslint/prefer-function-type": "off",
+        "vue/define-props-declaration": [
+          "error",
+          "type-based"
+        ],
+        "vue/no-import-compiler-macros": "error",
+        "vuejs-accessibility/alt-text": "error",
+        "vuejs-accessibility/anchor-has-content": "error",
+        "vuejs-accessibility/aria-props": "error",
+        "vuejs-accessibility/aria-role": "error",
+        "vuejs-accessibility/aria-unsupported-elements": "error",
+        "vuejs-accessibility/click-events-have-key-events": "error",
+        "vuejs-accessibility/form-control-has-label": "error",
+        "vuejs-accessibility/heading-has-content": "error",
+        "vuejs-accessibility/iframe-has-title": "error",
+        "vuejs-accessibility/interactive-supports-focus": "error",
+        "vuejs-accessibility/label-has-for": "error",
+        "vuejs-accessibility/media-has-caption": "error",
+        "vuejs-accessibility/mouse-events-have-key-events": "error",
+        "vuejs-accessibility/no-access-key": "error",
+        "vuejs-accessibility/no-autofocus": "error",
+        "vuejs-accessibility/no-distracting-elements": "error",
+        "vuejs-accessibility/no-redundant-roles": "error",
+        "vuejs-accessibility/no-static-element-interactions": "error",
+        "vuejs-accessibility/role-has-required-aria-props": "error",
+        "vuejs-accessibility/tabindex-no-positive": "warn"
+      },
       "jsPlugins": [
         "eslint-plugin-vuejs-accessibility"
       ],
@@ -953,6 +947,18 @@
       "files": [
         "**/*.astro"
       ],
+      "rules": {
+        "astro/missing-client-only-directive-value": "error",
+        "astro/no-conflict-set-directives": "error",
+        "astro/no-deprecated-astro-canonicalurl": "error",
+        "astro/no-deprecated-astro-fetchcontent": "error",
+        "astro/no-deprecated-astro-resolve": "error",
+        "astro/no-deprecated-getentrybyslug": "error",
+        "astro/no-unused-define-vars-in-style": "error",
+        "astro/valid-compile": "error",
+        "@typescript-eslint/no-deprecated": "off",
+        "@stylistic/jsx-one-expression-per-line": "off"
+      },
       "jsPlugins": [
         "eslint-plugin-astro"
       ],
@@ -966,5 +972,8 @@
         "astro": true
       }
     }
-  ]
+  ],
+  "options": {
+    "typeAware": true
+  }
 }
