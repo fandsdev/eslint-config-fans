@@ -6,7 +6,8 @@ import { defineConfig } from '../utils/index.js'
 import { javascript } from './javascript.js'
 
 export function typescript(options = {}) {
-	const { extraFileExtensions = [], strict } = options
+	const { extraFileExtensions = [], typeAware = true, opinionated = true } = options
+
 	const files = [
 		GLOB_TS,
 		...extraFileExtensions.map(ext => `**/*${ext}`),
@@ -39,13 +40,26 @@ export function typescript(options = {}) {
 				...pluginTypescript.configs.recommended.rules,
 				...pluginTypescript.configs.stylistic.rules,
 
-				...strict
+				...typeAware
 					? {
 							...pluginTypescript.configs['stylistic-type-checked'].rules,
+							...pluginTypescript.configs['recommended-type-checked'].rules,
 
 							// Disabled
-							'@typescript-eslint/consistent-type-definitions': 'off',
 							'@typescript-eslint/prefer-nullish-coalescing': 'off',
+						}
+					: {},
+
+				...typeAware === 'strict'
+					? {
+							...pluginTypescript.configs['strict-type-checked'].rules,
+						}
+					: {},
+
+				...opinionated
+					? {
+							// Disabled
+							'@typescript-eslint/consistent-type-definitions': 'off',
 
 							// Improvements
 							'@typescript-eslint/array-type': ['error', {

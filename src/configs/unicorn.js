@@ -3,7 +3,7 @@ import { GLOB_ASTRO, GLOB_ASTRO_PAGES, GLOB_STORYBOOK, GLOB_TESTS, GLOB_VUE } fr
 import { defineConfig } from '../utils/index.js'
 
 export function unicorn(options = {}) {
-	const { strict } = options
+	const { opinionated = true } = options
 
 	return defineConfig([
 		{
@@ -57,7 +57,7 @@ export function unicorn(options = {}) {
 				'unicorn/prefer-import-meta-properties': 'error',
 				'unicorn/prefer-json-parse-buffer': 'error',
 
-				...strict
+				...opinionated
 					? {}
 					: {
 							'unicorn/no-array-for-each': 'off',
@@ -70,7 +70,7 @@ export function unicorn(options = {}) {
 		{
 			name: 'fans/unicorn/vue',
 			files: [GLOB_VUE],
-			rules: strict
+			rules: opinionated
 				? {
 						'unicorn/filename-case': ['error', {
 							case: 'pascalCase',
@@ -82,7 +82,7 @@ export function unicorn(options = {}) {
 		{
 			name: 'fans/unicorn/astro',
 			files: [GLOB_ASTRO],
-			rules: strict
+			rules: opinionated
 				? {
 						'unicorn/filename-case': ['error', {
 							case: 'pascalCase',
@@ -93,7 +93,7 @@ export function unicorn(options = {}) {
 		{
 			name: 'fans/unicorn/astro/pages',
 			files: [GLOB_ASTRO_PAGES],
-			rules: strict
+			rules: opinionated
 				? {
 						'unicorn/filename-case': ['error', {
 							case: 'camelCase',
@@ -105,7 +105,7 @@ export function unicorn(options = {}) {
 		{
 			name: 'fans/unicorn/storybook',
 			files: [GLOB_STORYBOOK],
-			rules: strict
+			rules: opinionated
 				? {
 						'unicorn/filename-case': ['error', {
 							case: 'pascalCase',
@@ -117,7 +117,7 @@ export function unicorn(options = {}) {
 		{
 			name: 'fans/unicorn/testing',
 			files: GLOB_TESTS,
-			rules: strict
+			rules: opinionated
 				? {
 						'unicorn/filename-case': 'off',
 					}

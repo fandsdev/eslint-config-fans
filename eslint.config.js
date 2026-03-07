@@ -1,10 +1,13 @@
+// @ts-check
 import { defineConfig } from './src/index.js'
 
 /**
- * @type {import('./src/index.js').defineConfig}
+ * @type {import('./src/index.js').DefineConfigOptions}
  */
 export const config = {
-	typescript: true,
+	typescript: {
+		typeAware: true,
+	},
 	vue: {
 		a11y: true,
 	},
@@ -18,6 +21,7 @@ export const config = {
 	},
 	perfectionist: true,
 	oxlint: {
+		oxlintConfigFile: '.oxlintrc.json',
 		dts: true,
 	},
 }

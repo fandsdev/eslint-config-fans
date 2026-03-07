@@ -8,10 +8,21 @@ export type FormatterOptions
 		| false
 		| { type: 'stylistic', options?: StylisticOptions }
 
-interface DefineConfigOptions {
+export interface TypescriptOptions {
+	/**
+	 * - `true` — enables `@typescript-eslint/stylistic-type-checked` and `@typescript-eslint/recommended-type-checked`
+	 * - `'strict'` — experimental: also enables `@typescript-eslint/strict-type-checked`
+	 *
+	 * @default true
+	 */
+	typeAware?: boolean | 'strict'
+}
+
+export interface DefineConfigOptions {
 	ignores?: string[]
 
 	/**
+	 * @deprecated Use `typescript: { typeAware }` and `opinionated` instead.
 	 * @default true
 	 *
 	 * When disabled, the config will be less strict and opinionated.
@@ -19,10 +30,17 @@ interface DefineConfigOptions {
 	strict?: boolean
 
 	/**
+	 * Enable opinionated style rules (filename conventions, forEach ban, etc.).
+	 *
+	 * @default true
+	 */
+	opinionated?: boolean
+
+	/**
 	 * @link https://typescript-eslint.io/
 	 * @default false
 	 */
-	typescript?: boolean
+	typescript?: boolean | TypescriptOptions
 
 	/**
 	 * @link https://eslint.vuejs.org/

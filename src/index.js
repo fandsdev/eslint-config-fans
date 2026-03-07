@@ -20,7 +20,7 @@ import { resolveFormatter } from './utils/index.js'
 
 export function defineConfig(options, ...userConfigs) {
 	const {
-		typescript: enableTypescript = false,
+		typescript: typescriptOption = false,
 		vue: enableVue = false,
 		astro: enableAstro = false,
 		test: enableTest = false,
@@ -28,8 +28,28 @@ export function defineConfig(options, ...userConfigs) {
 		perfectionist: enablePerfectionist = false,
 		oxlint: enableOxlint = false,
 		query: enableQuery = false,
-		strict = true,
+		strict,
+		opinionated = true,
 	} = options
+
+	const enableTypescript = Boolean(typescriptOption)
+	const typescriptUserOptions = typeof typescriptOption === 'object' ? typescriptOption : {}
+	const typeAware = typescriptUserOptions.typeAware ?? true
+
+	if (strict !== undefined) {
+		console.warn(
+			'[eslint-config-fans] The `strict` option is deprecated. Use `typescript: { typeAware }` and `opinionated` instead.',
+		)
+	}
+
+	if (typeAware === 'strict') {
+		console.warn(
+			'[eslint-config-fans] `typeAware: "strict"` is experimental and may change in future releases.',
+		)
+	}
+
+	const resolvedTypeAware = strict === undefined ? typeAware : strict
+	const resolvedOpinionated = strict === undefined ? opinionated : strict
 
 	const { useStylistic, usePrettier, stylisticOptions } = resolveFormatter(options)
 
@@ -52,7 +72,7 @@ export function defineConfig(options, ...userConfigs) {
 
 	if (enableUnicorn) {
 		configs.push(unicorn({
-			strict,
+			opinionated: resolvedOpinionated,
 		}))
 	}
 
@@ -60,7 +80,8 @@ export function defineConfig(options, ...userConfigs) {
 		configs.push(
 			typescript({
 				extraFileExtensions,
-				strict,
+				typeAware: resolvedTypeAware,
+				opinionated: resolvedOpinionated,
 			}),
 		)
 	}
@@ -85,7 +106,7 @@ export function defineConfig(options, ...userConfigs) {
 		const vueOptions = typeof options.vue === 'object' ? options.vue : {}
 		configs.push(
 			vue({
-				typescript: options.typescript,
+				typescript: typescriptOption,
 				usePrettier,
 				useStylistic,
 				...vueOptions,
