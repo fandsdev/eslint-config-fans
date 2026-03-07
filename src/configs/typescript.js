@@ -46,6 +46,11 @@ export function typescript(options = {}) {
 							...pluginTypescript.configs['recommended-type-checked'].rules,
 
 							// Disabled
+							'@typescript-eslint/no-redundant-type-constituents': 'off',
+							'@typescript-eslint/no-unsafe-member-access': 'off',
+							'@typescript-eslint/no-unsafe-assignment': 'off',
+							'@typescript-eslint/no-unsafe-call': 'off',
+							'@typescript-eslint/no-unsafe-return': 'off',
 							'@typescript-eslint/prefer-nullish-coalescing': 'off',
 						}
 					: {},
