@@ -28,12 +28,12 @@ Opinionated and flexible ESLint config with [TypeScript][typescript-eslint],
 
 ## Table of Contents
 
-- [Table of Contents](#table-of-contents)
 - [Usage](#usage)
 - [Customization](#customization)
 	- [Available Options](#available-options)
 	- [Ignores](#ignores)
-	- [Strict Mode](#strict-mode)
+	- [Opinionated Mode](#opinionated-mode)
+	- [TypeScript Type-Aware Linting](#typescript-type-aware-linting)
 	- [Formatting (Prettier, Stylistic or disable)](#formatting)
 	- [Custom Configurations and Overrides](#custom-configurations-and-overrides)
 - [Framework Support](#framework-support)
@@ -77,11 +77,11 @@ interface DefineConfigOptions {
   // Custom ignore patterns
   ignores?: string[]
 
-  // Control strictness level
-  strict?: boolean // default: true
+  // Enable opinionated style rules (filename conventions, forEach ban, etc.)
+  opinionated?: boolean // default: true
 
   // Enable TypeScript support
-  typescript?: boolean // default: false
+  typescript?: boolean | TypescriptOptions // default: false
 
   // Enable Vue.js support
   vue?: boolean | VueOptions // default: false
@@ -92,8 +92,8 @@ interface DefineConfigOptions {
   // Enable test files support (Vitest)
   test?: boolean // default: false
 
-	// Configure code formatting integration
-	formatter?: FormatterOptions | "prettier" | "stylistic" | false // default: false
+  // Configure code formatting integration
+  formatter?: FormatterOptions | "prettier" | "stylistic" | false // default: false
 
   // Enable unicorn rules (opinionated best practices)
   unicorn?: boolean // default: true
@@ -106,6 +106,13 @@ interface DefineConfigOptions {
 
   // Enable TanStack Query support
   query?: boolean // default: false
+}
+
+interface TypescriptOptions {
+  // Enable type-aware linting rules
+  // true — enables stylistic-type-checked and recommended-type-checked
+  // 'strict' — experimental: also enables strict-type-checked
+  typeAware?: boolean | 'strict' // default: true
 }
 ```
 
@@ -125,21 +132,46 @@ export default defineConfig({
 ```
 
 
-### Strict Mode
+### Opinionated Mode
 
-By default, the config operates in strict mode, which enables more opinionated
-linting rules for better code quality. When disabled, the configuration becomes
-less strict and more permissive:
+By default, the config enables opinionated rules. You can disable them:
 
 ```javascript
 export default defineConfig({
-  strict: false,
+  opinionated: false,
 })
 ```
 
-For new projects, we recommend keeping strict mode enabled.
+
+### TypeScript Type-Aware Linting
+
+When TypeScript is enabled, type-aware linting rules are active by default
+(`stylistic-type-checked` and `recommended-type-checked`).
+You can configure this behavior:
+
+```javascript
+export default defineConfig({
+  typescript: {
+    // Disable type-aware rules
+    typeAware: false,
+  },
+})
+```
+
+For new projects, we recommend keeping type-aware mode enabled.
 For legacy codebases or gradual adoption, you may want
-to start with `strict: false` and enable it later.
+to start with `typeAware: false` and enable it later.
+
+For advanced users, there is an experimental strict mode that additionally
+enables `strict-type-checked` rules:
+
+```javascript
+export default defineConfig({
+  typescript: {
+    typeAware: 'strict',
+  },
+})
+```
 
 
 ### Formatting
