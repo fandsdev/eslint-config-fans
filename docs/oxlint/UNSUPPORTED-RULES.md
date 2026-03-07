@@ -4,8 +4,8 @@ This document lists ESLint rules that are currently skipped by oxlint migration.
 
 ## Summary
 
-- **Total skipped:** 168 rules
-- **Nursery:** 86 rules
+- **Total skipped:** 169 rules
+- **Nursery:** 87 rules
 - **Unsupported:** 82 rules
 
 ## Nursery Rules (In Development)
@@ -32,6 +32,7 @@ These rules are currently being developed and will be available in future versio
 - `no-restricted-properties`
 - `no-restricted-syntax`
 - `no-unreachable-loop`
+- `no-useless-assignment`
 - `object-shorthand`
 - `prefer-arrow-callback`
 - `prefer-regex-literals`

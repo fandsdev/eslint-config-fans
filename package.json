@@ -25,10 +25,10 @@
   },
   "packageManager": "pnpm@10.28.2+sha512.41872f037ad22f7348e3b1debbaf7e867cfd448f2726d9cf74c08f19507c31d2c8e7a11525b983febc2df640b5438dee6023ebb1f84ed43cc2d654d2bc326264",
   "engines": {
-    "node": "^20.0.0 || >=22.0.0"
+    "node": "^20.19.0 || >=22.0.0"
   },
   "peerDependencies": {
-    "eslint": ">=9.27.0",
+    "eslint": "^9.27.0 || ^10.0.0",
     "typescript": ">=5.8.3"
   },
   "peerDependenciesMeta": {
@@ -37,7 +37,7 @@
     }
   },
   "dependencies": {
-    "@eslint/js": "^9.39.2",
+    "@eslint/js": "^10.0.0",
     "@stylistic/eslint-plugin": "^5.10.0",
     "@tanstack/eslint-plugin-query": "^5.91.4",
     "@typescript-eslint/eslint-plugin": "^8.56.1",
@@ -62,7 +62,7 @@
   },
   "devDependencies": {
     "@types/node": "^24.10.1",
-    "eslint": "^9.39.2",
+    "eslint": "^10.0.0",
     "eslint-typegen": "^2.3.1",
     "nano-staged": "^0.9.0",
     "oxlint": "^1.51.0",

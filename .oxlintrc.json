@@ -140,7 +140,12 @@
     "no-sequences": "error",
     "no-setter-return": "error",
     "no-shadow": "error",
-    "no-shadow-restricted-names": "error",
+    "no-shadow-restricted-names": [
+      "error",
+      {
+        "reportGlobalThis": true
+      }
+    ],
     "no-sparse-arrays": "error",
     "no-template-curly-in-string": "error",
     "no-this-before-super": "error",
@@ -180,6 +185,7 @@
     "prefer-promise-reject-errors": "error",
     "prefer-rest-params": "error",
     "prefer-spread": "error",
+    "preserve-caught-error": "error",
     "require-yield": "error",
     "sort-vars": "error",
     "symbol-description": "error",

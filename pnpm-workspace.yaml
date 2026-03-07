@@ -2,3 +2,9 @@ onlyBuiltDependencies:
   - esbuild
   - simple-git-hooks
   - unrs-resolver
+
+peerDependencyRules:
+  allowedVersions:
+    "eslint-plugin-import-x>eslint": "10"
+    "eslint-plugin-promise>eslint": "10"
+    "@tanstack/eslint-plugin-query>eslint": "10"
