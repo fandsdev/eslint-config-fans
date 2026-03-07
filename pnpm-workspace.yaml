@@ -3,8 +3,11 @@ onlyBuiltDependencies:
   - simple-git-hooks
   - unrs-resolver
 
+overrides:
+  rollup@>=4.0.0 <4.59.0: '>=4.59.0'
+
 peerDependencyRules:
   allowedVersions:
-    "eslint-plugin-import-x>eslint": "10"
-    "eslint-plugin-promise>eslint": "10"
-    "@tanstack/eslint-plugin-query>eslint": "10"
+    '@tanstack/eslint-plugin-query>eslint': '10'
+    eslint-plugin-import-x>eslint: '10'
+    eslint-plugin-promise>eslint: '10'
