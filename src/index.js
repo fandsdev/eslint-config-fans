@@ -1,6 +1,7 @@
 import {
 	astro,
 	deMorgan,
+	e18e,
 	ignores,
 	imports,
 	javascript,
@@ -28,6 +29,7 @@ export function defineConfig(options, ...userConfigs) {
 		perfectionist: enablePerfectionist = false,
 		oxlint: enableOxlint = false,
 		query: enableQuery = false,
+		e18e: e18eOption = true,
 		strict,
 		opinionated = true,
 	} = options
@@ -53,6 +55,9 @@ export function defineConfig(options, ...userConfigs) {
 
 	const { useStylistic, usePrettier, stylisticOptions } = resolveFormatter(options)
 
+	const enableE18e = Boolean(e18eOption)
+	const e18eUserOptions = typeof e18eOption === 'object' ? e18eOption : {}
+
 	const configs = [
 		ignores(options.ignores),
 		javascript(),
@@ -61,6 +66,10 @@ export function defineConfig(options, ...userConfigs) {
 		node(),
 		deMorgan(),
 	]
+
+	if (enableE18e) {
+		configs.push(e18e(e18eUserOptions))
+	}
 
 	const extraFileExtensions = []
 	if (options.vue) {
