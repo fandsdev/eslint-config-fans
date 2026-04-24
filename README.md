@@ -16,7 +16,7 @@ Opinionated and flexible ESLint config with [TypeScript][typescript-eslint],
 
 **Default plugins:** [`@eslint/js`][eslint-js], [`import-x`][import-x],
 [`promise`][promise], [`n`][node], [`de-morgan`][de-morgan],
-[`unicorn`][unicorn]
+[`unicorn`][unicorn], [`e18e`][e18e]
 
 **Optional plugins:** [`@typescript-eslint`][typescript-eslint], [`vue`][vue],
 [`astro`][astro], [`vitest`][vitest], [`prettier`][prettier],
@@ -97,6 +97,9 @@ interface DefineConfigOptions {
 
   // Enable unicorn rules (opinionated best practices)
   unicorn?: boolean // default: true
+
+  // Enable e18e rules (modernization and performance)
+  e18e?: boolean | E18eOptions // default: true
 
   // Enable import/export sorting
   perfectionist?: boolean // default: false
@@ -490,3 +493,4 @@ All versions follow [Semantic Versioning][semver].
 [logux-config]: https://github.com/logux/eslint-config
 [semver]: https://semver.org/
 [eslint-plugin-query]: https://tanstack.com/query/latest/docs/eslint/eslint-plugin-query
+[e18e]: https://github.com/e18e/eslint-plugin

@@ -1,11 +1,16 @@
 #!/usr/bin/env node
 
 import { exec } from 'node:child_process'
-import { existsSync, mkdirSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import path from 'node:path'
 import { promisify } from 'node:util'
 
 const execAsync = promisify(exec)
+
+const SKIPPED_REGEX = /Skipped (\d+) rules:/
+const NURSERY_REGEX = /- \d+ Nursery/
+const UNSUPPORTED_REGEX = /- \d+ Unsupported/
+const DIGIT_REGEX = /^\d+/
 
 interface ParsedRules {
 	nursery: string[]
@@ -25,22 +30,19 @@ function parseOutput(output: string): ParsedRules {
 		const trimmed = line.trim()
 
 		// Parse total skipped count
-		const skippedRegex = /Skipped (\d+) rules:/
-		const skippedMatch = skippedRegex.exec(trimmed)
+		const skippedMatch = SKIPPED_REGEX.exec(trimmed)
 		if (skippedMatch) {
 			totalSkipped = Number.parseInt(skippedMatch[1], 10)
 			continue
 		}
 
 		// Detect section headers
-		const nurseryRegex = /- \d+ Nursery/
-		if (nurseryRegex.test(trimmed)) {
+		if (NURSERY_REGEX.test(trimmed)) {
 			currentSection = 'nursery'
 			continue
 		}
 
-		const unsupportedRegex = /- \d+ Unsupported/
-		if (unsupportedRegex.test(trimmed)) {
+		if (UNSUPPORTED_REGEX.test(trimmed)) {
 			currentSection = 'unsupported'
 			continue
 		}
@@ -48,8 +50,7 @@ function parseOutput(output: string): ParsedRules {
 		// Parse rule names
 		if (trimmed.startsWith('- ') && currentSection !== 'none') {
 			const ruleName = trimmed.slice(2).trim()
-			const digitRegex = /^\d+/
-			if (ruleName && !digitRegex.test(ruleName)) {
+			if (ruleName && !DIGIT_REGEX.test(ruleName)) {
 				if (currentSection === 'nursery') {
 					nursery.push(ruleName)
 				} else if (currentSection === 'unsupported') {
@@ -60,6 +61,26 @@ function parseOutput(output: string): ParsedRules {
 	}
 
 	return { nursery, unsupported, totalSkipped }
+}
+
+// @oxlint/migrate derives JS plugin names from ESLint aliases using the
+// `eslint-plugin-{alias}` convention, which doesn't match scoped packages.
+const JS_PLUGIN_NAME_MAP: Record<string, string> = {
+	'eslint-plugin-e18e': '@e18e/eslint-plugin',
+}
+
+function patchOxlintrc(): void {
+	const oxlintrcPath = path.join(process.cwd(), '.oxlintrc.json')
+	const content = readFileSync(oxlintrcPath, 'utf8')
+	const patched = Object.entries(JS_PLUGIN_NAME_MAP).reduce(
+		(acc, [from, to]) => acc.replaceAll(`"${from}"`, `"${to}"`),
+		content,
+	)
+	if (patched !== content) {
+		writeFileSync(oxlintrcPath, patched, 'utf8')
+		// oxlint-disable-next-line no-console
+		console.log('✅ Patched jsPlugins package names in .oxlintrc.json')
+	}
 }
 
 async function generateRules(): Promise<void> {
@@ -74,6 +95,8 @@ async function generateRules(): Promise<void> {
 			'pnpm dlx @oxlint/migrate ./scripts/eslint-no-oxlint.config.js --type-aware --js-plugins --details',
 		)
 		output = String(result.stdout) + '\n' + String(result.stderr)
+
+		patchOxlintrc()
 
 		const parsed = parseOutput(output)
 

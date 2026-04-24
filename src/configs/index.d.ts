@@ -1,5 +1,6 @@
 export * from './astro.js'
 export * from './de-morgan.js'
+export * from './e18e.js'
 export * from './ignores.js'
 export * from './imports.js'
 export * from './javascript.js'

@@ -1,5 +1,5 @@
 import type { Linter } from 'eslint'
-import type { OxlintOptions, StylisticOptions, VueOptions } from './configs'
+import type { E18eOptions, OxlintOptions, StylisticOptions, VueOptions } from './configs'
 import type { Config } from './types'
 
 export type FormatterOptions
@@ -95,6 +95,12 @@ export interface DefineConfigOptions {
 	 * @default true
 	 */
 	unicorn?: boolean
+
+	/**
+	 * @link https://github.com/e18e/eslint-plugin
+	 * @default true
+	 */
+	e18e?: boolean | E18eOptions
 
 	/**
 	 * @link https://perfectionist.dev

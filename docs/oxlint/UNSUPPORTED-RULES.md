@@ -4,39 +4,33 @@ This document lists ESLint rules that are currently skipped by oxlint migration.
 
 ## Summary
 
-- **Total skipped:** 168 rules
-- **Nursery:** 86 rules
-- **Unsupported:** 82 rules
+- **Total skipped:** 159 rules
+- **Nursery:** 78 rules
+- **Unsupported:** 81 rules
 
 ## Nursery Rules (In Development)
 
 These rules are currently being developed and will be available in future versions:
 
 - `getter-return`
+- `no-restricted-exports`
 - `no-undef`
 - `no-unreachable`
 - `import-x/export`
 - `promise/no-return-in-finally`
-- `@typescript-eslint/dot-notation`
-- `@typescript-eslint/prefer-find`
 - `@typescript-eslint/prefer-optional-chain`
-- `@typescript-eslint/prefer-regexp-exec`
-- `@typescript-eslint/prefer-string-starts-ends-with`
 - `consistent-this`
 - `func-name-matching`
 - `id-denylist`
 - `id-match`
 - `no-implicit-globals`
 - `no-implied-eval`
-- `no-restricted-exports`
 - `no-restricted-properties`
 - `no-restricted-syntax`
 - `no-unreachable-loop`
-- `object-shorthand`
 - `prefer-arrow-callback`
 - `prefer-regex-literals`
 - `strict`
-- `n/handle-callback-err`
 - `n/no-deprecated-api`
 - `n/no-extraneous-require`
 - `n/no-missing-require`
@@ -47,13 +41,11 @@ These rules are currently being developed and will be available in future versio
 - `n/prefer-node-protocol`
 - `n/process-exit-as-throw`
 - `unicorn/better-regex`
-- `unicorn/custom-error-definition`
 - `unicorn/expiring-todo-comments`
 - `unicorn/import-style`
 - `unicorn/isolated-functions`
 - `unicorn/no-unnecessary-polyfills`
 - `unicorn/prefer-export-from`
-- `unicorn/prefer-import-meta-properties`
 - `unicorn/prefer-json-parse-buffer`
 - `unicorn/prefer-single-call`
 - `unicorn/prefer-switch`
@@ -103,7 +95,6 @@ These rules are currently being developed and will be available in future versio
 
 These rules are not yet supported by oxlint:
 
-- `dot-notation: Use `typescript/dot-notation` instead, which we support as a type-aware rule.`
 - `no-dupe-args: Superseded by strict mode.`
 - `no-invalid-this: Superseded by TypeScript's [`noImplicitThis`](https://www.typescriptlang.org/tsconfig/#noImplicitThis) compiler option (enabled by `strict` mode).`
 - `no-octal: Superseded by strict mode.`
