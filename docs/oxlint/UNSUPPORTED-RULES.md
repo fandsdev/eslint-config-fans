@@ -4,8 +4,8 @@ This document lists ESLint rules that are currently skipped by oxlint migration.
 
 ## Summary
 
-- **Total skipped:** 159 rules
-- **Nursery:** 78 rules
+- **Total skipped:** 161 rules
+- **Nursery:** 80 rules
 - **Unsupported:** 81 rules
 
 ## Nursery Rules (In Development)
@@ -18,6 +18,7 @@ These rules are currently being developed and will be available in future versio
 - `no-unreachable`
 - `import-x/export`
 - `promise/no-return-in-finally`
+- `unicorn/no-useless-iterator-to-array`
 - `@typescript-eslint/prefer-optional-chain`
 - `consistent-this`
 - `func-name-matching`
@@ -47,6 +48,7 @@ These rules are currently being developed and will be available in future versio
 - `unicorn/no-unnecessary-polyfills`
 - `unicorn/prefer-export-from`
 - `unicorn/prefer-json-parse-buffer`
+- `unicorn/prefer-simple-condition-first`
 - `unicorn/prefer-single-call`
 - `unicorn/prefer-switch`
 - `unicorn/prevent-abbreviations`
