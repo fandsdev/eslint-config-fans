@@ -13,7 +13,7 @@ importers:
     dependencies:
       '@e18e/eslint-plugin':
         specifier: ^0.2.0
-        version: 0.2.0(patch_hash=5f3aeb244640842f810b0448c516cfdaef98e29d37ecc86cb03f04f9529bc756)(eslint@10.0.3)(oxlint@1.56.0(oxlint-tsgolint@0.17.0))
+        version: 0.2.0(eslint@10.0.3)(oxlint@1.56.0(oxlint-tsgolint@0.17.0))
       '@eslint/js':
         specifier: ^10.0.0
         version: 10.0.1(eslint@10.0.3)
@@ -1873,7 +1873,7 @@ snapshots:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.28.5
 
-  '@e18e/eslint-plugin@0.2.0(patch_hash=5f3aeb244640842f810b0448c516cfdaef98e29d37ecc86cb03f04f9529bc756)(eslint@10.0.3)(oxlint@1.56.0(oxlint-tsgolint@0.17.0))':
+  '@e18e/eslint-plugin@0.2.0(eslint@10.0.3)(oxlint@1.56.0(oxlint-tsgolint@0.17.0))':
     dependencies:
       eslint-plugin-depend: 1.5.0(eslint@10.0.3)
     optionalDependencies:
