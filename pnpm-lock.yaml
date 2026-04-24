@@ -97,6 +97,9 @@ importers:
       oxlint:
         specifier: ^1.61.0
         version: 1.61.0(oxlint-tsgolint@0.21.1)
+      oxlint-tsgolint:
+        specifier: ^0.21.1
+        version: 0.21.1
       simple-git-hooks:
         specifier: ^2.13.1
         version: 2.13.1
@@ -3107,7 +3110,6 @@ snapshots:
       '@oxlint-tsgolint/linux-x64': 0.21.1
       '@oxlint-tsgolint/win32-arm64': 0.21.1
       '@oxlint-tsgolint/win32-x64': 0.21.1
-    optional: true
 
   oxlint@1.61.0(oxlint-tsgolint@0.21.1):
     optionalDependencies:
