@@ -1,6 +1,5 @@
 import parserTypescript from '@typescript-eslint/parser'
 import pluginVue from 'eslint-plugin-vue'
-import pluginVueAccessibility from 'eslint-plugin-vuejs-accessibility'
 import parserVue from 'vue-eslint-parser'
 import { GLOB_VUE } from '../globs.js'
 import { defineConfig } from '../utils/index.js'
@@ -28,25 +27,12 @@ export function vue(options = {}) {
 		{},
 	)
 
-	const vuejsAccessibilityRecommendedRules = pluginVueAccessibility.configs[
-		'flat/recommended'
-	].reduce(
-		(previous, current) => ({
-			...previous,
-			...current.rules,
-		}),
-		{},
-	)
-
 	return defineConfig([
 		{
 			name: 'fans/vue',
 			files: [GLOB_VUE],
 			plugins: {
 				vue: pluginVue,
-				...(options.a11y
-					? { 'vuejs-accessibility': pluginVueAccessibility }
-					: {}),
 			},
 			processor: pluginVue.processors.vue,
 			languageOptions: options.typescript ? languageOptionsWithTS : null,
@@ -98,13 +84,6 @@ export function vue(options = {}) {
 				'vue/padding-line-between-blocks': ['error', 'always'],
 				'vue/prefer-define-options': 'error',
 				'vue/prefer-use-template-ref': 'error',
-
-				...(options.a11y
-					? {
-							...vuejsAccessibilityRecommendedRules,
-							'vuejs-accessibility/tabindex-no-positive': 'warn',
-						}
-					: {}),
 
 				// Disabled for compatibility with external formatters (Prettier, oxfmt, etc.)
 				...(options.useStylistic

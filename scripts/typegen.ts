@@ -16,6 +16,7 @@ import {
 	typescript,
 	unicorn,
 	vue,
+	vueA11y,
 } from '../src/configs'
 
 const configs = [
@@ -27,9 +28,8 @@ const configs = [
 	deMorgan(),
 	unicorn(),
 	typescript(),
-	vue({
-		a11y: true,
-	}),
+	vue(),
+	vueA11y(),
 	astro(),
 	test(),
 	prettier(),
