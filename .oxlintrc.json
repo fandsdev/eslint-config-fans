@@ -229,7 +229,6 @@
     "unicorn/empty-brace-spaces": "error",
     "unicorn/error-message": "error",
     "unicorn/escape-case": "error",
-    "unicorn/filename-case": "error",
     "unicorn/new-for-builtins": "error",
     "unicorn/no-accessor-recursion": "error",
     "unicorn/no-anonymous-default-export": "error",
@@ -378,49 +377,6 @@
   },
   "overrides": [
     {
-      "files": ["**/*.vue", "**/*.astro"],
-      "rules": {
-        "unicorn/filename-case": [
-          "error",
-          {
-            "case": "pascalCase"
-          }
-        ]
-      }
-    },
-    {
-      "files": ["**/pages/**/*.astro"],
-      "rules": {
-        "unicorn/filename-case": [
-          "error",
-          {
-            "case": "camelCase"
-          }
-        ]
-      }
-    },
-    {
-      "files": ["**/*.stories.{js,ts}"],
-      "rules": {
-        "unicorn/filename-case": [
-          "error",
-          {
-            "case": "pascalCase"
-          }
-        ]
-      }
-    },
-    {
-      "files": [
-        "**/__tests__/**/*.{js,ts}",
-        "**/*.spec.{js,ts}",
-        "**/*.test.{js,ts}"
-      ],
-      "rules": {
-        "unicorn/filename-case": "off"
-      }
-    },
-    {
       "files": ["**/*.ts", "**/*.vue", "**/*.astro"],
       "rules": {
         "init-declarations": "off",
@@ -453,18 +409,13 @@
         "typescript/prefer-namespace-keyword": "error",
         "typescript/triple-slash-reference": "error",
         "typescript/adjacent-overload-signatures": "error",
-        "typescript/array-type": [
-          "error",
-          {
-            "default": "array-simple"
-          }
-        ],
+        "typescript/array-type": "error",
         "typescript/ban-tslint-comment": "error",
         "typescript/class-literal-property-style": "error",
         "typescript/consistent-generic-constructors": "error",
         "typescript/consistent-indexed-object-style": "error",
         "typescript/consistent-type-assertions": "error",
-        "typescript/consistent-type-definitions": "off",
+        "typescript/consistent-type-definitions": "error",
         "typescript/no-confusing-non-null-assertion": "error",
         "typescript/no-inferrable-types": "error",
         "typescript/prefer-for-of": "error",
@@ -513,6 +464,61 @@
       ],
       "rules": {
         "typescript/no-explicit-any": "off"
+      }
+    },
+    {
+      "files": ["**/*.vue", "**/*.astro"],
+      "rules": {
+        "unicorn/filename-case": [
+          "error",
+          {
+            "case": "pascalCase"
+          }
+        ]
+      }
+    },
+    {
+      "files": ["**/pages/**/*.astro"],
+      "rules": {
+        "unicorn/filename-case": [
+          "error",
+          {
+            "case": "camelCase"
+          }
+        ]
+      }
+    },
+    {
+      "files": ["**/*.stories.{js,ts}"],
+      "rules": {
+        "unicorn/filename-case": [
+          "error",
+          {
+            "case": "pascalCase"
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "**/__tests__/**/*.{js,ts}",
+        "**/*.spec.{js,ts}",
+        "**/*.test.{js,ts}"
+      ],
+      "rules": {
+        "unicorn/filename-case": "off"
+      }
+    },
+    {
+      "files": ["**/*.ts", "**/*.vue", "**/*.astro"],
+      "rules": {
+        "typescript/consistent-type-definitions": "off",
+        "typescript/array-type": [
+          "error",
+          {
+            "default": "array-simple"
+          }
+        ]
       }
     },
     {
