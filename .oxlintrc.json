@@ -529,6 +529,7 @@
         "vue/no-required-prop-with-default": "warn",
         "vue/define-props-declaration": ["error", "type-based"],
         "vue/no-import-compiler-macros": "error",
+        "typescript/prefer-function-type": "off",
         "vuejs-accessibility/alt-text": "error",
         "vuejs-accessibility/anchor-has-content": "error",
         "vuejs-accessibility/aria-props": "error",
@@ -548,11 +549,10 @@
         "vuejs-accessibility/no-redundant-roles": "error",
         "vuejs-accessibility/no-static-element-interactions": "error",
         "vuejs-accessibility/role-has-required-aria-props": "error",
-        "vuejs-accessibility/tabindex-no-positive": "warn",
-        "typescript/prefer-function-type": "off"
+        "vuejs-accessibility/tabindex-no-positive": "warn"
       },
-      "jsPlugins": ["eslint-plugin-vuejs-accessibility"],
-      "plugins": ["vue"]
+      "plugins": ["vue"],
+      "jsPlugins": ["eslint-plugin-vuejs-accessibility"]
     },
     {
       "files": ["**/*.astro"],

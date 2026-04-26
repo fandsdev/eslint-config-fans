@@ -51,7 +51,9 @@ export interface DefineConfigOptions {
 	 * @link https://eslint.vuejs.org/
 	 * @default false
 	 */
-	vue?: boolean | Omit<VueOptions, 'typescript' | 'usePrettier'>
+	vue?:
+		| boolean
+		| (Omit<VueOptions, 'typescript' | 'usePrettier'> & { a11y?: boolean })
 
 	/**
 	 * @link https://ota-meshi.github.io/eslint-plugin-astro/

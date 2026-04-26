@@ -23818,6 +23818,7 @@ export type ConfigNames =
 	| 'fans/typescript'
 	| 'fans/typescript/testing'
 	| 'fans/vue'
+	| 'fans/vue-a11y'
 	| 'fans/astro'
 	| 'fans/prettier'
 	| 'fans/stylistic'

@@ -16,6 +16,7 @@ import {
 	typescript,
 	unicorn,
 	vue,
+	vueA11y,
 } from './configs/index.js'
 import { resolveFormatter } from './utils/index.js'
 
@@ -117,14 +118,18 @@ export function defineConfig(options, ...userConfigs) {
 
 	if (enableVue) {
 		const vueOptions = typeof options.vue === 'object' ? options.vue : {}
+		const { a11y, ...restVue } = vueOptions
 		configs.push(
 			vue({
 				typescript: typescriptOption,
 				usePrettier,
 				useStylistic,
-				...vueOptions,
+				...restVue,
 			}),
 		)
+		if (a11y) {
+			configs.push(vueA11y())
+		}
 	}
 
 	if (enableAstro) {
