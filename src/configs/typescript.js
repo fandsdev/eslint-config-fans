@@ -6,11 +6,7 @@ import { defineConfig } from '../utils/index.js'
 import { javascript } from './javascript.js'
 
 export function typescript(options = {}) {
-	const {
-		extraFileExtensions = [],
-		typeAware = true,
-		opinionated = true,
-	} = options
+	const { extraFileExtensions = [], typeAware = true } = options
 
 	const files = [GLOB_TS, ...extraFileExtensions.map(ext => `**/*${ext}`)]
 
@@ -59,21 +55,6 @@ export function typescript(options = {}) {
 				...(typeAware === 'strict'
 					? {
 							...pluginTypescript.configs['strict-type-checked'].rules,
-						}
-					: {}),
-
-				...(opinionated
-					? {
-							// Disabled
-							'@typescript-eslint/consistent-type-definitions': 'off',
-
-							// Improvements
-							'@typescript-eslint/array-type': [
-								'error',
-								{
-									default: 'array-simple',
-								},
-							],
 						}
 					: {}),
 

@@ -7,7 +7,6 @@ export interface TypescriptOptions {
 	 * `'strict'` — experimental: also enables `strict-type-checked`
 	 */
 	typeAware?: boolean | 'strict'
-	opinionated?: boolean
 }
 
 export function typescript(options?: TypescriptOptions): Linter.Config[]

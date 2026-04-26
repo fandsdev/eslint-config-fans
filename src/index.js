@@ -6,6 +6,7 @@ import {
 	imports,
 	javascript,
 	node,
+	opinionated as opinionatedConfig,
 	oxlint,
 	perfectionist,
 	prettier,
@@ -83,11 +84,7 @@ export function defineConfig(options, ...userConfigs) {
 	}
 
 	if (enableUnicorn) {
-		configs.push(
-			unicorn({
-				opinionated: resolvedOpinionated,
-			}),
-		)
+		configs.push(unicorn())
 	}
 
 	if (enableTypescript) {
@@ -95,7 +92,16 @@ export function defineConfig(options, ...userConfigs) {
 			typescript({
 				extraFileExtensions,
 				typeAware: resolvedTypeAware,
-				opinionated: resolvedOpinionated,
+			}),
+		)
+	}
+
+	if (resolvedOpinionated) {
+		configs.push(
+			opinionatedConfig({
+				enableUnicorn,
+				enableTypescript,
+				extraFileExtensions,
 			}),
 		)
 	}

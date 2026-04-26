@@ -7,6 +7,7 @@ import {
 	imports,
 	javascript,
 	node,
+	opinionated,
 	oxlint,
 	perfectionist,
 	prettier,
@@ -35,6 +36,7 @@ const configs = [
 	prettier(),
 	stylistic({}),
 	perfectionist(),
+	opinionated(),
 	oxlint(),
 ].flat()
 
