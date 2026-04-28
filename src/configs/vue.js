@@ -20,17 +20,23 @@ export function vue(options = {}) {
 		},
 	}
 
-	const vueRecommendedRules = pluginVue.configs['flat/recommended']
-		.reduce((previous, current) => ({
+	const vueRecommendedRules = pluginVue.configs['flat/recommended'].reduce(
+		(previous, current) => ({
 			...previous,
 			...current.rules,
-		}), {})
+		}),
+		{},
+	)
 
-	const vuejsAccessibilityRecommendedRules = pluginVueAccessibility.configs['flat/recommended']
-		.reduce((previous, current) => ({
+	const vuejsAccessibilityRecommendedRules = pluginVueAccessibility.configs[
+		'flat/recommended'
+	].reduce(
+		(previous, current) => ({
 			...previous,
 			...current.rules,
-		}), {})
+		}),
+		{},
+	)
 
 	return defineConfig([
 		{
@@ -38,7 +44,9 @@ export function vue(options = {}) {
 			files: [GLOB_VUE],
 			plugins: {
 				vue: pluginVue,
-				...options.a11y ? { 'vuejs-accessibility': pluginVueAccessibility } : {},
+				...(options.a11y
+					? { 'vuejs-accessibility': pluginVueAccessibility }
+					: {}),
 			},
 			processor: pluginVue.processors.vue,
 			languageOptions: options.typescript ? languageOptionsWithTS : null,
@@ -55,25 +63,34 @@ export function vue(options = {}) {
 				'vue/singleline-html-element-content-newline': 'off',
 
 				// Additional
-				'vue/block-order': ['error', { order: ['script', 'template', 'style'] }],
-				'vue/define-macros-order': ['error', {
-					order: [
-						'defineOptions',
-						'defineProps',
-						'defineModel',
-						'defineEmits',
-						'defineSlots',
-					],
-					defineExposeLast: true,
-				}],
+				'vue/block-order': [
+					'error',
+					{ order: ['script', 'template', 'style'] },
+				],
+				'vue/define-macros-order': [
+					'error',
+					{
+						order: [
+							'defineOptions',
+							'defineProps',
+							'defineModel',
+							'defineEmits',
+							'defineSlots',
+						],
+						defineExposeLast: true,
+					},
+				],
 				'vue/define-props-declaration': ['error', 'type-based'],
 				'vue/no-import-compiler-macros': 'error',
-				'vue/no-undef-components': ['error', {
-					ignorePatterns: [
-						...DEFAULT_UNDEF_COMPONENTS,
-						...(options.extendUndefComponents || []),
-					],
-				}],
+				'vue/no-undef-components': [
+					'error',
+					{
+						ignorePatterns: [
+							...DEFAULT_UNDEF_COMPONENTS,
+							...(options.extendUndefComponents || []),
+						],
+					},
+				],
 				'vue/no-unused-emit-declarations': 'error',
 				'vue/no-unused-refs': 'error',
 				'vue/no-useless-v-bind': 'error',
@@ -82,21 +99,21 @@ export function vue(options = {}) {
 				'vue/prefer-define-options': 'error',
 				'vue/prefer-use-template-ref': 'error',
 
-				...options.a11y
+				...(options.a11y
 					? {
 							...vuejsAccessibilityRecommendedRules,
 							'vuejs-accessibility/tabindex-no-positive': 'warn',
 						}
-					: {},
+					: {}),
 
 				// Disabled for compatibility with external formatters (Prettier, oxfmt, etc.)
-				...options.useStylistic
+				...(options.useStylistic
 					? {}
 					: {
 							'vue/html-indent': 'off',
 							'vue/html-self-closing': 'off',
 							'vue/html-closing-bracket-newline': 'off',
-						},
+						}),
 			},
 		},
 	])

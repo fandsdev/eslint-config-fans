@@ -63,9 +63,12 @@ export function javascript() {
 				'no-class-assign': 'error',
 				'no-compare-neg-zero': 'error',
 				'no-cond-assign': 'error',
-				'no-console': ['error', {
-					allow: ['warn', 'error'],
-				}],
+				'no-console': [
+					'error',
+					{
+						allow: ['warn', 'error'],
+					},
+				],
 				'no-const-assign': 'error',
 				'no-constant-binary-expression': 'error',
 				'no-constant-condition': 'error',
@@ -170,10 +173,13 @@ export function javascript() {
 				'object-shorthand': 'error',
 				'operator-assignment': 'error',
 				'prefer-arrow-callback': 'error',
-				'prefer-const': ['error', {
-					destructuring: 'all',
-					ignoreReadBeforeAssign: true,
-				}],
+				'prefer-const': [
+					'error',
+					{
+						destructuring: 'all',
+						ignoreReadBeforeAssign: true,
+					},
+				],
 				'prefer-exponentiation-operator': 'error',
 				'prefer-numeric-literals': 'error',
 				'prefer-object-spread': 'error',

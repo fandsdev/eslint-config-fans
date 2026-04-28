@@ -6,12 +6,13 @@ import { defineConfig } from '../utils/index.js'
 import { javascript } from './javascript.js'
 
 export function typescript(options = {}) {
-	const { extraFileExtensions = [], typeAware = true, opinionated = true } = options
+	const {
+		extraFileExtensions = [],
+		typeAware = true,
+		opinionated = true,
+	} = options
 
-	const files = [
-		GLOB_TS,
-		...extraFileExtensions.map(ext => `**/*${ext}`),
-	]
+	const files = [GLOB_TS, ...extraFileExtensions.map(ext => `**/*${ext}`)]
 
 	return defineConfig([
 		{
@@ -40,7 +41,7 @@ export function typescript(options = {}) {
 				...pluginTypescript.configs.recommended.rules,
 				...pluginTypescript.configs.stylistic.rules,
 
-				...typeAware
+				...(typeAware
 					? {
 							...pluginTypescript.configs['stylistic-type-checked'].rules,
 							...pluginTypescript.configs['recommended-type-checked'].rules,
@@ -53,36 +54,45 @@ export function typescript(options = {}) {
 							'@typescript-eslint/no-unsafe-return': 'off',
 							'@typescript-eslint/prefer-nullish-coalescing': 'off',
 						}
-					: {},
+					: {}),
 
-				...typeAware === 'strict'
+				...(typeAware === 'strict'
 					? {
 							...pluginTypescript.configs['strict-type-checked'].rules,
 						}
-					: {},
+					: {}),
 
-				...opinionated
+				...(opinionated
 					? {
 							// Disabled
 							'@typescript-eslint/consistent-type-definitions': 'off',
 
 							// Improvements
-							'@typescript-eslint/array-type': ['error', {
-								default: 'array-simple',
-							}],
+							'@typescript-eslint/array-type': [
+								'error',
+								{
+									default: 'array-simple',
+								},
+							],
 						}
-					: {},
+					: {}),
 
 				// Disabled
 				'@typescript-eslint/no-empty-function': 'off',
 
 				// Improvements
-				'@typescript-eslint/no-misused-promises': ['error', {
-					checksVoidReturn: false,
-				}],
-				'@typescript-eslint/no-unused-expressions': ['error', {
-					allowTernary: true,
-				}],
+				'@typescript-eslint/no-misused-promises': [
+					'error',
+					{
+						checksVoidReturn: false,
+					},
+				],
+				'@typescript-eslint/no-unused-expressions': [
+					'error',
+					{
+						allowTernary: true,
+					},
+				],
 			},
 		},
 		{

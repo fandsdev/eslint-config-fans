@@ -25,27 +25,25 @@ Opinionated and flexible ESLint config with [TypeScript][typescript-eslint],
 
 [**Inspect rules**][inspector] · [**View oxlint unsupported rules**][unsupported-rules]
 
-
 ## Table of Contents
 
 - [Usage](#usage)
 - [Customization](#customization)
-	- [Available Options](#available-options)
-	- [Ignores](#ignores)
-	- [Opinionated Mode](#opinionated-mode)
-	- [TypeScript Type-Aware Linting](#typescript-type-aware-linting)
-	- [Formatting (Prettier, Stylistic or disable)](#formatting)
-	- [Custom Configurations and Overrides](#custom-configurations-and-overrides)
+  - [Available Options](#available-options)
+  - [Ignores](#ignores)
+  - [Opinionated Mode](#opinionated-mode)
+  - [TypeScript Type-Aware Linting](#typescript-type-aware-linting)
+  - [Formatting (Prettier, Stylistic or disable)](#formatting)
+  - [Custom Configurations and Overrides](#custom-configurations-and-overrides)
 - [Framework Support](#framework-support)
-	- [Vue](#vue)
-	- [Nuxt](#nuxt)
-	- [Next.js](#nextjs)
-	- [Astro](#astro)
+  - [Vue](#vue)
+  - [Nuxt](#nuxt)
+  - [Next.js](#nextjs)
+  - [Astro](#astro)
 - [Oxlint and Oxfmt Support](#oxlint-and-oxfmt-support)
 - [Inspect](#inspect)
 - [Inspired By](#inspired-by)
 - [Contributing](#contributing)
-
 
 ## Usage
 
@@ -66,7 +64,6 @@ export default defineConfig({
   vue: true,
 })
 ```
-
 
 ## Customization
 
@@ -93,7 +90,7 @@ interface DefineConfigOptions {
   test?: boolean // default: false
 
   // Configure code formatting integration
-  formatter?: FormatterOptions | "prettier" | "stylistic" | false // default: false
+  formatter?: FormatterOptions | 'prettier' | 'stylistic' | false // default: false
 
   // Enable unicorn rules (opinionated best practices)
   unicorn?: boolean // default: true
@@ -119,7 +116,6 @@ interface TypescriptOptions {
 }
 ```
 
-
 ### Ignores
 
 By default, the config ignores common directories and files, and automatically
@@ -127,13 +123,9 @@ respects your `.gitignore` patterns. You can extend the ignore patterns:
 
 ```javascript
 export default defineConfig({
-  ignores: [
-    'custom-dist/**',
-    'legacy-code/**',
-  ]
+  ignores: ['custom-dist/**', 'legacy-code/**'],
 })
 ```
-
 
 ### Opinionated Mode
 
@@ -144,7 +136,6 @@ export default defineConfig({
   opinionated: false,
 })
 ```
-
 
 ### TypeScript Type-Aware Linting
 
@@ -176,7 +167,6 @@ export default defineConfig({
 })
 ```
 
-
 ### Formatting
 
 #### Prettier, Stylistic or disable
@@ -188,7 +178,6 @@ You can choose between Prettier and ESLint Stylistic for code formatting:
 - **Stylistic** (`formatter: 'stylistic'`): Uses ESLint Stylistic rules for formatting
 - **Disable** (`formatter: false`): Disables formatting if you prefer to use
   external formatter like oxfmt, biome, etc.
-
 
 #### Stylistic Options
 
@@ -208,13 +197,11 @@ export default defineConfig({
 })
 ```
 
-
 #### Prettier Configuration
 
 Prettier can be configured through standard `.prettierrc` files
 or `prettier.config.js`. The ESLint config will automatically detect
 and respect your Prettier settings.
-
 
 ### Custom Configurations and Overrides
 
@@ -233,12 +220,11 @@ export default defineConfig(
     rules: {
       '@typescript-eslint/no-misused-promises': 'off',
     },
-  }
+  },
 )
 ```
 
 [**Available globs**][globs]
-
 
 ## Framework Support
 
@@ -256,13 +242,12 @@ export default defineConfig({
 
     // Ignore undefined components for the `vue/no-undef-components` rule
     extendUndefComponents: ['CustomComponent'],
-  }
+  },
 })
 ```
 
 This enables linting for `.vue` files with proper TypeScript support
 and Vue-specific rules.
-
 
 ### Nuxt
 
@@ -273,17 +258,14 @@ import { defineConfig } from 'eslint-config-fans'
 import withNuxt from './.nuxt/eslint.config.mjs'
 
 export default withNuxt(
-  defineConfig(
-    {
-      typescript: true,
-      vue: {
-        a11y: true,
-      },
+  defineConfig({
+    typescript: true,
+    vue: {
+      a11y: true,
     },
-  ),
+  }),
 )
 ```
-
 
 ### Next.js
 
@@ -303,7 +285,6 @@ export default defineConfig(
 )
 ```
 
-
 ### Astro
 
 Full support for [Astro][astro-site] projects with TypeScript integration:
@@ -318,7 +299,6 @@ export default defineConfig({
 This enables linting for `.astro` files with proper TypeScript support
 and Astro-specific rules.
 
-
 ## Oxlint and Oxfmt Support
 
 This config includes built-in support for [oxlint][oxlint] — a blazing-fast
@@ -331,7 +311,6 @@ and CI environments.
 > Check the [generated list of unsupported rules][unsupported-rules] to see
 > which rules from this config are not available in oxlint.
 
-
 ### Enabling Oxlint
 
 We recommend following the [official migration guide][oxlint-migrate]
@@ -340,11 +319,13 @@ for the most up-to-date instructions.
 1. **Create your ESLint config** as described above
 
 2. **Install oxlint:**
+
    ```bash
    pnpm add -D oxlint
    ```
 
 3. **Generate oxlint configuration** from your ESLint config:
+
    ```bash
    pnpx @oxlint/migrate ./eslint.config.js --type-aware --js-plugins
    ```
@@ -357,6 +338,7 @@ for the most up-to-date instructions.
    > to your dev dependencies that oxlint requires but doesn’t install automatically.
 
 4. **Enable oxlint** in your configuration:
+
    ```javascript
    export default defineConfig({
      typescript: true,
@@ -365,6 +347,7 @@ for the most up-to-date instructions.
    ```
 
    For TypeScript projects, you might want to enable DTS checking:
+
    ```javascript
    export default defineConfig({
      typescript: true,
@@ -378,12 +361,12 @@ for the most up-to-date instructions.
 > as oxlint doesn’t support all ESLint rules yet. Use oxlint for fast feedback
 > during development and ESLint for comprehensive checks in CI.
 
-
 ### Using Oxfmt for Formatting
 
 If you want to use [oxfmt][oxfmt] for formatting instead of Prettier or Stylistic:
 
 1. **Disable formatting** in your ESLint config (see [Formatting](#formatting) for details):
+
    ```javascript
    export default defineConfig({
      typescript: true,
@@ -392,11 +375,13 @@ If you want to use [oxfmt][oxfmt] for formatting instead of Prettier or Stylisti
    ```
 
 2. **Install oxfmt:**
+
    ```bash
    pnpm add -D oxfmt
    ```
 
 3. **Initialize oxfmt configuration:**
+
    ```bash
    pnpx oxfmt --init
    ```
@@ -414,7 +399,6 @@ If you want to use [oxfmt][oxfmt] for formatting instead of Prettier or Stylisti
    ```
 
 For more details, see the [oxfmt quickstart guide][oxfmt-quickstart].
-
 
 ## Inspect
 
@@ -434,7 +418,6 @@ Or add it as a script to your `package.json`:
 }
 ```
 
-
 ## Inspired By
 
 This configuration is inspired by and builds upon the excellent work of:
@@ -442,7 +425,6 @@ This configuration is inspired by and builds upon the excellent work of:
 - [@logux/eslint-config][logux-config]
 - [@sxzz/eslint-config][sxzz-config]
 - [@antfu/eslint-config][antfu-config]
-
 
 ## Contributing
 
@@ -455,7 +437,6 @@ pnpm add -D github:fandsdev/eslint-config-fans
 ```
 
 All versions follow [Semantic Versioning][semver].
-
 
 [fans]: https://fans.dev/
 [globs]: https://github.com/fandsdev/eslint-config-fans/blob/main/src/globs.js

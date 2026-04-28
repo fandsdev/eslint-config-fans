@@ -35,7 +35,8 @@ export function defineConfig(options, ...userConfigs) {
 	} = options
 
 	const enableTypescript = Boolean(typescriptOption)
-	const typescriptUserOptions = typeof typescriptOption === 'object' ? typescriptOption : {}
+	const typescriptUserOptions =
+		typeof typescriptOption === 'object' ? typescriptOption : {}
 	const typeAware = typescriptUserOptions.typeAware ?? true
 
 	if (strict !== undefined) {
@@ -53,7 +54,8 @@ export function defineConfig(options, ...userConfigs) {
 	const resolvedTypeAware = strict === undefined ? typeAware : strict
 	const resolvedOpinionated = strict === undefined ? opinionated : strict
 
-	const { useStylistic, usePrettier, stylisticOptions } = resolveFormatter(options)
+	const { useStylistic, usePrettier, stylisticOptions } =
+		resolveFormatter(options)
 
 	const enableE18e = Boolean(e18eOption)
 	const e18eUserOptions = typeof e18eOption === 'object' ? e18eOption : {}
@@ -80,9 +82,11 @@ export function defineConfig(options, ...userConfigs) {
 	}
 
 	if (enableUnicorn) {
-		configs.push(unicorn({
-			opinionated: resolvedOpinionated,
-		}))
+		configs.push(
+			unicorn({
+				opinionated: resolvedOpinionated,
+			}),
+		)
 	}
 
 	if (enableTypescript) {
@@ -139,15 +143,17 @@ export function defineConfig(options, ...userConfigs) {
 	configs.push(...userConfigs)
 
 	if (enableOxlint) {
-		const oxlintOptions = typeof options.oxlint === 'object' ? options.oxlint : {}
+		const oxlintOptions =
+			typeof options.oxlint === 'object' ? options.oxlint : {}
 		configs.push(
 			oxlint({
 				...oxlintOptions,
-				typescriptOptions: enableTypescript && oxlintOptions.dts
-					? {
-							extraFileExtensions,
-						}
-					: undefined,
+				typescriptOptions:
+					enableTypescript && oxlintOptions.dts
+						? {
+								extraFileExtensions,
+							}
+						: undefined,
 			}),
 		)
 	}

@@ -6,10 +6,7 @@ export function ignores(files = []) {
 	return defineConfig([
 		{
 			name: 'fans/ignores',
-			ignores: [
-				...GLOB_EXCLUDE,
-				...files,
-			],
+			ignores: [...GLOB_EXCLUDE, ...files],
 		},
 		{
 			...gitignore({

@@ -9,7 +9,10 @@ export function perfectionist() {
 				perfectionist: pluginPerfectionist,
 			},
 			rules: {
-				'perfectionist/sort-exports': ['error', { order: 'asc', type: 'natural' }],
+				'perfectionist/sort-exports': [
+					'error',
+					{ order: 'asc', type: 'natural' },
+				],
 				'perfectionist/sort-imports': [
 					'error',
 					{
@@ -27,8 +30,14 @@ export function perfectionist() {
 						type: 'alphabetical',
 					},
 				],
-				'perfectionist/sort-named-exports': ['error', { order: 'asc', type: 'natural' }],
-				'perfectionist/sort-named-imports': ['error', { order: 'asc', type: 'natural' }],
+				'perfectionist/sort-named-exports': [
+					'error',
+					{ order: 'asc', type: 'natural' },
+				],
+				'perfectionist/sort-named-imports': [
+					'error',
+					{ order: 'asc', type: 'natural' },
+				],
 			},
 		},
 	])

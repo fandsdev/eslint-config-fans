@@ -35,17 +35,17 @@ export function astro(options = {}) {
 				'astro/no-unused-define-vars-in-style': 'error',
 				'astro/valid-compile': 'error',
 
-				...typescript
+				...(typescript
 					? {
 							'@typescript-eslint/no-deprecated': 'off',
 						}
-					: {},
+					: {}),
 
-				...useStylistic
+				...(useStylistic
 					? {
 							'@stylistic/jsx-one-expression-per-line': 'off',
 						}
-					: {},
+					: {}),
 			},
 		},
 	])

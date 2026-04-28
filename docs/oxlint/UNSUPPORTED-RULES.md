@@ -4,9 +4,9 @@ This document lists ESLint rules that are currently skipped by oxlint migration.
 
 ## Summary
 
-- **Total skipped:** 161 rules
+- **Total skipped:** 158 rules
 - **Nursery:** 80 rules
-- **Unsupported:** 81 rules
+- **Unsupported:** 78 rules
 
 ## Nursery Rules (In Development)
 
@@ -101,7 +101,7 @@ These rules are not yet supported by oxlint:
 - `no-invalid-this: Superseded by TypeScript's [`noImplicitThis`](https://www.typescriptlang.org/tsconfig/#noImplicitThis) compiler option (enabled by `strict` mode).`
 - `no-octal: Superseded by strict mode.`
 - `no-octal-escape: Superseded by strict mode.`
-- `unicorn/no-for-loop: This rule suggests using `Array.prototype.entries` which is slow https://github.com/oxc-project/oxc/issues/11311, furthermore, `typescript/prefer-for-of` covers most cases.`
+- `unicorn/no-for-loop: This rule suggests using `Array.prototype.entries`which is slow https://github.com/oxc-project/oxc/issues/11311, furthermore,`typescript/prefer-for-of` covers most cases.`
 - `unicorn/no-named-default: Implemented via `import/no-named-default`.`
 - `vue/comment-directive: Not currently possible, as it requires Vue template parsing. Also possibly unnecessary as its own rule, as oxlint directives should be implemented at the same time as Vue template parsing.`
 - `vue/no-child-content: Not currently possible, as it requires Vue template parsing.`
@@ -152,12 +152,9 @@ These rules are not yet supported by oxlint:
 - `vue/valid-v-text: Not currently possible, as it requires Vue template parsing.`
 - `vue/attribute-hyphenation: Not currently possible, as it requires Vue template parsing.`
 - `vue/first-attribute-linebreak: Stylistic rule.`
-- `vue/html-closing-bracket-newline: Stylistic rule.`
 - `vue/html-closing-bracket-spacing: Stylistic rule.`
 - `vue/html-end-tags: Not currently possible, as it requires Vue template parsing.`
-- `vue/html-indent: Stylistic rule.`
 - `vue/html-quotes: Stylistic rule.`
-- `vue/html-self-closing: Not currently possible, as it requires Vue template parsing.`
 - `vue/multiline-html-element-content-newline: Not currently possible, as it requires Vue template parsing.`
 - `vue/mustache-interpolation-spacing: Stylistic rule.`
 - `vue/no-multi-spaces: Stylistic rule.`

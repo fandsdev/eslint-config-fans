@@ -13,12 +13,6 @@ export const config = {
 	},
 	astro: true,
 	test: true,
-	formatter: {
-		type: 'stylistic',
-		options: {
-			indent: 'tab',
-		},
-	},
 	perfectionist: true,
 	oxlint: {
 		oxlintConfigFile: '.oxlintrc.json',

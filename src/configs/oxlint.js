@@ -4,19 +4,20 @@ import { defineConfig } from '../utils/index.js'
 import { typescript } from './typescript.js'
 
 export function oxlint(options = {}) {
-	const {
-		oxlintConfigFile = './.oxlintrc.json',
-		typescriptOptions,
-	} = options
+	const { oxlintConfigFile = './.oxlintrc.json', typescriptOptions } = options
 
-	const oxlintConfigs = pluginOxlint.buildFromOxlintConfigFile(oxlintConfigFile).map((config) => {
-		return {
-			...config,
-			name: `fans/${config.name}`,
-		}
-	})
+	const oxlintConfigs = pluginOxlint
+		.buildFromOxlintConfigFile(oxlintConfigFile)
+		.map(config => {
+			return {
+				...config,
+				name: `fans/${config.name}`,
+			}
+		})
 
-	const typescriptConfigs = (typescriptOptions ? typescript(typescriptOptions) : []).map((config) => {
+	const typescriptConfigs = (
+		typescriptOptions ? typescript(typescriptOptions) : []
+	).map(config => {
 		return {
 			...config,
 			files: [GLOB_DTS],

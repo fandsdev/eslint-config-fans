@@ -1,5 +1,11 @@
 import pluginUnicorn from 'eslint-plugin-unicorn'
-import { GLOB_ASTRO, GLOB_ASTRO_PAGES, GLOB_STORYBOOK, GLOB_TESTS, GLOB_VUE } from '../globs.js'
+import {
+	GLOB_ASTRO,
+	GLOB_ASTRO_PAGES,
+	GLOB_STORYBOOK,
+	GLOB_TESTS,
+	GLOB_VUE,
+} from '../globs.js'
 import { defineConfig } from '../utils/index.js'
 
 const E18E_IGNORE_PATTERN = /e18e/i
@@ -29,31 +35,37 @@ export function unicorn(options = {}) {
 
 				// Improvements
 				'unicorn/prefer-ternary': ['error', 'only-single-line'],
-				'unicorn/prevent-abbreviations': ['error', {
-					ignore: [E18E_IGNORE_PATTERN],
-					replacements: {
-						acc: false,
-						arg: false,
-						args: false,
-						attrs: false,
-						e18e: false,
-						el: false,
-						env: false,
-						ext: false,
-						fn: false,
-						param: false,
-						params: false,
-						prev: false,
-						props: false,
-						ref: false,
-						refs: false,
-						src: false,
-						utils: false,
+				'unicorn/prevent-abbreviations': [
+					'error',
+					{
+						ignore: [E18E_IGNORE_PATTERN],
+						replacements: {
+							acc: false,
+							arg: false,
+							args: false,
+							attrs: false,
+							e18e: false,
+							el: false,
+							env: false,
+							ext: false,
+							fn: false,
+							param: false,
+							params: false,
+							prev: false,
+							props: false,
+							ref: false,
+							refs: false,
+							src: false,
+							utils: false,
+						},
 					},
-				}],
-				'unicorn/no-useless-undefined': ['error', {
-					checkArguments: false,
-				}],
+				],
+				'unicorn/no-useless-undefined': [
+					'error',
+					{
+						checkArguments: false,
+					},
+				],
 
 				// Additional
 				'unicorn/better-regex': 'error',
@@ -61,13 +73,13 @@ export function unicorn(options = {}) {
 				'unicorn/prefer-import-meta-properties': 'error',
 				'unicorn/prefer-json-parse-buffer': 'error',
 
-				...opinionated
+				...(opinionated
 					? {}
 					: {
 							'unicorn/no-array-for-each': 'off',
 							'unicorn/no-useless-undefined': 'off',
 							'unicorn/filename-case': 'off',
-						},
+						}),
 			},
 		},
 
@@ -76,9 +88,12 @@ export function unicorn(options = {}) {
 			files: [GLOB_VUE],
 			rules: opinionated
 				? {
-						'unicorn/filename-case': ['error', {
-							case: 'pascalCase',
-						}],
+						'unicorn/filename-case': [
+							'error',
+							{
+								case: 'pascalCase',
+							},
+						],
 					}
 				: {},
 		},
@@ -88,9 +103,12 @@ export function unicorn(options = {}) {
 			files: [GLOB_ASTRO],
 			rules: opinionated
 				? {
-						'unicorn/filename-case': ['error', {
-							case: 'pascalCase',
-						}],
+						'unicorn/filename-case': [
+							'error',
+							{
+								case: 'pascalCase',
+							},
+						],
 					}
 				: {},
 		},
@@ -99,9 +117,12 @@ export function unicorn(options = {}) {
 			files: [GLOB_ASTRO_PAGES],
 			rules: opinionated
 				? {
-						'unicorn/filename-case': ['error', {
-							case: 'camelCase',
-						}],
+						'unicorn/filename-case': [
+							'error',
+							{
+								case: 'camelCase',
+							},
+						],
 					}
 				: {},
 		},
@@ -111,9 +132,12 @@ export function unicorn(options = {}) {
 			files: [GLOB_STORYBOOK],
 			rules: opinionated
 				? {
-						'unicorn/filename-case': ['error', {
-							case: 'pascalCase',
-						}],
+						'unicorn/filename-case': [
+							'error',
+							{
+								case: 'pascalCase',
+							},
+						],
 					}
 				: {},
 		},
