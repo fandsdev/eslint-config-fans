@@ -9,6 +9,7 @@
   "type": "module",
   "exports": {
     ".": "./src/index.js",
+    "./configs/*": "./src/configs/*.js",
     "./package.json": "./package.json"
   },
   "scripts": {
