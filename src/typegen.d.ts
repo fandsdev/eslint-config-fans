@@ -23835,3 +23835,4 @@ export type ConfigNames =
 	| 'fans/oxlint/from-oxlint-config-override-5'
 	| 'fans/oxlint/from-oxlint-config-override-6'
 	| 'fans/oxlint/from-oxlint-config-override-7'
+	| 'fans/oxlint/from-oxlint-config-override-8'
