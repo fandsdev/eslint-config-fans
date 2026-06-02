@@ -1,16 +1,19 @@
 {
   "compilerOptions": {
     "module": "esnext",
-    "target": "esnext",
-    "paths": {
-      "*": ["./*"]
-    },
+    "target": "ES2024",
     "strict": true,
     "noEmit": true,
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "moduleResolution": "bundler",
-    "types": ["node"]
+    "erasableSyntaxOnly": true,
+    "noImplicitOverride": true,
+    "verbatimModuleSyntax": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "lib": ["ES2024"],
+    "types": ["node"],
+    "moduleResolution": "bundler"
   }
 }

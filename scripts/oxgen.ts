@@ -32,7 +32,7 @@ function parseOutput(output: string): ParsedRules {
 		// Parse total skipped count
 		const skippedMatch = SKIPPED_REGEX.exec(trimmed)
 		if (skippedMatch) {
-			totalSkipped = Number.parseInt(skippedMatch[1], 10)
+			totalSkipped = Number.parseInt(skippedMatch[1]!, 10)
 			continue
 		}
 
