@@ -34,6 +34,7 @@ Opinionated and flexible ESLint config with [TypeScript][typescript-eslint],
   - [Opinionated Mode](#opinionated-mode)
   - [TypeScript Type-Aware Linting](#typescript-type-aware-linting)
   - [Formatting (Prettier, Stylistic or disable)](#formatting)
+  - [E18e Rules](#e18e-rules)
   - [Custom Configurations and Overrides](#custom-configurations-and-overrides)
 - [Framework Support](#framework-support)
   - [Vue](#vue)
@@ -113,6 +114,14 @@ interface TypescriptOptions {
   // true — enables stylistic-type-checked and recommended-type-checked
   // 'strict' — experimental: also enables strict-type-checked
   typeAware?: boolean | 'strict' // default: true
+}
+
+interface VueOptions {
+  // Enable vuejs-accessibility rules
+  a11y?: boolean // default: false
+
+  // Additional component names to ignore in the `vue/no-undef-components` rule
+  extendUndefComponents?: string[]
 }
 ```
 
@@ -202,6 +211,27 @@ export default defineConfig({
 Prettier can be configured through standard `.prettierrc` files
 or `prettier.config.js`. The ESLint config will automatically detect
 and respect your Prettier settings.
+
+### E18e Rules
+
+The [e18e][e18e] plugin enforces modernization, module replacement, and performance
+improvement rules. All three rule sets are enabled by default and can be toggled
+independently:
+
+```javascript
+export default defineConfig({
+  e18e: {
+    // Prefer newer JS APIs (e.g. Array.at, Object.hasOwn)
+    modernization: true,
+
+    // Replace heavy modules with lighter alternatives
+    moduleReplacements: true,
+
+    // Enforce performance-oriented patterns
+    performanceImprovements: true,
+  },
+})
+```
 
 ### Custom Configurations and Overrides
 
