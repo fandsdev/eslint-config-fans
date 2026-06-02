@@ -21,8 +21,8 @@
     "test:dedupe": "pnpm dedupe --check",
     "test": "pnpm run /^test:/",
     "build:inspector": "pnpx @eslint/config-inspector build --outDir dist",
-    "build:types": "tsx scripts/typegen.ts",
-    "build:oxlint": "tsx scripts/oxgen.ts",
+    "build:types": "node --experimental-strip-types scripts/typegen.ts",
+    "build:oxlint": "node --experimental-strip-types scripts/oxgen.ts",
     "build": "pnpm build:types && pnpm build:oxlint && pnpm format",
     "format": "oxfmt"
   },
@@ -61,7 +61,6 @@
     "oxlint": "^1.68.0",
     "oxlint-tsgolint": "^0.23.0",
     "simple-git-hooks": "^2.13.1",
-    "tsx": "^4.22.4",
     "typescript": "^6.0.3",
     "vite": "^8.0.16",
     "vitest": "^4.1.8",

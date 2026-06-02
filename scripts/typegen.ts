@@ -18,7 +18,7 @@ import {
 	unicorn,
 	vue,
 	vueA11y,
-} from '../src/configs'
+} from '../src/configs/index.js'
 
 const configs = [
 	ignores(),
