@@ -79,7 +79,7 @@
     "pre-commit": "./node_modules/.bin/nano-staged"
   },
   "nano-staged": {
-    "*.{js,ts,json,md,yml,yaml}": "oxfmt",
+    "*.{js,ts,json,md,yml,yaml}": "oxfmt --no-error-on-unmatched-pattern",
     "*.{js,ts}": "oxlint && eslint ."
   },
   "engines": {
