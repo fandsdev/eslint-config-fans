@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-fans",
-  "version": "1.10.1",
+  "version": "1.11.0",
   "description": "Opinionated and flexible ESLint shareable config by FANS",
   "homepage": "https://eslint-config.fans.dev/",
   "license": "MIT",
