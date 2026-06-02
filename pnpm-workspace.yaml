@@ -65,10 +65,6 @@ onlyBuiltDependencies:
   - simple-git-hooks
   - unrs-resolver
 
-overrides:
-  vite@>=7.0.0 <=7.3.1: '>=7.3.2'
-  vite@>=7.1.0 <=7.3.1: '>=7.3.2'
-
 peerDependencyRules:
   allowedVersions:
     eslint-plugin-promise>eslint: '10'
