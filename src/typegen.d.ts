@@ -2081,7 +2081,7 @@ export interface RuleOptions {
 	 * Disallow using promises inside of callbacks.
 	 * @see https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/no-promise-in-callback.md
 	 */
-	'promise/no-promise-in-callback'?: Linter.RuleEntry<[]>
+	'promise/no-promise-in-callback'?: Linter.RuleEntry<PromiseNoPromiseInCallback>
 	/**
 	 * Disallow return statements in `finally()`.
 	 * @see https://github.com/eslint-community/eslint-plugin-promise/blob/main/docs/rules/no-return-in-finally.md
@@ -3112,7 +3112,7 @@ export interface RuleOptions {
 	 */
 	'vitest/prefer-expect-resolves'?: Linter.RuleEntry<[]>
 	/**
-	 * enforce using `expectTypeOf` instead of `expect(typeof ...)`
+	 * enforce using `expect(...).toBeTypeOf(...)` instead of `expect(typeof ...).toBe(...)`
 	 * @see https://github.com/vitest-dev/eslint-plugin-vitest/blob/main/docs/rules/prefer-expect-type-of.md
 	 */
 	'vitest/prefer-expect-type-of'?: Linter.RuleEntry<[]>
@@ -3494,7 +3494,7 @@ export interface RuleOptions {
 	 */
 	'vue/jsx-uses-vars'?: Linter.RuleEntry<[]>
 	/**
-	 * Enforce consistent spacing between keys and values in object literal properties in `<template>`
+	 * Enforce consistent spacing between property names and type annotations in types and interfaces in `<template>`
 	 * @see https://eslint.vuejs.org/rules/key-spacing.html
 	 */
 	'vue/key-spacing'?: Linter.RuleEntry<VueKeySpacing>
@@ -4216,7 +4216,7 @@ export interface RuleOptions {
 	 */
 	'vue/prop-name-casing'?: Linter.RuleEntry<VuePropNameCasing>
 	/**
-	 * Require quotes around object literal property names in `<template>`
+	 * Require quotes around object literal, type literal, interfaces and enums property names in `<template>`
 	 * @see https://eslint.vuejs.org/rules/quote-props.html
 	 */
 	'vue/quote-props'?: Linter.RuleEntry<VueQuoteProps>
@@ -11306,7 +11306,6 @@ type NNoUnpublishedBin =
 								replace: [string, string]
 							}[],
 					  ]
-				[k: string]: unknown | undefined
 			},
 	  ]
 // ----- n/no-unpublished-import -----
@@ -12316,6 +12315,9 @@ type NNoUnsupportedFeaturesNodeBuiltins =
 					| 'navigator.hardwareConcurrency'
 					| 'navigator.language'
 					| 'navigator.languages'
+					| 'navigator.locks'
+					| 'navigator.locks.request'
+					| 'navigator.locks.query'
 					| 'navigator.platform'
 					| 'navigator.userAgent'
 					| 'structuredClone'
@@ -12364,13 +12366,18 @@ type NNoUnsupportedFeaturesNodeBuiltins =
 					| 'console.warn'
 					| 'crypto'
 					| 'crypto.subtle'
+					| 'crypto.subtle.decapsulateBits'
+					| 'crypto.subtle.decapsulateKey'
 					| 'crypto.subtle.decrypt'
 					| 'crypto.subtle.deriveBits'
 					| 'crypto.subtle.deriveKey'
 					| 'crypto.subtle.digest'
+					| 'crypto.subtle.encapsulateBits'
+					| 'crypto.subtle.encapsulateKey'
 					| 'crypto.subtle.encrypt'
 					| 'crypto.subtle.exportKey'
 					| 'crypto.subtle.generateKey'
+					| 'crypto.subtle.getPublicKey'
 					| 'crypto.subtle.importKey'
 					| 'crypto.subtle.sign'
 					| 'crypto.subtle.unwrapKey'
@@ -12381,6 +12388,7 @@ type NNoUnsupportedFeaturesNodeBuiltins =
 					| 'Crypto'
 					| 'CryptoKey'
 					| 'SubtleCrypto'
+					| 'SubtleCrypto.supports'
 					| 'CloseEvent'
 					| 'CustomEvent'
 					| 'Event'
@@ -12689,13 +12697,18 @@ type NNoUnsupportedFeaturesNodeBuiltins =
 					| 'crypto.fips'
 					| 'crypto.webcrypto'
 					| 'crypto.webcrypto.subtle'
+					| 'crypto.webcrypto.subtle.decapsulateBits'
+					| 'crypto.webcrypto.subtle.decapsulateKey'
 					| 'crypto.webcrypto.subtle.decrypt'
 					| 'crypto.webcrypto.subtle.deriveBits'
 					| 'crypto.webcrypto.subtle.deriveKey'
 					| 'crypto.webcrypto.subtle.digest'
+					| 'crypto.webcrypto.subtle.encapsulateBits'
+					| 'crypto.webcrypto.subtle.encapsulateKey'
 					| 'crypto.webcrypto.subtle.encrypt'
 					| 'crypto.webcrypto.subtle.exportKey'
 					| 'crypto.webcrypto.subtle.generateKey'
+					| 'crypto.webcrypto.subtle.getPublicKey'
 					| 'crypto.webcrypto.subtle.importKey'
 					| 'crypto.webcrypto.subtle.sign'
 					| 'crypto.webcrypto.subtle.unwrapKey'
@@ -12703,6 +12716,8 @@ type NNoUnsupportedFeaturesNodeBuiltins =
 					| 'crypto.webcrypto.subtle.wrapKey'
 					| 'crypto.webcrypto.getRandomValues'
 					| 'crypto.webcrypto.randomUUID'
+					| 'crypto.argon2'
+					| 'crypto.argon2Sync'
 					| 'crypto.checkPrime'
 					| 'crypto.checkPrimeSync'
 					| 'crypto.createCipher'
@@ -12719,7 +12734,9 @@ type NNoUnsupportedFeaturesNodeBuiltins =
 					| 'crypto.createSecretKey'
 					| 'crypto.createSign'
 					| 'crypto.createVerify'
+					| 'crypto.decapsulate'
 					| 'crypto.diffieHellman'
+					| 'crypto.encapsulate'
 					| 'crypto.generateKey'
 					| 'crypto.generateKeyPair'
 					| 'crypto.generateKeyPairSync'
@@ -12917,6 +12934,7 @@ type NNoUnsupportedFeaturesNodeBuiltins =
 					| 'fs.promises.lutimes'
 					| 'fs.promises.mkdir'
 					| 'fs.promises.mkdtemp'
+					| 'fs.promises.mkdtempDisposable'
 					| 'fs.promises.open'
 					| 'fs.promises.opendir'
 					| 'fs.promises.readFile'
@@ -13008,6 +13026,7 @@ type NNoUnsupportedFeaturesNodeBuiltins =
 					| 'fs.lutimesSync'
 					| 'fs.mkdirSync'
 					| 'fs.mkdtempSync'
+					| 'fs.mkdtempDisposableSync'
 					| 'fs.opendirSync'
 					| 'fs.openSync'
 					| 'fs.readdirSync'
@@ -13040,6 +13059,7 @@ type NNoUnsupportedFeaturesNodeBuiltins =
 					| 'fs.Stats'
 					| 'fs.StatFs'
 					| 'fs.WriteStream'
+					| 'fs.Utf8Stream'
 					| 'fs.common_objects'
 					| 'fs/promises'
 					| 'fs/promises.FileHandle'
@@ -13058,6 +13078,7 @@ type NNoUnsupportedFeaturesNodeBuiltins =
 					| 'fs/promises.lutimes'
 					| 'fs/promises.mkdir'
 					| 'fs/promises.mkdtemp'
+					| 'fs/promises.mkdtempDisposable'
 					| 'fs/promises.open'
 					| 'fs/promises.opendir'
 					| 'fs/promises.readFile'
@@ -13106,12 +13127,19 @@ type NNoUnsupportedFeaturesNodeBuiltins =
 					| 'http.validateHeaderName'
 					| 'http.validateHeaderValue'
 					| 'http.setMaxIdleHTTPParsers'
+					| 'http.Agent()'
 					| 'http.Agent'
+					| 'http.ClientRequest()'
 					| 'http.ClientRequest'
+					| 'http.Server()'
 					| 'http.Server'
+					| 'http.ServerResponse()'
 					| 'http.ServerResponse'
+					| 'http.IncomingMessage()'
 					| 'http.IncomingMessage'
+					| 'http.OutgoingMessage()'
 					| 'http.OutgoingMessage'
+					| 'http.WebSocket()'
 					| 'http.WebSocket'
 					| '_http_agent'
 					| '_http_client'
@@ -13134,6 +13162,9 @@ type NNoUnsupportedFeaturesNodeBuiltins =
 					| 'inspector.Network.loadingFinished'
 					| 'inspector.Network.requestWillBeSent'
 					| 'inspector.Network.responseReceived'
+					| 'inspector.Network.webSocketCreated'
+					| 'inspector.Network.webSocketHandshakeResponseReceived'
+					| 'inspector.Network.webSocketClosed'
 					| 'inspector.NetworkResources.put'
 					| 'inspector.console'
 					| 'inspector.close'
@@ -13148,6 +13179,9 @@ type NNoUnsupportedFeaturesNodeBuiltins =
 					| 'inspector/promises.Network.loadingFinished'
 					| 'inspector/promises.Network.requestWillBeSent'
 					| 'inspector/promises.Network.responseReceived'
+					| 'inspector/promises.Network.webSocketCreated'
+					| 'inspector/promises.Network.webSocketHandshakeResponseReceived'
+					| 'inspector/promises.Network.webSocketClosed'
 					| 'inspector/promises.NetworkResources.put'
 					| 'inspector/promises.console'
 					| 'inspector/promises.close'
@@ -13332,6 +13366,8 @@ type NNoUnsupportedFeaturesNodeBuiltins =
 					| 'perf_hooks.performance.timerify'
 					| 'perf_hooks.performance.toJSON'
 					| 'perf_hooks.createHistogram'
+					| 'perf_hooks.eventLoopUtilization'
+					| 'perf_hooks.timerify'
 					| 'perf_hooks.monitorEventLoopDelay'
 					| 'perf_hooks.PerformanceEntry'
 					| 'perf_hooks.PerformanceMark'
@@ -13390,10 +13426,12 @@ type NNoUnsupportedFeaturesNodeBuiltins =
 					| 'sea.isSea'
 					| 'sea.getAsset'
 					| 'sea.getAssetAsBlob'
+					| 'sea.getAssetKeys'
 					| 'sea.getRawAsset'
 					| 'sea.sea.isSea'
 					| 'sea.sea.getAsset'
 					| 'sea.sea.getAssetAsBlob'
+					| 'sea.sea.getAssetKeys'
 					| 'sea.sea.getRawAsset'
 					| 'stream'
 					| 'stream.promises'
@@ -13448,6 +13486,12 @@ type NNoUnsupportedFeaturesNodeBuiltins =
 					| 'stream/consumers.buffer'
 					| 'stream/consumers.json'
 					| 'stream/consumers.text'
+					| '_stream_duplex'
+					| '_stream_passthrough'
+					| '_stream_readable'
+					| '_stream_transform'
+					| '_stream_wrap'
+					| '_stream_writable'
 					| 'string_decoder'
 					| 'string_decoder.StringDecoder'
 					| 'sqlite'
@@ -13457,6 +13501,7 @@ type NNoUnsupportedFeaturesNodeBuiltins =
 					| 'sqlite.constants.SQLITE_CHANGESET_ABORT'
 					| 'sqlite.backup'
 					| 'sqlite.DatabaseSync'
+					| 'sqlite.Session'
 					| 'sqlite.StatementSync'
 					| 'sqlite.SQLITE_CHANGESET_OMIT'
 					| 'sqlite.SQLITE_CHANGESET_REPLACE'
@@ -13481,6 +13526,7 @@ type NNoUnsupportedFeaturesNodeBuiltins =
 					| 'test.mock.getter'
 					| 'test.mock.method'
 					| 'test.mock.module'
+					| 'test.mock.property'
 					| 'test.mock.reset'
 					| 'test.mock.restoreAll'
 					| 'test.mock.setter'
@@ -13540,6 +13586,8 @@ type NNoUnsupportedFeaturesNodeBuiltins =
 					| 'tls.Server'
 					| 'tls.setDefaultCACertificates'
 					| 'tls.TLSSocket'
+					| '_tls_common'
+					| '_tls_wrap'
 					| 'trace_events'
 					| 'trace_events.createTracing'
 					| 'trace_events.getEnabledCategories'
@@ -13733,6 +13781,7 @@ type NNoUnsupportedFeaturesNodeBuiltins =
 					| 'v8.writeHeapSnapshot'
 					| 'v8.setHeapSnapshotNearHeapLimit'
 					| 'v8.GCProfiler'
+					| 'v8.startCpuProfile'
 					| 'vm.constants'
 					| 'vm.compileFunction'
 					| 'vm.createContext'
@@ -13753,6 +13802,7 @@ type NNoUnsupportedFeaturesNodeBuiltins =
 					| 'worker_threads.resourceLimits'
 					| 'worker_threads.SHARE_ENV'
 					| 'worker_threads.threadId'
+					| 'worker_threads.threadName'
 					| 'worker_threads.workerData'
 					| 'worker_threads.getEnvironmentData'
 					| 'worker_threads.getHeapStatistics'
@@ -13761,6 +13811,9 @@ type NNoUnsupportedFeaturesNodeBuiltins =
 					| 'worker_threads.isInternalThread'
 					| 'worker_threads.isMainThread'
 					| 'worker_threads.isMarkedAsUntransferable'
+					| 'worker_threads.locks'
+					| 'worker_threads.locks.request'
+					| 'worker_threads.locks.query'
 					| 'worker_threads.moveMessagePortToContext'
 					| 'worker_threads.postMessageToThread'
 					| 'worker_threads.receiveMessageOnPort'
@@ -21023,6 +21076,14 @@ type PromiseNoCallbackInPromise =
 				timeoutsErr?: boolean
 			},
 	  ]
+// ----- promise/no-promise-in-callback -----
+type PromiseNoPromiseInCallback =
+	| []
+	| [
+			{
+				exemptDeclarations?: boolean
+			},
+	  ]
 // ----- promise/no-return-wrap -----
 type PromiseNoReturnWrap =
 	| []
@@ -21763,6 +21824,7 @@ type VueArrayElementNewline =
 type _VueArrayElementNewlineBasicConfig =
 	| ('always' | 'never' | 'consistent')
 	| {
+			consistent?: boolean
 			multiline?: boolean
 			minItems?: number | null
 	  }
@@ -21908,6 +21970,11 @@ type VueCommaDangle =
 					imports?: _VueCommaDangleValueWithIgnore
 					exports?: _VueCommaDangleValueWithIgnore
 					functions?: _VueCommaDangleValueWithIgnore
+					importAttributes?: _VueCommaDangleValueWithIgnore
+					dynamicImports?: _VueCommaDangleValueWithIgnore
+					enums?: _VueCommaDangleValueWithIgnore
+					generics?: _VueCommaDangleValueWithIgnore
+					tuples?: _VueCommaDangleValueWithIgnore
 			  },
 	  ]
 type _VueCommaDangleValue =
@@ -21918,9 +21985,9 @@ type _VueCommaDangleValue =
 type _VueCommaDangleValueWithIgnore =
 	| 'always-multiline'
 	| 'always'
-	| 'ignore'
 	| 'never'
 	| 'only-multiline'
+	| 'ignore'
 // ----- vue/comma-spacing -----
 type VueCommaSpacing =
 	| []
@@ -22063,6 +22130,10 @@ type VueFuncCallSpacing =
 			'always',
 			{
 				allowNewlines?: boolean
+				optionalChain?: {
+					before?: boolean
+					after?: boolean
+				}
 			},
 	  ]
 // ----- vue/html-button-has-type -----
@@ -22198,6 +22269,16 @@ type VueKeySpacing =
 					mode?: 'strict' | 'minimum'
 					beforeColon?: boolean
 					afterColon?: boolean
+					ignoredNodes?: (
+						| 'ObjectExpression'
+						| 'ObjectPattern'
+						| 'ImportDeclaration'
+						| 'ExportNamedDeclaration'
+						| 'ExportAllDeclaration'
+						| 'TSTypeLiteral'
+						| 'TSInterfaceBody'
+						| 'ClassBody'
+					)[]
 			  }
 			| {
 					singleLine?: {
@@ -22247,18 +22328,6 @@ type VueKeywordSpacing =
 				after?: boolean
 				overrides?: {
 					abstract?: {
-						before?: boolean
-						after?: boolean
-					}
-					as?: {
-						before?: boolean
-						after?: boolean
-					}
-					async?: {
-						before?: boolean
-						after?: boolean
-					}
-					await?: {
 						before?: boolean
 						after?: boolean
 					}
@@ -22354,15 +22423,7 @@ type VueKeywordSpacing =
 						before?: boolean
 						after?: boolean
 					}
-					from?: {
-						before?: boolean
-						after?: boolean
-					}
 					function?: {
-						before?: boolean
-						after?: boolean
-					}
-					get?: {
 						before?: boolean
 						after?: boolean
 					}
@@ -22398,10 +22459,6 @@ type VueKeywordSpacing =
 						before?: boolean
 						after?: boolean
 					}
-					let?: {
-						before?: boolean
-						after?: boolean
-					}
 					long?: {
 						before?: boolean
 						after?: boolean
@@ -22415,10 +22472,6 @@ type VueKeywordSpacing =
 						after?: boolean
 					}
 					null?: {
-						before?: boolean
-						after?: boolean
-					}
-					of?: {
 						before?: boolean
 						after?: boolean
 					}
@@ -22439,10 +22492,6 @@ type VueKeywordSpacing =
 						after?: boolean
 					}
 					return?: {
-						before?: boolean
-						after?: boolean
-					}
-					set?: {
 						before?: boolean
 						after?: boolean
 					}
@@ -22514,7 +22563,63 @@ type VueKeywordSpacing =
 						before?: boolean
 						after?: boolean
 					}
+					arguments?: {
+						before?: boolean
+						after?: boolean
+					}
+					as?: {
+						before?: boolean
+						after?: boolean
+					}
+					async?: {
+						before?: boolean
+						after?: boolean
+					}
+					await?: {
+						before?: boolean
+						after?: boolean
+					}
+					eval?: {
+						before?: boolean
+						after?: boolean
+					}
+					from?: {
+						before?: boolean
+						after?: boolean
+					}
+					get?: {
+						before?: boolean
+						after?: boolean
+					}
+					let?: {
+						before?: boolean
+						after?: boolean
+					}
+					of?: {
+						before?: boolean
+						after?: boolean
+					}
+					set?: {
+						before?: boolean
+						after?: boolean
+					}
+					type?: {
+						before?: boolean
+						after?: boolean
+					}
+					using?: {
+						before?: boolean
+						after?: boolean
+					}
 					yield?: {
+						before?: boolean
+						after?: boolean
+					}
+					accessor?: {
+						before?: boolean
+						after?: boolean
+					}
+					satisfies?: {
 						before?: boolean
 						after?: boolean
 					}
@@ -22705,7 +22810,15 @@ type VueMultilineHtmlElementContentNewline =
 			},
 	  ]
 // ----- vue/multiline-ternary -----
-type VueMultilineTernary = [] | ['always' | 'always-multiline' | 'never']
+type VueMultilineTernary =
+	| []
+	| ['always' | 'always-multiline' | 'never']
+	| [
+			'always' | 'always-multiline' | 'never',
+			{
+				ignoreJSX?: boolean
+			},
+	  ]
 // ----- vue/mustache-interpolation-spacing -----
 type VueMustacheInterpolationSpacing = [] | ['always' | 'never']
 // ----- vue/new-line-between-multi-line-property -----
@@ -22841,6 +22954,13 @@ type VueNoExtraParens =
 				enforceForNewInMemberExpressions?: boolean
 				enforceForFunctionPrototypeMethods?: boolean
 				allowParensAfterCommentPattern?: string
+				nestedConditionalExpressions?: boolean
+				allowNodesInSpreadElement?: {
+					ConditionalExpression?: boolean
+					LogicalExpression?: boolean
+					AwaitExpression?: boolean
+				}
+				ignoredNodes?: string[]
 			},
 	  ]
 // ----- vue/no-implicit-coercion -----
@@ -23297,6 +23417,27 @@ type VueObjectCurlyNewline =
 								minProperties?: number
 								consistent?: boolean
 						  }
+					TSTypeLiteral?:
+						| ('always' | 'never')
+						| {
+								multiline?: boolean
+								minProperties?: number
+								consistent?: boolean
+						  }
+					TSInterfaceBody?:
+						| ('always' | 'never')
+						| {
+								multiline?: boolean
+								minProperties?: number
+								consistent?: boolean
+						  }
+					TSEnumBody?:
+						| ('always' | 'never')
+						| {
+								multiline?: boolean
+								minProperties?: number
+								consistent?: boolean
+						  }
 			  },
 	  ]
 // ----- vue/object-curly-spacing -----
@@ -23308,6 +23449,19 @@ type VueObjectCurlySpacing =
 			{
 				arraysInObjects?: boolean
 				objectsInObjects?: boolean
+				overrides?: {
+					ObjectPattern?: 'always' | 'never'
+					ObjectExpression?: 'always' | 'never'
+					ImportDeclaration?: 'always' | 'never'
+					ImportAttributes?: 'always' | 'never'
+					ExportNamedDeclaration?: 'always' | 'never'
+					ExportAllDeclaration?: 'always' | 'never'
+					TSMappedType?: 'always' | 'never'
+					TSTypeLiteral?: 'always' | 'never'
+					TSInterfaceBody?: 'always' | 'never'
+					TSEnumBody?: 'always' | 'never'
+				}
+				emptyObjects?: 'ignore' | 'always' | 'never'
 			},
 	  ]
 // ----- vue/object-property-newline -----
@@ -23316,7 +23470,6 @@ type VueObjectPropertyNewline =
 	| [
 			{
 				allowAllPropertiesOnSameLine?: boolean
-				allowMultiplePropertiesPerLine?: boolean
 			},
 	  ]
 // ----- vue/object-shorthand -----
@@ -23352,9 +23505,9 @@ type VueObjectShorthand =
 // ----- vue/operator-linebreak -----
 type VueOperatorLinebreak =
 	| []
-	| ['after' | 'before' | 'none' | null]
+	| [('after' | 'before' | 'none') | null]
 	| [
-			'after' | 'before' | 'none' | null,
+			('after' | 'before' | 'none') | null,
 			{
 				overrides?: {
 					[k: string]: ('after' | 'before' | 'none' | 'ignore') | undefined
@@ -23554,6 +23707,7 @@ type VueSpaceInfixOps =
 	| [
 			{
 				int32Hint?: boolean
+				ignoreTypes?: boolean
 			},
 	  ]
 // ----- vue/space-unary-ops -----
@@ -23826,7 +23980,7 @@ export type ConfigNames =
 	| 'fans/opinionated/unicorn/testing'
 	| 'fans/oxlint/oxlint-config-ignore-patterns'
 	| 'fans/oxlint/from-oxlint-config'
-	| 'fans/oxlint/vue-svelte-exceptions'
+	| 'fans/oxlint/vue-svelte-astro-exceptions'
 	| 'fans/oxlint/from-oxlint-config-override-0'
 	| 'fans/oxlint/from-oxlint-config-override-1'
 	| 'fans/oxlint/from-oxlint-config-override-2'

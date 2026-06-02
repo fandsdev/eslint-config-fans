@@ -4,8 +4,8 @@ This document lists ESLint rules that are currently skipped by oxlint migration.
 
 ## Summary
 
-- **Total skipped:** 129 rules
-- **Nursery:** 50 rules
+- **Total skipped:** 132 rules
+- **Nursery:** 53 rules
 - **Unsupported:** 79 rules
 
 ## Nursery Rules (In Development)
@@ -50,11 +50,14 @@ These rules are currently being developed and will be available in future versio
 - `vue/no-dupe-keys`
 - `vue/no-mutating-props`
 - `vue/no-ref-as-operand`
+- `vue/no-reserved-component-names`
 - `vue/no-reserved-keys`
 - `vue/no-reserved-props`
 - `vue/no-side-effects-in-computed-properties`
 - `vue/no-use-computed-property-like-method`
+- `vue/require-prop-type-constructor`
 - `vue/require-valid-default-prop`
+- `vue/component-definition-name-casing`
 - `vue/prop-name-casing`
 - `vue/require-default-prop`
 - `vue/require-prop-types`
