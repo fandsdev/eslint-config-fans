@@ -4,33 +4,24 @@ This document lists ESLint rules that are currently skipped by oxlint migration.
 
 ## Summary
 
-- **Total skipped:** 158 rules
-- **Nursery:** 80 rules
-- **Unsupported:** 78 rules
+- **Total skipped:** 129 rules
+- **Nursery:** 50 rules
+- **Unsupported:** 79 rules
 
 ## Nursery Rules (In Development)
 
 These rules are currently being developed and will be available in future versions:
 
-- `getter-return`
 - `no-restricted-exports`
 - `no-undef`
-- `no-unreachable`
 - `import-x/export`
 - `promise/no-return-in-finally`
 - `unicorn/no-useless-iterator-to-array`
 - `@typescript-eslint/prefer-optional-chain`
 - `consistent-this`
-- `func-name-matching`
 - `id-denylist`
-- `id-match`
-- `no-implicit-globals`
-- `no-implied-eval`
-- `no-restricted-properties`
 - `no-restricted-syntax`
 - `no-unreachable-loop`
-- `prefer-arrow-callback`
-- `prefer-regex-literals`
 - `strict`
 - `n/no-deprecated-api`
 - `n/no-extraneous-require`
@@ -43,7 +34,6 @@ These rules are currently being developed and will be available in future versio
 - `n/process-exit-as-throw`
 - `unicorn/better-regex`
 - `unicorn/expiring-todo-comments`
-- `unicorn/import-style`
 - `unicorn/isolated-functions`
 - `unicorn/no-unnecessary-polyfills`
 - `unicorn/prefer-export-from`
@@ -52,39 +42,19 @@ These rules are currently being developed and will be available in future versio
 - `unicorn/prefer-single-call`
 - `unicorn/prefer-switch`
 - `unicorn/prevent-abbreviations`
-- `unicorn/template-indent`
 - `vue/jsx-uses-vars`
 - `vue/multi-word-component-names`
 - `vue/no-async-in-computed-properties`
-- `vue/no-computed-properties-in-data`
-- `vue/no-deprecated-data-object-declaration`
-- `vue/no-deprecated-delete-set`
 - `vue/no-deprecated-dollar-listeners-api`
 - `vue/no-deprecated-dollar-scopedslots-api`
-- `vue/no-deprecated-events-api`
-- `vue/no-deprecated-model-definition`
-- `vue/no-deprecated-props-default-this`
-- `vue/no-deprecated-vue-config-keycodes`
 - `vue/no-dupe-keys`
-- `vue/no-expose-after-await`
 - `vue/no-mutating-props`
 - `vue/no-ref-as-operand`
-- `vue/no-reserved-component-names`
 - `vue/no-reserved-keys`
 - `vue/no-reserved-props`
-- `vue/no-shared-component-data`
 - `vue/no-side-effects-in-computed-properties`
 - `vue/no-use-computed-property-like-method`
-- `vue/no-watch-after-await`
-- `vue/require-prop-type-constructor`
-- `vue/require-render-return`
-- `vue/require-slots-as-functions`
 - `vue/require-valid-default-prop`
-- `vue/return-in-computed-property`
-- `vue/return-in-emits-validator`
-- `vue/valid-define-options`
-- `vue/valid-next-tick`
-- `vue/component-definition-name-casing`
 - `vue/prop-name-casing`
 - `vue/require-default-prop`
 - `vue/require-prop-types`
@@ -103,6 +73,7 @@ These rules are not yet supported by oxlint:
 - `no-octal-escape: Superseded by strict mode.`
 - `unicorn/no-for-loop: This rule suggests using `Array.prototype.entries`which is slow https://github.com/oxc-project/oxc/issues/11311, furthermore,`typescript/prefer-for-of` covers most cases.`
 - `unicorn/no-named-default: Implemented via `import/no-named-default`.`
+- `unicorn/template-indent: Stylistic rule.`
 - `vue/comment-directive: Not currently possible, as it requires Vue template parsing. Also possibly unnecessary as its own rule, as oxlint directives should be implemented at the same time as Vue template parsing.`
 - `vue/no-child-content: Not currently possible, as it requires Vue template parsing.`
 - `vue/no-deprecated-filter: Not currently possible, as it requires Vue template parsing.`
