@@ -8,7 +8,6 @@ import {
 	javascript,
 	node,
 	opinionated,
-	oxlint,
 	perfectionist,
 	prettier,
 	promise,
@@ -37,7 +36,6 @@ const configs = [
 	stylistic({}),
 	perfectionist(),
 	opinionated(),
-	oxlint(),
 ].flat()
 
 const configNames = configs.map(index => index.name).filter(Boolean) as string[]

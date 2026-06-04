@@ -16,14 +16,13 @@
     "prepare": "simple-git-hooks",
     "dev": "pnpx @eslint/config-inspector --config eslint.config.js",
     "test:types": "tsc --noEmit",
-    "test:lint": "oxlint && eslint .",
+    "test:lint": "eslint .",
     "test:format": "oxfmt --check",
     "test:dedupe": "pnpm dedupe --check",
     "test": "pnpm run /^test:/",
     "build:inspector": "pnpx @eslint/config-inspector build --outDir dist",
     "build:types": "node --experimental-strip-types scripts/typegen.ts",
-    "build:oxlint": "node --experimental-strip-types scripts/oxgen.ts",
-    "build": "pnpm build:types && pnpm build:oxlint && pnpm format",
+    "build": "pnpm build:types && pnpm format",
     "format": "oxfmt"
   },
   "dependencies": {
@@ -41,7 +40,6 @@
     "eslint-plugin-de-morgan": "^2.1.2",
     "eslint-plugin-import-x": "^4.16.2",
     "eslint-plugin-n": "^18.0.1",
-    "eslint-plugin-oxlint": "^1.68.0",
     "eslint-plugin-perfectionist": "^5.9.0",
     "eslint-plugin-prettier": "^5.5.6",
     "eslint-plugin-promise": "^7.3.0",
@@ -58,8 +56,6 @@
     "nano-staged": "^1.0.2",
     "oxc-config-fans": "^0.0.6",
     "oxfmt": "^0.53.0",
-    "oxlint": "^1.68.0",
-    "oxlint-tsgolint": "^0.23.0",
     "simple-git-hooks": "^2.13.1",
     "typescript": "^6.0.3",
     "vite": "^8.0.16",
@@ -80,7 +76,7 @@
   },
   "nano-staged": {
     "*.{js,ts,json,md,yml,yaml}": "oxfmt --no-error-on-unmatched-pattern",
-    "*.{js,ts}": "oxlint && eslint ."
+    "*.{js,ts}": "eslint ."
   },
   "engines": {
     "node": ">=22.0.0"
