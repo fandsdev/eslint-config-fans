@@ -14,10 +14,6 @@ export const config = {
 	astro: true,
 	test: true,
 	perfectionist: true,
-	oxlint: {
-		oxlintConfigFile: '.oxlintrc.json',
-		dts: true,
-	},
 }
 
 export default defineConfig(config)

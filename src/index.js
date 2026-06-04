@@ -7,7 +7,6 @@ import {
 	javascript,
 	node,
 	opinionated as opinionatedConfig,
-	oxlint,
 	perfectionist,
 	prettier,
 	promise,
@@ -29,7 +28,6 @@ export function defineConfig(options, ...userConfigs) {
 		test: enableTest = false,
 		unicorn: enableUnicorn = true,
 		perfectionist: enablePerfectionist = false,
-		oxlint: enableOxlint = false,
 		query: enableQuery = false,
 		e18e: e18eOption = true,
 		strict,
@@ -152,22 +150,6 @@ export function defineConfig(options, ...userConfigs) {
 	}
 
 	configs.push(...userConfigs)
-
-	if (enableOxlint) {
-		const oxlintOptions =
-			typeof options.oxlint === 'object' ? options.oxlint : {}
-		configs.push(
-			oxlint({
-				...oxlintOptions,
-				typescriptOptions:
-					enableTypescript && oxlintOptions.dts
-						? {
-								extraFileExtensions,
-							}
-						: undefined,
-			}),
-		)
-	}
 
 	return configs.flat()
 }

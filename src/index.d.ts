@@ -1,10 +1,5 @@
 import type { Linter } from 'eslint'
-import type {
-	E18eOptions,
-	OxlintOptions,
-	StylisticOptions,
-	VueOptions,
-} from './configs'
+import type { E18eOptions, StylisticOptions, VueOptions } from './configs'
 import type { Config } from './types'
 
 export type FormatterOptions =
@@ -114,21 +109,6 @@ export interface DefineConfigOptions {
 	 * @default false
 	 */
 	perfectionist?: boolean
-
-	/**
-	 * @link https://github.com/oxc-project/eslint-plugin-oxlint
-	 * @default false
-	 */
-	oxlint?:
-		| boolean
-		| (Omit<OxlintOptions, 'typescriptOptions'> & {
-				/**
-				 * @default false
-				 *
-				 * When enabled, the typescript configs will be added after the oxlint configs to ensure the dts files are checked.
-				 */
-				dts?: boolean
-		  })
 
 	/**
 	 * @link https://tanstack.com/query/latest/docs/eslint/eslint-plugin-query
